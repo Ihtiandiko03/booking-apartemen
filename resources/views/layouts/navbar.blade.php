@@ -18,91 +18,90 @@
                     </li>
                     <li><a href="/index-2">Home - FullSlider</a>
                     </li>
-                    <li><a href="index-3.html">Home - Block Color</a>
                     </li>
-                    <li><a href="room-details.html">Room Details</a>
+                    <li><a href="/room-details">Room Details</a>
                     </li>
-                    <li><a href="room-details-block.html">Room Details Block</a>
+                    <li><a href="/room-details-block">Room Details Block</a>
                     </li>
-                    <li><a href="hotel-details.html">Hotel Details</a>
+                    <li><a href="/hotel-details">Hotel Details</a>
                     </li>
-                    <li><a href="hotel-detail.html">Hotel Details - 1</a>
+                    <li><a href="/hotel-detail">Hotel Details - 1</a>
                     </li>
-                    <li><a href="about-us.html">About Us</a>
+                    <li><a href="/about-us">About Us</a>
                     </li>
-                    <li><a href="aminities.html">Aminities</a>
+                    <li><a href="/aminities">Aminities</a>
                     </li>
-                    <li><a href="aminities1.html">Aminities - 1</a>
+                    <li><a href="/aminities1">Aminities - 1</a>
                     </li>
-                    <li><a href="menu.html">Food Menu</a>
+                    <li><a href="/menu">Food Menu</a>
                     </li>
-                    <li><a href="menu1.html">Food Menu - 1</a>
+                    <li><a href="/menu1">Food Menu - 1</a>
                     </li>
-                    <li><a href="blog.html">Blog</a>
+                    <li><a href="/blog">Blog</a>
                     </li>
-                    <li><a href="blog-inner.html">Blog Inner</a>
+                    <li><a href="/blog-inner">Blog Inner</a>
                     </li>
-                    <li><a href="dashboard.html">User Dashboard</a>
+                    <li><a href="/dashboard">User Dashboard</a>
                     </li>
-                    <li><a href="db-activity.html">DB Activity</a>
+                    <li><a href="/db-activity">DB Activity</a>
                     </li>
-                    <li><a href="db-booking.html">DB-Booking</a>
+                    <li><a href="/db-booking">DB-Booking</a>
                     </li>
-                    <li><a href="db-event.html">DB-Event</a>
+                    <li><a href="/db-event">DB-Event</a>
                     </li>
-                    <li><a href="db-new-booking.html">DB New Booking</a>
+                    <li><a href="/db-new-booking">DB New Booking</a>
                     </li>
-                    <li><a href="booking.html">Booking</a>
+                    <li><a href="/booking">Booking</a>
                     </li>
-                    <li><a href="collapsible.html">Collapsible</a>
+                    <li><a href="/collapsible">Collapsible</a>
                     </li>
-                    <li><a href="events.html">Events</a>
+                    <li><a href="/events">Events</a>
                     </li>
-                    <li><a href="form-fields.html">Form Fields</a>
+                    <li><a href="/form-fields">Form Fields</a>
                     </li>
-                    <li><a href="preloading.html">Preloading</a>
+                    <li><a href="/preloading">Preloading</a>
                     </li>
-                    <li><a href="gallery.html">Gallery</a>
+                    <li><a href="/gallery">Gallery</a>
                     </li>
-                    <li><a href="gallery1.html">Gallery - 1</a>
+                    <li><a href="/gallery1">Gallery - 1</a>
                     </li>
-                    <li><a href="gallery2.html">Gallery - 2</a>
+                    <li><a href="/gallery2">Gallery - 2</a>
                     </li>
-                    <li><a href="detail.html">Room Detail</a>
+                    <li><a href="/detail">Room Detail</a>
                     </li>
-                    <li><a href="all-rooms.html">All Rooms</a>
+                    <li><a href="/all-rooms">All Rooms</a>
                     </li>
-                    <li><a href="all-rooms1.html">All Rooms - 1</a>
+                    <li><a href="/all-rooms1">All Rooms - 1</a>
                     </li>
-                    <li><a href="services.html">Services</a>
+                    <li><a href="/services">Services</a>
                     </li>
-                    <li><a href="services1.html">Services - 1</a>
+                    <li><a href="/services1">Services - 1</a>
                     </li>
-                    <li><a href="typho-grid.html">Grid Layout</a>
+                    <li><a href="/typho-grid">Grid Layout</a>
                     </li>
-                    <li><a href="typo-alert.html">Alert Messages</a>
+                    <li><a href="/typo-alert">Alert Messages</a>
                     </li>
-                    <li><a href="typo-all-head.html">All Headers</a>
+                    <li><a href="/typo-all-head">All Headers</a>
                     </li>
-                    <li><a href="typo-badges-labels.html">Labels</a>
+                    <li><a href="/typo-badges-labels">Labels</a>
                     </li>
-                    <li><a href="typo-buttons.html">Buttons</a>
+                    <li><a href="/typo-buttons">Buttons</a>
                     </li>
-                    <li><a href="typo-pagination.html">Pagination</a>
+                    <li><a href="/typo-pagination">Pagination</a>
                     </li>
-                    <li><a href="typo-progressbar.html">Progressbar</a>
+                    <li><a href="/typo-progressbar">Progressbar</a>
                     </li>
-                    <li><a href="typo-slider.html">Image Sliders</a>
+                    <li><a href="/typo-slider">Image Sliders</a>
                     </li>
-                    <li><a href="typo-table.html">Table</a>
+                    <li><a href="/typo-table">Table</a>
                     </li>
-                    <li><a href="typo-buttons.html">Buttons</a>
+                    <li><a href="/typo-buttons">Buttons</a>
                     </li>
-                    <li><a href="typo-pagination.html">Pagination</a>
+                    <li><a href="/typo-pagination">Pagination</a>
                     </li>
-                    <li><a href="typo-progressbar.html">Progressbar</a>
+                    <li><a href="/typo-progressbar">Progressbar</a>
                     </li>
-                    <li><a href="sitemap.html">Sitemap</a>
+                    <li><a href="/sitemap">Sitemap</a>
                     </li>
                 </ul>
             </div>
@@ -119,11 +118,11 @@
                     <ul>
                         <li><a class='dropdown-button' href='#' data-activates='dropdown1'> My Account <i class="fa fa-angle-down"></i></a>
                         </li>
-                        <li><a href="hotel-details.html">Our Hotels</a>
+                        <li><a href="/hotel-details">Our Hotels</a>
                         </li>
-                        <li><a href="about-us.html">About Us</a>
+                        <li><a href="/about-us">About Us</a>
                         </li>
-                        <li><a href="contact-us.html">Contact Us</a>
+                        <li><a href="/contact-us">Contact Us</a>
                         </li>
                         {{-- <li><a class='dropdown-button' href='#' data-activates='dropdown2'>Language <i class="fa fa-angle-down"></i></a>
                         </li> --}}
@@ -134,19 +133,19 @@
                     <!-- Dropdown Structure -->
                     <ul id='dropdown1' class='dropdown-content drop-con-man'>
                         <li>
-                            <a href="dashboard.html"><img src="{{asset('assets/images/icon/15.png')}}" alt=""> My Account</a>
+                            <a href="/dashboard"><img src="{{asset('assets/images/icon/15.png')}}" alt=""> My Account</a>
                         </li>
                         <li>
-                            <a href="db-profile.html"><img src="{{asset('assets/images/icon/15.png')}}" alt=""> My Profile</a>
+                            <a href="/db-profile"><img src="{{asset('assets/images/icon/15.png')}}" alt=""> My Profile</a>
                         </li>
                         <li>
-                            <a href="db-booking.html"><img src="{{asset('assets/images/icon/15.png')}}" alt=""> My Bookings</a>
+                            <a href="/db-booking"><img src="{{asset('assets/images/icon/15.png')}}" alt=""> My Bookings</a>
                         </li>
                         <li>
-                            <a href="db-event.html"><img src="{{asset('assets/images/icon/15.png')}}" alt=""> My Events</a>
+                            <a href="/db-event"><img src="{{asset('assets/images/icon/15.png')}}" alt=""> My Events</a>
                         </li>
                         <li>
-                            <a href="db-activity.html"><img src="{{asset('assets/images/icon/15.png')}}" alt=""> My Activity</a>
+                            <a href="/db-activity"><img src="{{asset('assets/images/icon/15.png')}}" alt=""> My Activity</a>
                         </li>
                         <li>
                             <a href="#!" data-toggle="modal" data-target="#modal2"><img src="{{asset('assets/images/icon/15.png')}}" alt=""> Register</a>
@@ -166,8 +165,7 @@
                         </li>
                         <li><a href="/index-2">Home - FullSlider</a>
                         </li>
-                        <li><a href="index-3.html">Home - Block Color</a>
-                        </li>
+                        
                     </ul>
                     <!-- Dropdown Structure -->
                     <ul id='dropdown2' class='dropdown-content drop-con-man'>
@@ -184,13 +182,13 @@
                     </ul>
                     <!-- ROOM Dropdown Structure -->
                     <ul id='drop-room' class='dropdown-content drop-con-man'>
-                        <li><a href="all-rooms.html">All Suite Rooms</a>
+                        <li><a href="/all-rooms">All Suite Rooms</a>
                         </li>
-                        <li><a href="room-details.html">Room Details</a>
+                        <li><a href="/room-details">Room Details</a>
                         </li>
-                        <li><a href="room-details-block.html">Room Details Block</a>
+                        <li><a href="/room-details-block">Room Details Block</a>
                         </li>
-                        <li><a href="room-details-1.html">Room Parallax</a>
+                        <li><a href="/room-details-1">Room Parallax</a>
                         </li>
                     </ul>
                     <!-- PAGES Dropdown Structure -->
@@ -198,112 +196,112 @@
                         <div class="mm-1">
                             <h4>Pages</h4>
                             <ul>
-                                <li><a href="room-details.html">Room Details - 1</a>
+                                <li><a href="/room-details">Room Details - 1</a>
                                 </li>
-                                <li><a href="room-details-1.html">Room Details - 2</a>
+                                <li><a href="/room-details-1">Room Details - 2</a>
                                 </li>
-                                <li><a href="room-details-block.html">Room Details - 3</a>
+                                <li><a href="/room-details-block">Room Details - 3</a>
                                 </li>
-                                <li><a href="all-rooms.html">All Rooms</a>
+                                <li><a href="/all-rooms">All Rooms</a>
                                 </li>
-                                <li><a href="all-rooms1.html">All Rooms - 1</a>
+                                <li><a href="/all-rooms1">All Rooms - 1</a>
                                 </li>
-                                <li><a href="aminities.html">Aminities</a>
+                                <li><a href="/aminities">Aminities</a>
                                 </li>
-                                <li><a href="aminities1.html">Aminities - 1</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="mm-1">
-                            <h4>Pages</h4>
-                            <ul>
-                                <li><a href="dashboard.html">User Dashboard</a>
-                                </li>
-                                <li><a href="db-activity.html">DB Activity</a>
-                                </li>
-                                <li><a href="db-booking.html">DB-Booking</a>
-                                </li>
-                                <li><a href="db-event.html">DB-Event</a>
-                                </li>
-                                <li><a href="db-new-booking.html">DB New Booking</a>
-                                </li>
-                                <li><a href="booking.html">Booking</a>
-                                </li>
-                                <li><a href="contact-us.html">Contact Us</a>
+                                <li><a href="/aminities1">Aminities - 1</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="mm-1">
                             <h4>Pages</h4>
                             <ul>
-                                <li><a href="blog.html">Blog</a>
+                                <li><a href="/dashboard">User Dashboard</a>
                                 </li>
-                                <li><a href="blog-inner.html">Blog Inner</a>
+                                <li><a href="/db-activity">DB Activity</a>
                                 </li>
-                                <li><a href="events.html">Events</a>
+                                <li><a href="/db-booking">DB-Booking</a>
                                 </li>
-                                <li><a href="gallery.html">Gallery</a>
+                                <li><a href="/db-event">DB-Event</a>
                                 </li>
-                                <li><a href="gallery1.html">Gallery - 1</a>
+                                <li><a href="/db-new-booking">DB New Booking</a>
                                 </li>
-                                <li><a href="gallery2.html">Gallery - 2</a>
+                                <li><a href="/booking">Booking</a>
                                 </li>
-                                <li><a href="collapsible.html">Collapsible</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="mm-1">
-                            <h4>Pages</h4>
-                            <ul>
-                                <li><a href="about-us.html">About Us</a>
-                                </li>
-                                <li><a href="services.html">Services</a>
-                                </li>
-                                <li><a href="services1.html">Services - 1</a>
-                                </li>
-                                <li><a href="typho-grid.html">Grid Layout</a>
-                                </li>
-                                <li><a href="typo-alert.html">Alert Messages</a>
-                                </li>
-                                <li><a href="form-fields.html">Form Fields</a>
-                                </li>
-                                <li><a href="menu.html">Food Menu</a>
+                                <li><a href="/contact-us">Contact Us</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="mm-1">
                             <h4>Pages</h4>
                             <ul>
-                                <li><a href="typo-all-head.html">All Headers</a>
+                                <li><a href="/blog">Blog</a>
                                 </li>
-                                <li><a href="typo-badges-labels.html">Labels</a>
+                                <li><a href="/blog-inner">Blog Inner</a>
                                 </li>
-                                <li><a href="typo-buttons.html">Buttons</a>
+                                <li><a href="/events">Events</a>
                                 </li>
-                                <li><a href="typo-pagination.html">Pagination</a>
+                                <li><a href="/gallery">Gallery</a>
                                 </li>
-                                <li><a href="typo-progressbar.html">Progressbar</a>
+                                <li><a href="/gallery1">Gallery - 1</a>
                                 </li>
-                                <li><a href="preloading.html">Preloading</a>
+                                <li><a href="/gallery2">Gallery - 2</a>
                                 </li>
-                                <li><a href="menu1.html">Food Menu - 1</a>
+                                <li><a href="/collapsible">Collapsible</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="mm-1">
                             <h4>Pages</h4>
                             <ul>
-                                <li><a href="typo-slider.html">Image Sliders</a>
+                                <li><a href="/about-us">About Us</a>
                                 </li>
-                                <li><a href="typo-table.html">Table</a>
+                                <li><a href="/services">Services</a>
                                 </li>
-                                <li><a href="typo-buttons.html">Buttons</a>
+                                <li><a href="/services1">Services - 1</a>
                                 </li>
-                                <li><a href="typo-pagination.html">Pagination</a>
+                                <li><a href="/typho-grid">Grid Layout</a>
                                 </li>
-                                <li><a href="typo-progressbar.html">Progressbar</a>
+                                <li><a href="/typo-alert">Alert Messages</a>
                                 </li>
-                                <li><a href="sitemap.html">Sitemap</a>
+                                <li><a href="/form-fields">Form Fields</a>
+                                </li>
+                                <li><a href="/menu">Food Menu</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mm-1">
+                            <h4>Pages</h4>
+                            <ul>
+                                <li><a href="/typo-all-head">All Headers</a>
+                                </li>
+                                <li><a href="/typo-badges-labels">Labels</a>
+                                </li>
+                                <li><a href="/typo-buttons">Buttons</a>
+                                </li>
+                                <li><a href="/typo-pagination">Pagination</a>
+                                </li>
+                                <li><a href="/typo-progressbar">Progressbar</a>
+                                </li>
+                                <li><a href="/preloading">Preloading</a>
+                                </li>
+                                <li><a href="/menu1">Food Menu - 1</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mm-1">
+                            <h4>Pages</h4>
+                            <ul>
+                                <li><a href="/typo-slider">Image Sliders</a>
+                                </li>
+                                <li><a href="/typo-table">Table</a>
+                                </li>
+                                <li><a href="/typo-buttons">Buttons</a>
+                                </li>
+                                <li><a href="/typo-pagination">Pagination</a>
+                                </li>
+                                <li><a href="/typo-progressbar">Progressbar</a>
+                                </li>
+                                <li><a href="/sitemap">Sitemap</a>
                                 </li>
                             </ul>
                         </div>
@@ -320,13 +318,13 @@
                         </li>
                         <li><a href="#" class='dropdown-button' data-activates='drop-room'>Rooms <i class="fa fa-angle-down"></i></a>
                         </li>
-                        <li><a href="services.html">Services</a>
+                        <li><a href="/services">Services</a>
                         </li>
-                        <li><a href="menu.html">Menu</a>
+                        <li><a href="/menu">Menu</a>
                         </li>
-                        <li><a href="events.html">Events</a>
+                        <li><a href="/events">Events</a>
                         </li>
-                        <li><a href="aminities1.html">Amenities</a>
+                        <li><a href="/aminities1">Amenities</a>
                         </li>
                         <li><a href="#" class='dropdown-button' data-activates='drop-page'>Pages <i class="fa fa-angle-down"></i></a>
                         </li>
