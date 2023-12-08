@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/index-1', [HomeController::class, 'index1']);
 Route::get('/index-2', [HomeController::class, 'index2']);
@@ -31,7 +28,7 @@ Route::get('/events', [HomeController::class, 'events']);
 Route::get('/aminities1', [HomeController::class, 'aminities1']);
 Route::get('/all-rooms1', [HomeController::class, 'allrooms1']);
 Route::get('/aminities', [HomeController::class, 'aminities']);
-Route::get('/dashboard', [HomeController::class, 'dashboard']);
+// Route::get('/dashboard', [HomeController::class, 'dashboard']);
 Route::get('/db-activity', [HomeController::class, 'dbactivity']);
 Route::get('/db-booking', [HomeController::class, 'dbbooking']);
 Route::get('/db-event', [HomeController::class, 'dbevent']);
@@ -62,3 +59,15 @@ Route::get('/sitemap', [HomeController::class, 'sitemap']);
 Route::get('/hotel-details', [HomeController::class, 'hoteldetails']);
 Route::get('/hotel-detail', [HomeController::class, 'hoteldetail']);
 Route::get('/db-profile', [HomeController::class, 'dbprofile']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
