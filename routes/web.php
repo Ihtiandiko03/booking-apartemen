@@ -61,7 +61,11 @@ Route::get('/hotel-details', [HomeController::class, 'hoteldetails']);
 Route::get('/hotel-detail', [HomeController::class, 'hoteldetail']);
 Route::get('/db-profile', [HomeController::class, 'dbprofile']);
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');;
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard/tables', [DashboardController::class, 'tables'])->middleware(['auth', 'verified']);
+Route::get('/dashboard/billing', [DashboardController::class, 'billing'])->middleware(['auth', 'verified']);
+Route::get('/dashboard/vr', [DashboardController::class, 'vr'])->middleware(['auth', 'verified']);
+Route::get('/dashboard/profile', [DashboardController::class, 'profile'])->middleware(['auth', 'verified']);
 
 
 // Route::get('/dashboard', function () {
