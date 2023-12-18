@@ -57,33 +57,34 @@
 					</a>
 					<h4>Login</h4>
 					<p>Don't have an account? Create your account. It's take less then a minutes</p>
-					<form class="s12">
+					<form method="POST" action="{{ route('login') }}" class="s12">
+						@csrf
 						<div>
 							<div class="input-field s12">
-								<input type="text" data-ng-model="name" class="validate">
-								<label>User name</label>
+								<input type="email" id="email" name="email" :value="old('email')" required autofocus class="validate">
+								<label>Email</label>
 							</div>
 						</div>
 						<div>
 							<div class="input-field s12">
-								<input type="password" class="validate">
+								<input type="password" id="password" name="password" :value="old('password')" required autofocus class="validate">
 								<label>Password</label>
 							</div>
 						</div>
 						<div>
 							<div class="s12 log-ch-bx">
 								<p>
-									<input type="checkbox" id="test5" />
-									<label for="test5">Remember me</label>
+									<input type="checkbox" name="remember"  id="remember_me" type="checkbox" />
+									<label for="remember_me">Remember me</label>
 								</p>
 							</div>
 						</div>
 						<div>
 							<div class="input-field s4">
-								<input type="submit" value="Login" class="waves-effect waves-light log-in-btn"> </div>
+								<input type="submit" class="waves-effect waves-light log-in-btn"> </div>
 						</div>
 						<div>
-							<div class="input-field s12"> <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal3">Forgot password</a> | <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal2">Create a new account</a> </div>
+							<div class="input-field s12"> <a href="{{ route('password.request') }}" >Forgot password</a> | <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal2">Create a new account</a> </div>
 						</div>
 					</form>
 				</div>
