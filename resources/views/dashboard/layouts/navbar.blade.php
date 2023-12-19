@@ -17,7 +17,7 @@
           <li class="nav-item d-flex align-items-center">
             <a href="javascript:;" class="nav-link text-white font-weight-bold px-0" style="margin-right: 10px;">
               <i class="fa fa-user me-sm-1"></i>
-              Ihtiandiko Wicaksono
+              {{ Auth::user()->name }}
               {{-- <span class="d-sm-inline d-none btn btn-danger">Log Out</span> --}}
             </a>
         </li>

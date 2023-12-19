@@ -18,12 +18,17 @@
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="{{ asset('assets/dashboard/assets/css/nucleo-svg.css') }}" rel="stylesheet" />
+  {{-- DataTable --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
   <!-- CSS Files -->
   <link id="pagestyle" href="{{ asset('assets/dashboard/assets/css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
   <div class="min-height-300 bg-primary position-absolute w-100"></div>
+  @include('sweetalert::alert')
   @include('dashboard.layouts.sidebar')
   
   <main class="main-content position-relative border-radius-lg ">
@@ -122,6 +127,7 @@
   <script src="{{ asset('assets/dashboard/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
   <script src="{{ asset('assets/dashboard/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
   <script src="{{ asset('assets/dashboard/assets/js/plugins/chartjs.min.js') }}"></script>
+  @yield('script')
   <script>
     var ctx1 = document.getElementById("chart-line").getContext("2d");
 
