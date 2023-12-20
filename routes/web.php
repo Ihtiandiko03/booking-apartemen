@@ -80,7 +80,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('/unit', UnitController::class);
-Route::resource('/advertisement', AdvertisementController::class);
+Route::resource('/unit', UnitController::class)->middleware(['auth', 'verified']);
+Route::resource('/advertisement', AdvertisementController::class)->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';

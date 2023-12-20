@@ -21,19 +21,21 @@ class UnitController extends Controller
             return DataTables::of($unit)
             ->addIndexColumn()
             ->addColumn('action', function ($item) {
-                $button =   '<a class="btn btn-primary" href="'. Route('unit.show', $item->id) .'">
+                $button =   '<div class="btn-group">
+                            <a class="btn btn-primary" href="'. Route('unit.show', $item->id) .'">
                                 Lihat
                             </a>
-                            <a class="btn btn-primary" href="'. Route('unit.edit', $item->id) .'">
+                            <a class="btn btn-warning" href="'. Route('unit.edit', $item->id) .'">
                                 Edit
                             </a>
                             <form action="'. Route('unit.destroy', $item->id) .'" method="POST">
                                 '.csrf_field().'
                                 '.method_field("DELETE").'
-                                <button class="btn btn-primary" type="submit" data-id="'.$item->id.'">
+                                <button class="btn btn-danger" type="submit" data-id="'.$item->id.'">
                                     Hapus
                                 </button>
-                            </form>';
+                            </form>
+                            </div>';
                 return $button;
             })
             ->make();
