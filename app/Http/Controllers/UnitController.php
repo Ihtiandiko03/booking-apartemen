@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
 use App\Models\Unit;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUnitRequest;
-use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\UpdateUnitRequest;
 use Yajra\DataTables\Facades\DataTables;
 
 class UnitController extends Controller
@@ -20,19 +21,24 @@ class UnitController extends Controller
             return DataTables::of($unit)
             ->addIndexColumn()
             ->addColumn('action', function ($item) {
-                $button =   '<div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Action
+                $button =   '<a class="btn btn-primary" href="'. Route('unit.show', $item->id) .'">
+                                Lihat
+                            </a>
+                            <a class="btn btn-primary" href="'. Route('unit.edit', $item->id) .'">
+                                Edit
+                            </a>
+                            <form action="'. Route('unit.destroy', $item->id) .'" method="POST">
+                                '.csrf_field().'
+                                '.method_field("DELETE").'
+                                <button class="btn btn-primary" type="submit" data-id="'.$item->id.'">
+                                    Hapus
                                 </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Edit</a></li>
-                                    <li><a class="dropdown-item" href="#">Delete</a></li>
-                                </ul>
-                            </div> ';
+                            </form>';
                 return $button;
             })
             ->make();
         }
+        
         return view('admin.unit.index');
     }
 
@@ -60,7 +66,8 @@ class UnitController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $unit = Unit::findOrFail($id);
+        return view('admin.unit.detail', compact('unit'));
     }
 
     /**
@@ -68,15 +75,22 @@ class UnitController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $unit = Unit::findOrFail($id);
+        return view('admin.unit.edit', compact('unit'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateUnitRequest $request, string $id)
     {
-        //
+        $unit = Unit::findOrFail($id);
+
+        if ($unit->update($request->validated())) {
+            Alert::success('Sukses!', 'Berhasil Diupdate!');
+        }
+
+        return redirect(route('unit.index'));
     }
 
     /**
@@ -84,6 +98,12 @@ class UnitController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $unit = Unit::findOrFail($id);
+
+        if ($unit->delete()) {
+            Alert::success('Sukses!', 'Berhasil Dihapus!');
+        }
+            
+        return redirect(route('unit.index'));
     }
 }

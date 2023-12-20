@@ -5,16 +5,19 @@
             <div class="col-12">
                 <div class="card p-3 mb-4">
                     <div class="card-header pb-0 d-flex justify-content-between">
-                        <h6>Daftar Unit</h6>
-                        <a href="{{ Route('unit.create') }}" class="btn btn-primary ms-auto">Tambah</a>
+                        <h6>Daftar Iklan</h6>
+                        <a href="{{ Route('advertisement.create') }}" class="btn btn-primary ms-auto">Tambah</a>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0" id="unitTable">
+                            <table class="table align-items-center mb-0" id="advertisementTable">
                                 <thead>
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No
                                         </th>
+                                        <th
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                            Gambar</th>
                                         <th
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Nama</th>
@@ -39,7 +42,7 @@
 @section('script')
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#unitTable').DataTable({
+            $('#advertisementTable').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: '{{ url()->current() }}',
@@ -51,11 +54,18 @@
                         width: '5%'
                     },
                     {
-                        data: 'nama_unit',
-                        name: 'nama_unit',
+                        data: 'banner',
+                        name: 'banner',
+                        orderable: false,
+                        searchable: false,
+                        width: '25%'
+                    },
+                    {
+                        data: 'title',
+                        name: 'title',
                         orderable: true,
                         searchable: true,
-                        width: '75%'
+                        width: '50%'
                     },
                     {
                         data: 'action',

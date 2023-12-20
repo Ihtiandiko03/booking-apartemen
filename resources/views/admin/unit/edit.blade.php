@@ -21,21 +21,21 @@
                                 </ul>
                             </div>
                         @endif
-                        <form method="post" action="{{ route('unit.store') }}">
+                        <form method="post" action="{{ route('unit.update', $unit->id) }}">
                             @csrf
-                            @method('post')
+                            @method('put')
                             <div class="row">
                                 <div class="mb-3">
                                     <label for="nama_unit" class="form-label">Nama Unit</label>
                                     <input type="text" class="form-control" name="nama_unit" id="nama_unit"
-                                        placeholder="Luxury A 3A">
+                                        placeholder="Luxury A 3A" value="{{ $unit->nama_unit }}">
                                 </div>
                                 <div class="mb-3">
                                     <label for="deskripsi_unit" class="form-label">Deskripsi</label>
-                                    <textarea class="form-control" name="deskripsi_unit" id="deskripsi_unit" rows="3"></textarea>
+                                    <textarea class="form-control" name="deskripsi_unit" id="deskripsi_unit" rows="3">{{ $unit->deskripsi_unit }}</textarea>
                                 </div>
                                 <div class="mb-3">
-                                    <button class="btn btn-primary" type="submit">Simpan</button>
+                                    <button class="btn btn-primary" type="submit">Update</button>
                                 </div>
                             </div>
                         </form>

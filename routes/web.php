@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdvertisementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,5 +81,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('/unit', UnitController::class);
+Route::resource('/advertisement', AdvertisementController::class);
 
 require __DIR__.'/auth.php';

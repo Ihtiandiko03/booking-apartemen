@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateUnitRequest extends FormRequest
+class StoreAdvertisementRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,9 @@ class UpdateUnitRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama_unit' => ['required', 'max:255'],
-            'deskripsi_unit' => ['max:1000'],
+            'title' => ['required', 'max:255'],
+            'description' => ['required', 'max:1000'],
+            'banner' => 'required|image|mimes:jpeg,png,jpg|max:1024',
         ];
     }
 }
