@@ -23,7 +23,9 @@ class UpdateAdvertisementRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => ['required', 'max:255'],
+            'description' => ['required', 'max:1000'],
+            'banner' => 'image|mimes:jpeg,png,jpg|max:1024',
         ];
     }
 }

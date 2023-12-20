@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Alert;
-use App\Models\Unit;
+use App\Models\Faq;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreUnitRequest;
-use App\Http\Requests\UpdateUnitRequest;
+use App\Http\Requests\StoreFaqRequest;
+use App\Http\Requests\UpdateFaqRequest;
 use Yajra\DataTables\Facades\DataTables;
 
-class UnitController extends Controller
+class FaqController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,17 +17,17 @@ class UnitController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $unit = Unit::query();
-            return DataTables::of($unit)
+            $faq = Faq::query();
+            return DataTables::of($faq)
             ->addIndexColumn()
             ->addColumn('action', function ($item) {
-                $button =   '<a class="btn btn-primary" href="'. Route('unit.show', $item->id) .'">
+                $button =   '<a class="btn btn-primary" href="'. Route('faq.show', $item->id) .'">
                                 Lihat
                             </a>
-                            <a class="btn btn-primary" href="'. Route('unit.edit', $item->id) .'">
+                            <a class="btn btn-primary" href="'. Route('faq.edit', $item->id) .'">
                                 Edit
                             </a>
-                            <form action="'. Route('unit.destroy', $item->id) .'" method="POST">
+                            <form action="'. Route('faq.destroy', $item->id) .'" method="POST">
                                 '.csrf_field().'
                                 '.method_field("DELETE").'
                                 <button class="btn btn-primary" type="submit" data-id="'.$item->id.'">
@@ -39,7 +39,7 @@ class UnitController extends Controller
             ->make();
         }
         
-        return view('admin.unit.index');
+        return view('admin.faq.index');
     }
 
     /**
@@ -47,17 +47,17 @@ class UnitController extends Controller
      */
     public function create()
     {
-        return view('admin.unit.create');
+        return view('admin.faq.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUnitRequest $request)
+    public function store(StoreFaqRequest $request)
     {
-        if (Unit::create($request->validated())) {
+        if (Faq::create($request->validated())) {
             Alert::success('Sukses!', 'Berhasil Dibuat');
-            return redirect(route('unit.index'));
+            return redirect(route('faq.index'));
         }
     }
 
@@ -66,16 +66,9 @@ class UnitController extends Controller
      */
     public function show(string $id)
     {
-        $unit = Unit::findOrFail($id);
-        
-        $data = [
-            'unit' => $unit,
-            'facility' => $unit->facilities,
-            'gallery' => $unit->galleries,
-            'price' => $unit->prices,
-        ];
+        $faq = Faq::findOrFail($id);
 
-        return view('admin.unit.detail', $data);
+        return view('admin.faq.detail', $data);
     }
 
     /**
@@ -83,22 +76,22 @@ class UnitController extends Controller
      */
     public function edit(string $id)
     {
-        $unit = Unit::findOrFail($id);
-        return view('admin.unit.edit', compact('unit'));
+        $faq = Faq::findOrFail($id);
+        return view('admin.faq.edit', compact('faq'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUnitRequest $request, string $id)
+    public function update(UpdateFaqRequest $request, string $id)
     {
-        $unit = Unit::findOrFail($id);
+        $faq = Faq::findOrFail($id);
 
-        if ($unit->update($request->validated())) {
+        if ($faq->update($request->validated())) {
             Alert::success('Sukses!', 'Berhasil Diupdate!');
         }
 
-        return redirect(route('unit.index'));
+        return redirect(route('faq.index'));
     }
 
     /**
@@ -106,12 +99,12 @@ class UnitController extends Controller
      */
     public function destroy(string $id)
     {
-        $unit = Unit::findOrFail($id);
+        $faq = Faq::findOrFail($id);
 
-        if ($unit->delete()) {
+        if ($faq->delete()) {
             Alert::success('Sukses!', 'Berhasil Dihapus!');
         }
             
-        return redirect(route('unit.index'));
+        return redirect(route('faq.index'));
     }
 }
