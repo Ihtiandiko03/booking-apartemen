@@ -26,13 +26,13 @@ class AdvertisementController extends Controller
                             <a class="btn btn-primary" href="'. Route('advertisement.show', $item->id) .'">
                                 Lihat
                             </a>
-                            <a class="btn btn-primary" href="'. Route('advertisement.edit', $item->id) .'">
+                            <a class="btn btn-warning" href="'. Route('advertisement.edit', $item->id) .'">
                                 Edit
                             </a>
                             <form action="'. Route('advertisement.destroy', $item->id) .'" method="POST">
                                 '.csrf_field().'
                                 '.method_field("DELETE").'
-                                <button class="btn btn-primary" type="submit" data-id="'.$item->id.'">
+                                <button class="btn btn-danger" type="submit" data-id="'.$item->id.'">
                                     Hapus
                                 </button>
                             </form>
