@@ -61,7 +61,7 @@ class AdvertisementController extends Controller
     {
         $imgName = 'advertisement-'.time().'.'.$request->banner->extension();
         
-        $request->banner->storeAs('advertisement', $imgName);
+        $request->banner->storeAs('public/advertisement', $imgName);
         $imagePath = 'advertisement/' . $imgName;
 
         if ($advertisement = Advertisement::create($request->validated())) {
