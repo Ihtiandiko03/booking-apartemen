@@ -47,15 +47,16 @@
                     <div class="card-body p-3 py-2">
                         <table class="table table-bordered">
                             <tr>
-                                <th>Tipe</th>
-                                <th>Harga</th>
-                                <th>Aksi</th>
+                                <th class="text-center">Tipe</th>
+                                <th class="text-center">Harga</th>
+                                <th class="text-center">Aksi</th>
                             </tr>
                             <tr>
-                                <td>Harian</td>
-                                <td>{{ $priceDay != 0 ? $priceDay : 'Belum Disetel' }}</td>
-                                <td>
-                                    <button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modalPrice"
+                                <td  class="text-center">Harian</td>
+                                <td  class="text-center">{{ $priceDay != 0 ? 'Rp'.number_format($priceDay) : 'Belum Disetel' }}</td>
+                                <td  class="text-center">
+                                    <div class="btn-group">
+                                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
                                         data-bs-type="Harian" data-bs-type-value="day" data-bs-price="{{ $priceDay }}">
                                         Ubah
                                     </button>
@@ -65,16 +66,18 @@
                                             method="post">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" class='btn btn-link'>NonAktif</button>
+                                            <button type="submit" class='btn btn-danger'>NonAktif</button>
                                         </form>
                                     @endif
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Mingguan</td>
-                                <td>{{ $priceWeek != 0 ? $priceWeek : 'Belum Disetel' }}</td>
-                                <td>
-                                    <button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modalPrice"
+                                <td class="text-center">Mingguan</td>
+                                <td class="text-center">{{ $priceWeek != 0 ? $priceWeek : 'Belum Disetel' }}</td>
+                                <td class="text-center">
+                                    <div class="btn-group">
+                                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
                                         data-bs-type="Mingguan" data-bs-type-value="week"
                                         data-bs-price="{{ $priceWeek }}">
                                         Ubah
@@ -85,16 +88,18 @@
                                             method="post">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" class='btn btn-link'>NonAktif</button>
+                                            <button type="submit" class='btn btn-danger'>NonAktif</button>
                                         </form>
                                     @endif
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Bulanan</td>
-                                <td>{{ $priceMonth != 0 ? $priceMonth : 'Belum Disetel' }}</td>
-                                <td>
-                                    <button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modalPrice"
+                                <td class="text-center">Bulanan</td>
+                                <td class="text-center">{{ $priceMonth != 0 ? $priceMonth : 'Belum Disetel' }}</td>
+                                <td class="text-center">
+                                    <div class="btn-group">
+                                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
                                         data-bs-type="Bulanan" data-bs-type-value="month"
                                         data-bs-price="{{ $priceMonth }}">
                                         Ubah
@@ -105,16 +110,18 @@
                                             method="post">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" class='btn btn-link'>NonAktif</button>
+                                            <button type="submit" class='btn btn-danger'>NonAktif</button>
                                         </form>
                                     @endif
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Tahunan</td>
-                                <td>{{ $priceYear != 0 ? $priceYear : 'Belum Disetel' }}</td>
-                                <td>
-                                    <button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modalPrice"
+                                <td class="text-center">Tahunan</td>
+                                <td class="text-center">{{ $priceYear != 0 ? $priceYear : 'Belum Disetel' }}</td>
+                                <td class="text-center">
+                                    <div class="btn-group">
+                                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
                                         data-bs-type="Tahunan" data-bs-type-value="year"
                                         data-bs-price="{{ $priceYear }}">
                                         Ubah
@@ -125,9 +132,10 @@
                                             method="post">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" class='btn btn-link'>NonAktif</button>
+                                            <button type="submit" class='btn btn-danger'>NonAktif</button>
                                         </form>
                                     @endif
+                                    </div>
                                 </td>
                             </tr>
                             <tr></tr>
@@ -142,33 +150,35 @@
                 <div class="card p-3 mb-4">
                     <div class="card-header d-flex justify-content-between">
                         <h6>Fasilitas Unit</h6>
-                        <button class="btn btn-primary" data-bs-toggle="modal"
+                        <button class="btn btn-dark" data-bs-toggle="modal"
                             data-bs-target="#modalStoreFacility">Tambah</button>
                     </div>
                     <div class="card-body p-3 py-2">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Jenis Fasilitas</th>
-                                    <th>Deskripsi</th>
-                                    <th>Aksi</th>
+                                    <th class="text-center">Jenis Fasilitas</th>
+                                    <th class="text-center">Deskripsi</th>
+                                    <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($facility as $f)
                                     <tr>
-                                        <td>{{ $f->type }}</td>
-                                        <td>{{ $f->detail }}</td>
-                                        <td>
-                                            <button class="btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-id="{{ $f->id }}" data-bs-target="#modalUpdateFacility"
-                                                data-bs-type="{{ $f->type }}"
-                                                data-bs-detail="{{ $f->detail }}">Edit</button>
-                                            <form action="{{ route('facility.destroy', $f->id) }}" method="post">
-                                                @csrf
-                                                @method('delete')
-                                                <button class="btn btn-primary" type="submit">Delete</button>
-                                            </form>
+                                        <td class="text-center">{{ $f->type }}</td>
+                                        <td class="text-center">{{ $f->detail }}</td>
+                                        <td class="text-center">
+                                            <div class="btn-group">
+                                                <button class="btn btn-warning" data-bs-toggle="modal"
+                                                    data-bs-id="{{ $f->id }}" data-bs-target="#modalUpdateFacility"
+                                                    data-bs-type="{{ $f->type }}"
+                                                    data-bs-detail="{{ $f->detail }}">Ubah</button>
+                                                <form action="{{ route('facility.destroy', $f->id) }}" method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="btn btn-danger" type="submit">Delete</button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                 @empty
@@ -188,19 +198,19 @@
                 <div class="card p-3 mb-4">
                     <div class="card-header d-flex justify-content-between align-middle">
                         <h6>Galeri Unit</h6>
-                        <button class="btn btn-primary" data-bs-toggle="modal"
+                        <button class="btn btn-dark" data-bs-toggle="modal"
                             data-bs-target="#modalStoreGallery">Tambah</button>
                     </div>
                     <div class="card-body p-3 py-2">
                         <table class="table table-bordered">
                             <tr>
-                                <th>Gambar</th>
-                                <th>Aksi</th>
+                                <th class="text-center">Gambar</th>
+                                <th class="text-center">Aksi</th>
                             </tr>
                             @forelse ($gallery as $g)
                                 <tr>
-                                    <td>{{ $g->image }}</td>
-                                    <td>Tombol Aksi</td>
+                                    <td  class="text-center"><img  class="img-thumbnail" height="150" width="150" src="{{ asset("storage/".$g->image) }}" ></td>
+                                    <td  class="text-center">Tombol Aksi</td>
                                 </tr>
                             @empty
                                 <tr>
@@ -237,7 +247,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-dark">Update</button>
                 </div>
                 </form>
             </div>
@@ -267,7 +277,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="submit" class="btn btn-dark">Tambah</button>
                 </div>
                 </form>
             </div>
@@ -290,17 +300,17 @@
                         <div class="mb-3">
                             <label for="type" class="col-form-label">Jenis:</label>
                             <input type="text" class="form-control" name="type" id="update-type-facility"
-                                placeholder="Kamar Tidur">
+                                placeholder="Kamar Tidur"/>
                         </div>
                         <div class="mb-3">
                             <label for="detail" class="col-form-label">Detail:</label>
                             <input class="form-control" name="detail" type="text" id="update-detail-facility"
-                                placeholder="2"></input>
+                                placeholder="2"/>
                         </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="submit" class="btn btn-dark">Tambah</button>
                 </div>
                 </form>
             </div>
@@ -326,7 +336,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="submit" class="btn btn-dark">Tambah</button>
                 </div>
                 </form>
             </div>

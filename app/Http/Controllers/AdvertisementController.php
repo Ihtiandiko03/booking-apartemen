@@ -107,7 +107,7 @@ class AdvertisementController extends Controller
 
             $imgName = 'advertisement-'.time().'.'.$request->banner->extension();
             $request->banner->storeAs('public/advertisement', $imgName);
-            $requestBanner = 'advertisement/' . $imgName;
+            $requestBanner = 'public/advertisement/' . $imgName;
         } else {
             $requestBanner = $advertisement->banner;
         }
