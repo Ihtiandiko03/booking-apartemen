@@ -29,7 +29,7 @@
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
-    <div class="min-height-300 bg-danger position-absolute w-100"></div>
+    <div class="min-height-300  position-absolute w-100" style="background-color: #2a2b33"></div>
     @include('sweetalert::alert')
     @include('dashboard.layouts.sidebar')
 

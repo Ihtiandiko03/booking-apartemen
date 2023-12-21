@@ -24,7 +24,7 @@
         <li class="nav-item d-flex align-items-center">
             <form action="/logout" method="post">
                 @csrf
-                <button type="submit" class="d-sm-inline d-none btn btn-dark"> Logout </button>
+                <button type="submit" class="d-sm-inline d-none btn btn-danger"> Logout </button>
             </form>
         </li>
           <li class="nav-item d-xl-none ps-3 d-flex align-items-center">

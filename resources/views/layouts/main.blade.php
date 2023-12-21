@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>MyHotel - Hotel Booking and Room Booking</title>
+    <title>MyApartemen - Apartemen Booking and Room Booking</title>
     <!-- META TAGS -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
