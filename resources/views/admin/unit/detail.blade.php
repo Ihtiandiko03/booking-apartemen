@@ -54,11 +54,8 @@
                             <tr>
                                 <td class="text-center">Harian</td>
                                 <td class="text-center">
-                                    {{ $priceDay != 0 ? 'Rp' . number_format($priceDay) : 'Belum Disetel' }}</td>
-                                <td class="text-center">
-                                <td class="text-center">Harian</td>
-                                <td class="text-center">
-                                    {{ $priceDay != 0 ? 'Rp' . number_format($priceDay, 0, ',', '.') : 'Belum Disetel' }}</td>
+                                    {{ $priceDay != 0 ? 'Rp' . number_format($priceDay, 0, ',', '.') : 'Belum Disetel' }}
+                                </td>
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
@@ -198,6 +195,7 @@
                                         <td class="text-center" colspan="3"> Data Kosong </td>
                                     </tr>
                                 @endforelse
+                                <tr></tr>
                             </tbody>
                         </table>
                     </div>
@@ -241,6 +239,7 @@
                                         @endif
                                     </td>
                                 </tr>
+                                <tr></tr>
                             @empty
                                 <tr>
                                     <td class="text-center" colspan="2"> Data Kosong </td>
