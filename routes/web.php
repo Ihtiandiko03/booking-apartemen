@@ -6,6 +6,7 @@ use App\Http\Controllers\UnitController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdvertisementController;
+use App\Http\Controllers\FaqController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,5 +83,6 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('/unit', UnitController::class)->middleware(['auth', 'verified']);
 Route::resource('/advertisement', AdvertisementController::class)->middleware(['auth', 'verified']);
+Route::resource('/faq', FaqController::class)->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';

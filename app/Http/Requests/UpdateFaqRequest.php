@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+
 
 class UpdateFaqRequest extends FormRequest
 {
@@ -11,7 +13,9 @@ class UpdateFaqRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        // return false;
+
+        return Auth::check();
     }
 
     /**
@@ -22,7 +26,18 @@ class UpdateFaqRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'question' => ['required'],
+            'answer' => ['required'],
+            'order' => ['required'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'question.required' => 'Pertanyaan harus diisi',
+            'answer.required' => 'Jawaban harus diisi',
+            'order.required' => 'Urutan harus diisi',
         ];
     }
 }
