@@ -24,6 +24,10 @@ use App\Http\Controllers\AdvertisementController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/detailunit/{id}', [HomeController::class, 'detailunit']);
+
+
+
 Route::get('/index-1', [HomeController::class, 'index1']);
 Route::get('/index-2', [HomeController::class, 'index2']);
 Route::get('/all-rooms', [HomeController::class, 'allrooms']);

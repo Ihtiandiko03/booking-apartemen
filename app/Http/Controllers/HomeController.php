@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Unit;
+
 
 class HomeController extends Controller
 {
     public function index(){
         $result = DB::table('units')
-                ->select('units.nama_unit', 'units.deskripsi_unit', 'units.is_available', 'prices.price', 'galleries.image')
+                ->select('units.nama_unit', 'units.deskripsi_unit', 'units.slug', 'units.is_available', 'prices.price', 'galleries.image')
                 ->join('prices', 'units.id', '=', 'prices.unit_id')
                 ->join('galleries', 'galleries.unit_id', '=', 'units.id')
                 ->where('prices.type', '=', 'day')
@@ -22,6 +24,37 @@ class HomeController extends Controller
         
         return view('index', $data);
     }
+
+    public function detailunit($slug){
+        $getData = DB::table('units')
+        ->where('slug', '=', $slug)
+        ->get();
+        
+        $unit = Unit::findOrFail($getData[0]->id);
+        
+        $price = $unit->prices;
+        
+        $priceDay = $price->firstWhere('type', 'day')->price ?? 0;
+        $priceWeek = $price->firstWhere('type', 'week')->price ?? 0;
+        $priceMonth = $price->firstWhere('type', 'month')->price ?? 0;
+        $priceYear = $price->firstWhere('type', 'year')->price ?? 0;
+        
+        
+        $data = [
+            'unit' => $unit,
+            'facility' => $unit->facilities,
+            'gallery' => $unit->galleries,
+            'priceDay' => $priceDay,
+            'priceWeek' => $priceWeek,
+            'priceMonth' => $priceMonth,
+            'priceYear' => $priceYear,
+        ];
+
+        // var_dump($data['gallery']); die;
+
+        return view('detailunit', $data);
+    }
+
     public function index1(){
         return view('index-1');
     }

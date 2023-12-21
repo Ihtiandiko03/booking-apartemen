@@ -64,7 +64,7 @@
 										<img src="{{ asset("storage/".$u->image) }}" alt=""> 
 									</div>
 									<div class="to-ho-hotel-con-23">
-										<div class="to-ho-hotel-con-2"> <a href="all-rooms.html"><h4>{{$u->nama_unit}}</h4></a> </div>
+										<div class="to-ho-hotel-con-2"> <a href="detailunit/{{$u->slug}}"><h4>{{$u->nama_unit}}</h4></a> </div>
 										<div class="to-ho-hotel-con-3">
 											<ul>
 												<li>
