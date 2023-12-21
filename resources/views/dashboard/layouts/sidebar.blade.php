@@ -98,7 +98,7 @@
         </li> --}}
       </ul>
     </div>
-    <div class="sidenav-footer mx-3 ">
+    <div class="sidenav-footer mx-4 ">
       {{-- <div class="card card-plain shadow-none" id="sidenavCard">
         <img class="w-50 mx-auto" src="{{ asset('assets/dashboard/assets/img/illustrations/icon-documentation.svg') }}" alt="sidebar_illustration">
         <div class="card-body text-center p-3 w-100 pt-0">
@@ -111,7 +111,7 @@
       <a href="/dashboard/profile" target="_blank" class="btn btn-dark btn-sm w-100 mb-3">Profile</a>
       <form action="/logout" method="post">
         @csrf
-        <button type="submit" class="btn btn-primary btn-sm mb-0 w-100"> Logout </button>
+        <button type="submit" class="btn btn-danger btn-sm mb-0 w-100"> Logout </button>
       </form>
     </div>
   </aside>

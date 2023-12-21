@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>MyHotel - Hotel Booking and Room Booking</title>
+    <title>MyApartemen - Apartemen Booking and Room Booking</title>
     <!-- META TAGS -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -63,14 +63,14 @@
                         <div>
                             <div class="input-field s12">
                                 <input type="email" id="email" name="email" :value="old('email')" required
-                                    autofocus class="validate">
+                                    autofocus class="validate" placeholder="Email">
                                 <label>Email</label>
                             </div>
                         </div>
                         <div>
                             <div class="input-field s12">
                                 <input type="password" id="password" name="password" :value="old('password')" required
-                                    autofocus class="validate">
+                                    autofocus class="validate" placeholder="Password">
                                 <label>Password</label>
                             </div>
                         </div>
@@ -222,10 +222,7 @@
                     <!--<a class="waves-effect waves-light" href="#">online room booking</a>--><a
                         class="waves-effect waves-light" href="booking.html">room reservation</a>
                 </div>
-                <div class="foot-com foot-4">
-                    <a href="#"><img src="{{ asset('assets/images/card.png') }}" alt="" />
-                    </a>
-                </div>
+                
             </div>
         </div>
     </div>

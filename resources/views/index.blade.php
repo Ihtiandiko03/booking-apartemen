@@ -4,33 +4,33 @@
 		<div>
 			<div class="slider fullscreen">
 				<ul class="slides">
-					<li> <img src="{{asset('assets/images/slider/1.jpg')}}" alt="">
+					<li> <img src="{{asset('assets/images/slider/apartemen.jpg')}}" alt="">
 						<!-- random image -->
 						<div class="caption center-align slid-cap">
-							<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-							<h2>This is our big Tagline!</h2>
-							<p>Mauris non placerat nulla. Sed vestibulum quam mauris, et malesuada tortor venenatis at.Aenean euismod sem porta est consectetur posuere. Praesent nisi velit, porttitor ut imperdiet a, pellentesque id mi.</p> <a href="#" class="waves-effect waves-light">Booking</a><a href="#">Booking</a> </div>
+							<h5 style="font-family: Arial; -webkit-text-stroke: 0.5px white; color: #f4364f;">Here's our small slogan.</h5>
+							<h2 style="-webkit-text-stroke: 1px white; font-family: arial; color: #f4364f;">This is our big Tagline!</h2>
+							<p style="font-family: Arial; -webkit-text-stroke: 0.05px white; color: #f4364f;">Mauris non placerat nulla. Sed vestibulum quam mauris, et malesuada tortor venenatis at.Aenean euismod sem porta est consectetur posuere. Praesent nisi velit, porttitor ut imperdiet a, pellentesque id mi.</p> <a href="#" class="waves-effect waves-light">Booking</a> </div>
 					</li>
-					<li> <img src="{{asset('assets/images/slider/2.jpg')}}" alt="">
+					<li> <img src="{{asset('assets/images/slider/apartemen2.jpg')}}" alt="">
 						<!-- random image -->
 						<div class="caption center-align slid-cap">
-							<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-							<h2>This is our big Tagline!</h2>
-							<p>Mauris non placerat nulla. Sed vestibulum quam mauris, et malesuada tortor venenatis at.Aenean euismod sem porta est consectetur posuere. Praesent nisi velit, porttitor ut imperdiet a, pellentesque id mi.</p> <a href="#" class="waves-effect waves-light">Booking</a><a href="#">Booking</a> </div>
+							<h5 style="font-family: Arial; -webkit-text-stroke: 0.5px white; color: #f4364f;">Here's our small slogan.</h5>
+							<h2 style="-webkit-text-stroke: 1px white; font-family: arial; color: #f4364f;">This is our big Tagline!</h2>
+							<p style="font-family: Arial; -webkit-text-stroke: 0.05px white; color: #f4364f;">Mauris non placerat nulla. Sed vestibulum quam mauris, et malesuada tortor venenatis at.Aenean euismod sem porta est consectetur posuere. Praesent nisi velit, porttitor ut imperdiet a, pellentesque id mi.</p> <a href="#" class="waves-effect waves-light">Booking</a> </div>
 					</li>
-					<li> <img src="{{asset('assets/images/slider/3.jpg')}}" alt="">
+					<li> <img src="{{asset('assets/images/slider/apartemen3.jpg')}}" alt="">
 						<!-- random image -->
 						<div class="caption center-align slid-cap">
-							<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-							<h2>This is our big Tagline!</h2>
-							<p>Mauris non placerat nulla. Sed vestibulum quam mauris, et malesuada tortor venenatis at.Aenean euismod sem porta est consectetur posuere. Praesent nisi velit, porttitor ut imperdiet a, pellentesque id mi.</p> <a href="#" class="waves-effect waves-light">Booking</a><a href="#">Booking</a> </div>
+							<h5 style="font-family: Arial; -webkit-text-stroke: 0.5px white; color: #f4364f;">Here's our small slogan.</h5>
+							<h2 style="-webkit-text-stroke: 1px white; font-family: arial; color: #f4364f;">This is our big Tagline!</h2>
+							<p style="font-family: Arial; -webkit-text-stroke: 0.05px white; color: #f4364f;">Mauris non placerat nulla. Sed vestibulum quam mauris, et malesuada tortor venenatis at.Aenean euismod sem porta est consectetur posuere. Praesent nisi velit, porttitor ut imperdiet a, pellentesque id mi.</p> <a href="#" class="waves-effect waves-light">Booking</a> </div>
 					</li>
-					<li> <img src="{{asset('assets/images/slider/4.jpg')}}" alt="">
+					<li> <img src="{{asset('assets/images/slider/apartemen4.jpg')}}" alt="">
 						<!-- random image -->
 						<div class="caption center-align slid-cap">
-							<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-							<h2>This is our big Tagline!</h2>
-							<p>Mauris non placerat nulla. Sed vestibulum quam mauris, et malesuada tortor venenatis at.Aenean euismod sem porta est consectetur posuere. Praesent nisi velit, porttitor ut imperdiet a, pellentesque id mi.</p> <a href="#" class="waves-effect waves-light">Booking</a><a href="#">Booking</a> </div>
+							<h5 style="font-family: Arial; -webkit-text-stroke: 0.5px white; color: #f4364f;">Here's our small slogan.</h5>
+							<h2 style="-webkit-text-stroke: 1px white; font-family: arial; color: #f4364f;">This is our big Tagline!</h2>
+							<p style="font-family: Arial; -webkit-text-stroke: 0.05px white; color: #f4364f;">Mauris non placerat nulla. Sed vestibulum quam mauris, et malesuada tortor venenatis at.Aenean euismod sem porta est consectetur posuere. Praesent nisi velit, porttitor ut imperdiet a, pellentesque id mi.</p> <a href="#" class="waves-effect waves-light">Booking</a> </div>
 					</li>
 				</ul>
 			</div>

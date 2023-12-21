@@ -6,7 +6,7 @@
                 <div class="card p-3 mb-4">
                     <div class="card-header pb-0 d-flex justify-content-between">
                         <h6>Daftar Unit</h6>
-                        <a href="{{ Route('unit.create') }}" class="btn btn-primary ms-auto">Tambah</a>
+                        <a href="{{ Route('unit.create') }}" class="btn btn-dark ms-auto">Tambah</a>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
@@ -17,7 +17,7 @@
                                         </th>
                                         <th
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Question</th>
+                                            Unit</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Aksi</th>
