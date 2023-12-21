@@ -35,7 +35,7 @@
                                     <textarea class="form-control" name="description" id="description" rows="3" placeholder="Masukkan konten"></textarea>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="banner" class="form-label">Banner Iklan</label>
+                                    <label for="banner" class="form-label">Banner Iklan (format gambar)</label>
                                     <input class="form-control" type="file" id="banner" name="banner">
                                 </div>
                                 <div class="mb-3">

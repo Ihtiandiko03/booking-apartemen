@@ -111,7 +111,7 @@
       <a href="/dashboard/profile" target="_blank" class="btn btn-dark btn-sm w-100 mb-3">Profile</a>
       <form action="/logout" method="post">
         @csrf
-        <button type="submit" class="btn btn-primary btn-sm mb-0 w-100"> Logout </button>
+        <button type="submit" class="btn btn-danger btn-sm mb-0 w-100"> Logout </button>
       </form>
     </div>
   </aside>
