@@ -2181,9 +2181,10 @@ td {} .inn-com p {} .inn-com-form {} .inn-com-form form {
     margin-right: 10px;
 }
 .ho-hot-pri {
-    font-size: 38px;
+    font-size: 20px;
     font-weight: 600;
-    color: #f4364f;
+    /* color: #f4364f; */
+    color: #fff;
     float: right;
 }
 .ho-hot-pri-dis {
@@ -2267,6 +2268,30 @@ td {} .inn-com p {} .inn-com-form {} .inn-com-form form {
     font-family: 'Quicksand', sans-serif;
 }
 .hom-hot-av-tic-list {
+    left: 10px;
+    right: inherit;
+    bottom: 10px;
+    border-radius: 2px;
+    background: rgba(0, 188, 212, 0.41);
+    color: #fff;
+    font-weight: 600;
+    padding: 3px 8px;
+    font-size: 13px;
+}
+.hom-hot-noav-tic {
+    position: absolute;
+    background-color: #af4c4c;
+    bottom: 15px;
+    padding: 3px 8px;
+    margin: 0px 0px;
+    left: 15px;
+    font-weight: 500;
+    color: #fff;
+    border-radius: 25px;
+    border: 1px solid #253747;
+    font-family: 'Quicksand', sans-serif;
+}
+.hom-hot-noav-tic-list {
     left: 10px;
     right: inherit;
     bottom: 10px;

@@ -3,11 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     public function index(){
-        return view('index');
+        $result = DB::table('units')
+                ->select('units.nama_unit', 'units.deskripsi_unit', 'units.is_available', 'prices.price', 'galleries.image')
+                ->join('prices', 'units.id', '=', 'prices.unit_id')
+                ->join('galleries', 'galleries.unit_id', '=', 'units.id')
+                ->where('prices.type', '=', 'day')
+                ->where('galleries.is_thumbnail', '=', 1)
+                ->get();
+        
+        $data = [
+            'unit' => $result
+        ];
+        
+        return view('index', $data);
     }
     public function index1(){
         return view('index-1');

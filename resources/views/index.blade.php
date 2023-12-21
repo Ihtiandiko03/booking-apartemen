@@ -41,7 +41,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="hom1-title">
-						<h2>Our Hotel Rooms</h2>
+						<h2>Our Apartmen Units</h2>
 						<div class="head-title">
 							<div class="hl-1"></div>
 							<div class="hl-2"></div>
@@ -52,6 +52,34 @@
 				</div>
 				<div class="row">
 					<div class="to-ho-hotel">
+						@foreach($unit as $u)
+							<div class="col-md-4">
+								<div class="to-ho-hotel-con">
+									<div class="to-ho-hotel-con-1">
+										@if($u->is_available == 1)
+											<div class="hom-hot-av-tic"> Available </div> 
+										@else
+											<div class="hom-hot-noav-tic"> Not Available </div> 
+										@endif
+										<img src="{{ asset("storage/".$u->image) }}" alt=""> 
+									</div>
+									<div class="to-ho-hotel-con-23">
+										<div class="to-ho-hotel-con-2"> <a href="all-rooms.html"><h4>{{$u->nama_unit}}</h4></a> </div>
+										<div class="to-ho-hotel-con-3">
+											<ul>
+												<li>
+													<div class="dir-rat-star ho-hot-rat-star"> Rating: <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i> </div>
+												</li>
+												<li>
+													{{-- <span class="ho-hot-pri-dis">$720</span> --}}
+													<span class="ho-hot-pri">Rp{{number_format($u->price, 0, ',', '.')}}/day</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						@endforeach
 						<!-- HOTEL GRID -->
 						<div class="col-md-4">
 							<div class="to-ho-hotel-con">
