@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,7 +24,11 @@ class UpdateUnitRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama_unit' => ['required', 'max:255'],
+            'slug' => [
+                'max:255',
+                Rule::unique('units')->ignore($this->id),
+            ],
+            'nama_unit' => ['required', 'max:200'],
             'deskripsi_unit' => ['max:1000'],
         ];
     }

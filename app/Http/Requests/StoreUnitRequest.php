@@ -23,7 +23,8 @@ class StoreUnitRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama_unit' => ['required', 'max:255'],
+            'slug' => ['required', 'unique:units', 'max:255'],
+            'nama_unit' => ['required', 'max:200'],
             'deskripsi_unit' => ['required', 'max:1000'],
         ];
     }

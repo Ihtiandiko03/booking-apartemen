@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\PriceController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProfileController;
@@ -87,6 +88,7 @@ Route::middleware('auth')->group(function () {
 Route::resource('/unit', UnitController::class)->middleware(['auth', 'verified']);
 Route::resource('/advertisement', AdvertisementController::class)->middleware(['auth', 'verified']);
 Route::resource('/faq', FaqController::class)->middleware(['auth', 'verified']);
+Route::resource('/user', UserController::class);
 
 Route::post('/price', [PriceController::class, 'store'])->name('price.store');
 Route::delete('/price/{unitId}/{type}', [PriceController::class, 'destroy'])->name('price.destroy');
@@ -97,7 +99,7 @@ Route::delete('/facility/{id}', [FacilityController::class, 'destroy'])->name('f
 
 Route::post('/gallery', [GalleryController::class, 'store'])->name('gallery.store');
 Route::delete('/gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
-
+Route::post('/gallery/thumbnail/{id}', [GalleryController::class, 'changeThumbnail'])->name('gallery.thumbnail');
 
 
 require __DIR__.'/auth.php';

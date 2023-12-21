@@ -52,23 +52,25 @@
                                 <th class="text-center">Aksi</th>
                             </tr>
                             <tr>
-                                <td  class="text-center">Harian</td>
-                                <td  class="text-center">{{ $priceDay != 0 ? 'Rp'.number_format($priceDay) : 'Belum Disetel' }}</td>
-                                <td  class="text-center">
+                                <td class="text-center">Harian</td>
+                                <td class="text-center">
+                                    {{ $priceDay != 0 ? 'Rp' . number_format($priceDay) : 'Belum Disetel' }}</td>
+                                <td class="text-center">
                                     <div class="btn-group">
-                                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
-                                        data-bs-type="Harian" data-bs-type-value="day" data-bs-price="{{ $priceDay }}">
-                                        Ubah
-                                    </button>
-                                    @if ($priceDay != 0)
-                                        <form
-                                            action="{{ route('price.destroy', ['unitId' => $unit->id, 'type' => 'day']) }}"
-                                            method="post">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class='btn btn-danger'>NonAktif</button>
-                                        </form>
-                                    @endif
+                                        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
+                                            data-bs-type="Harian" data-bs-type-value="day"
+                                            data-bs-price="{{ $priceDay }}">
+                                            Ubah
+                                        </button>
+                                        @if ($priceDay != 0)
+                                            <form
+                                                action="{{ route('price.destroy', ['unitId' => $unit->id, 'type' => 'day']) }}"
+                                                method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class='btn btn-danger'>NonAktif</button>
+                                            </form>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>
@@ -77,20 +79,20 @@
                                 <td class="text-center">{{ $priceWeek != 0 ? $priceWeek : 'Belum Disetel' }}</td>
                                 <td class="text-center">
                                     <div class="btn-group">
-                                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
-                                        data-bs-type="Mingguan" data-bs-type-value="week"
-                                        data-bs-price="{{ $priceWeek }}">
-                                        Ubah
-                                    </button>
-                                    @if ($priceWeek != 0)
-                                        <form
-                                            action="{{ route('price.destroy', ['unitId' => $unit->id, 'type' => 'week']) }}"
-                                            method="post">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class='btn btn-danger'>NonAktif</button>
-                                        </form>
-                                    @endif
+                                        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
+                                            data-bs-type="Mingguan" data-bs-type-value="week"
+                                            data-bs-price="{{ $priceWeek }}">
+                                            Ubah
+                                        </button>
+                                        @if ($priceWeek != 0)
+                                            <form
+                                                action="{{ route('price.destroy', ['unitId' => $unit->id, 'type' => 'week']) }}"
+                                                method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class='btn btn-danger'>NonAktif</button>
+                                            </form>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>
@@ -99,20 +101,20 @@
                                 <td class="text-center">{{ $priceMonth != 0 ? $priceMonth : 'Belum Disetel' }}</td>
                                 <td class="text-center">
                                     <div class="btn-group">
-                                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
-                                        data-bs-type="Bulanan" data-bs-type-value="month"
-                                        data-bs-price="{{ $priceMonth }}">
-                                        Ubah
-                                    </button>
-                                    @if ($priceMonth != 0)
-                                        <form
-                                            action="{{ route('price.destroy', ['unitId' => $unit->id, 'type' => 'month']) }}"
-                                            method="post">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class='btn btn-danger'>NonAktif</button>
-                                        </form>
-                                    @endif
+                                        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
+                                            data-bs-type="Bulanan" data-bs-type-value="month"
+                                            data-bs-price="{{ $priceMonth }}">
+                                            Ubah
+                                        </button>
+                                        @if ($priceMonth != 0)
+                                            <form
+                                                action="{{ route('price.destroy', ['unitId' => $unit->id, 'type' => 'month']) }}"
+                                                method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class='btn btn-danger'>NonAktif</button>
+                                            </form>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>
@@ -121,20 +123,20 @@
                                 <td class="text-center">{{ $priceYear != 0 ? $priceYear : 'Belum Disetel' }}</td>
                                 <td class="text-center">
                                     <div class="btn-group">
-                                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
-                                        data-bs-type="Tahunan" data-bs-type-value="year"
-                                        data-bs-price="{{ $priceYear }}">
-                                        Ubah
-                                    </button>
-                                    @if ($priceYear != 0)
-                                        <form
-                                            action="{{ route('price.destroy', ['unitId' => $unit->id, 'type' => 'year']) }}"
-                                            method="post">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class='btn btn-danger'>NonAktif</button>
-                                        </form>
-                                    @endif
+                                        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
+                                            data-bs-type="Tahunan" data-bs-type-value="year"
+                                            data-bs-price="{{ $priceYear }}">
+                                            Ubah
+                                        </button>
+                                        @if ($priceYear != 0)
+                                            <form
+                                                action="{{ route('price.destroy', ['unitId' => $unit->id, 'type' => 'year']) }}"
+                                                method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class='btn btn-danger'>NonAktif</button>
+                                            </form>
+                                        @endif
                                     </div>
                                 </td>
                             </tr>
@@ -205,12 +207,29 @@
                         <table class="table table-bordered">
                             <tr>
                                 <th class="text-center">Gambar</th>
+                                <th class="text-center">Thumbnail</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                             @forelse ($gallery as $g)
                                 <tr>
-                                    <td  class="text-center"><img  class="img-thumbnail" height="150" width="150" src="{{ asset("storage/".$g->image) }}" ></td>
-                                    <td  class="text-center">Tombol Aksi</td>
+                                    <td class="text-center"><img class="img-thumbnail" height="150" width="150"
+                                            src="{{ asset('storage/' . $g->image) }}"></td>
+                                    <td class="text-center">
+                                        @if ($g->is_thumbnail == 1)
+                                            <span class="badge bg-success">Ya</span>
+                                        @else
+                                            <span class="badge bg-danger">Bukan</span>
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if ($g->is_thumbnail == 1)
+                                        @else
+                                            <form action="{{ route('gallery.thumbnail', $g->id) }}" method="post">
+                                                @csrf
+                                                <button type="submit" class="btn btn-primary">Jadikan Thumbnail</button>
+                                            </form>
+                                        @endif
+                                    </td>
                                 </tr>
                             @empty
                                 <tr>
@@ -300,12 +319,12 @@
                         <div class="mb-3">
                             <label for="type" class="col-form-label">Jenis:</label>
                             <input type="text" class="form-control" name="type" id="update-type-facility"
-                                placeholder="Kamar Tidur"/>
+                                placeholder="Kamar Tidur" />
                         </div>
                         <div class="mb-3">
                             <label for="detail" class="col-form-label">Detail:</label>
                             <input class="form-control" name="detail" type="text" id="update-detail-facility"
-                                placeholder="2"/>
+                                placeholder="2" />
                         </div>
                 </div>
                 <div class="modal-footer">

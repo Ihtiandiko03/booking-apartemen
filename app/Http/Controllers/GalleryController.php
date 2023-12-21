@@ -26,6 +26,19 @@ class GalleryController extends Controller
         }
     }
 
+    public function changeThumbnail(String $id)
+    {
+        $gallery = Gallery::findOrFail($id);
+
+        Gallery::where('unit_id', $gallery->unit_id)->where('is_thumbnail', 1)->update(['is_thumbnail' => 0]);
+
+        $gallery->is_thumbnail = 1;
+        $gallery->save();
+
+        Alert::success('Sukses!', 'Berhasil Diubah');
+        return redirect()->back();
+    }
+
     public function destroy(String $id)
     {
         $gallery = Gallery::findOrFail($id);

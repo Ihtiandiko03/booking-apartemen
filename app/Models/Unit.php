@@ -15,6 +15,7 @@ class Unit extends Model
     protected $fillable = [
         'nama_unit',
         'deskripsi_unit',
+        'slug',
         'is_available',
     ];
 

@@ -57,7 +57,16 @@ class UnitController extends Controller
      */
     public function store(StoreUnitRequest $request)
     {
-        if (Unit::create($request->validated())) {
+        $request_all = $request->all();
+        $slug = str($request->nama_unit)->slug();
+        if (Unit::where('slug', $slug)->count() > 0) {
+            $slug .= rand(1, 20);
+            $request_all['slug'] = $slug;
+        } else {
+            $request_all['slug'] = $slug->value;
+        }
+
+        if (Unit::create($request_all)) {
             Alert::success('Sukses!', 'Berhasil Dibuat');
             return redirect(route('unit.index'));
         }
@@ -105,7 +114,19 @@ class UnitController extends Controller
     {
         $unit = Unit::findOrFail($id);
 
-        if ($unit->update($request->validated())) {
+        $request_all = $request->all();
+
+        if ($unit->title != $request->nama_unit) {
+            $slug = str($request->nama_unit)->slug();
+            if (Unit::where('slug', $slug)->count() > 0) {
+                $slug .= rand(1, 20);
+                $request_all['slug'] = $slug;
+            } else {
+                $request_all['slug'] = $slug->value;
+            }    
+        }
+
+        if ($unit->update($request_all)) {
             Alert::success('Sukses!', 'Berhasil Diupdate!');
         }
 
