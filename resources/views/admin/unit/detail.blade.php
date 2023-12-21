@@ -53,7 +53,7 @@
                             </tr>
                             <tr>
                                 <td  class="text-center">Harian</td>
-                                <td  class="text-center">{{ $priceDay != 0 ? 'Rp'.number_format($priceDay) : 'Belum Disetel' }}</td>
+                                <td  class="text-center">{{ $priceDay != 0 ? 'Rp'.number_format($priceDay, 0, ',', '.') : 'Belum Disetel' }}</td>
                                 <td  class="text-center">
                                     <div class="btn-group">
                                     <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
@@ -74,7 +74,7 @@
                             </tr>
                             <tr>
                                 <td class="text-center">Mingguan</td>
-                                <td class="text-center">{{ $priceWeek != 0 ? $priceWeek : 'Belum Disetel' }}</td>
+                                <td class="text-center">{{ $priceWeek != 0 ? 'Rp'.number_format($priceWeek, 0, ',', '.') : 'Belum Disetel' }}</td>
                                 <td class="text-center">
                                     <div class="btn-group">
                                     <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
@@ -96,7 +96,7 @@
                             </tr>
                             <tr>
                                 <td class="text-center">Bulanan</td>
-                                <td class="text-center">{{ $priceMonth != 0 ? $priceMonth : 'Belum Disetel' }}</td>
+                                <td class="text-center">{{ $priceMonth != 0 ? 'Rp'.number_format($priceMonth, 0, ',', '.') : 'Belum Disetel' }}</td>
                                 <td class="text-center">
                                     <div class="btn-group">
                                     <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
@@ -118,7 +118,7 @@
                             </tr>
                             <tr>
                                 <td class="text-center">Tahunan</td>
-                                <td class="text-center">{{ $priceYear != 0 ? $priceYear : 'Belum Disetel' }}</td>
+                                <td class="text-center">{{ $priceYear != 0 ? 'Rp'.number_format($priceYear, 0, ',', '.') : 'Belum Disetel' }}</td>
                                 <td class="text-center">
                                     <div class="btn-group">
                                     <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
