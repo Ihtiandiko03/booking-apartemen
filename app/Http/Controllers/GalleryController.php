@@ -12,10 +12,8 @@ class GalleryController extends Controller
 {
     public function store(StoreGalleryRequest $request)
     {
-        // dd($request->image);
         $imgName = 'gallery-'.time().'.'.$request->image->extension();
         
-        // $request->image->move(public_path('gallery'), $imgName);
         $request->file('image')->storeAs('public/gallery', $imgName);
         $imagePath = 'gallery/' . $imgName;
 
@@ -28,7 +26,7 @@ class GalleryController extends Controller
         }
     }
 
-    public function destroy(string $id)
+    public function destroy(String $id)
     {
         $gallery = Gallery::findOrFail($id);
 
