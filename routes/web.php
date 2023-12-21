@@ -1,12 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\PriceController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdvertisementController;
-use App\Http\Controllers\FaqController;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,5 +87,17 @@ Route::middleware('auth')->group(function () {
 Route::resource('/unit', UnitController::class)->middleware(['auth', 'verified']);
 Route::resource('/advertisement', AdvertisementController::class)->middleware(['auth', 'verified']);
 Route::resource('/faq', FaqController::class)->middleware(['auth', 'verified']);
+
+Route::post('/price', [PriceController::class, 'store'])->name('price.store');
+Route::delete('/price/{unitId}/{type}', [PriceController::class, 'destroy'])->name('price.destroy');
+
+Route::post('/facility', [FacilityController::class, 'store'])->name('facility.store');
+Route::put('/facility/{id}', [FacilityController::class, 'update'])->name('facility.update');
+Route::delete('/facility/{id}', [FacilityController::class, 'destroy'])->name('facility.destroy');
+
+Route::post('/gallery', [GalleryController::class, 'store'])->name('gallery.store');
+Route::delete('/gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
+
+
 
 require __DIR__.'/auth.php';

@@ -69,12 +69,21 @@ class UnitController extends Controller
     public function show(string $id)
     {
         $unit = Unit::findOrFail($id);
-        
+        $price = $unit->prices;
+
+        $priceDay = $price->firstWhere('type', 'day')->price ?? 0;
+        $priceWeek = $price->firstWhere('type', 'week')->price ?? 0;
+        $priceMonth = $price->firstWhere('type', 'month')->price ?? 0;
+        $priceYear = $price->firstWhere('type', 'year')->price ?? 0;
+
         $data = [
             'unit' => $unit,
             'facility' => $unit->facilities,
             'gallery' => $unit->galleries,
-            'price' => $unit->prices,
+            'priceDay' => $priceDay,
+            'priceWeek' => $priceWeek,
+            'priceMonth' => $priceMonth,
+            'priceYear' => $priceYear,
         ];
 
         return view('admin.unit.detail', $data);

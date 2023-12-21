@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateFacilityRequest extends FormRequest
@@ -11,7 +12,7 @@ class UpdateFacilityRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -22,7 +23,9 @@ class UpdateFacilityRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'type' => ['required', 'max:255'],
+            'detail' => ['required', 'max:255'],
+            'unit_id' => ['required'],
         ];
     }
 }

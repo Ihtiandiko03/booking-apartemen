@@ -2,16 +2,17 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePriceRequest extends FormRequest
+class PostPriceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -22,7 +23,9 @@ class UpdatePriceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'price' => ['required', 'numeric', 'min:0'],
+            'type' => ['required', 'in:day,week,month,year'],
+            'unit_id' => ['required']
         ];
     }
 }
