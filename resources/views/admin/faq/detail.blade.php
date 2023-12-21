@@ -37,7 +37,7 @@
                                     <input type="number" class="form-control" name="order" id="order" placeholder="Masukkan urutan" value="{{ $faq['order'] }}" disabled>
                                 </div>
                                 <div class="mb-3">
-                                    <a href="/faq" class="btn btn-primary">Kembali</a>
+                                    <a href="/faq" class="btn btn-dark">Kembali</a>
                                     <a href="{{ Route('faq.edit', $faq['id']) }}" class="btn btn-warning">Edit</a>
                                 </div>
                             </div>

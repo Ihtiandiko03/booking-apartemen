@@ -35,7 +35,7 @@
                                     <textarea class="form-control" name="deskripsi_unit" id="deskripsi_unit" rows="3" placeholder="Masukkan Deskripsi">{{ $unit->deskripsi_unit }}</textarea>
                                 </div>
                                 <div class="mb-3">
-                                    <button class="btn btn-primary" type="submit">Update</button>
+                                    <button class="btn btn-dark" type="submit">Update</button>
                                 </div>
                             </div>
                         </form>

@@ -39,7 +39,7 @@
                                     <input type="number" class="form-control" name="order" id="order" placeholder="Masukkan urutan" value="{{ $faq['order'] }}">
                                 </div>
                                 <div class="mb-3">
-                                    <button class="btn btn-primary" type="submit">Simpan</button>
+                                    <button class="btn btn-dark" type="submit">Simpan</button>
                                 </div>
                             </div>
                         </form>

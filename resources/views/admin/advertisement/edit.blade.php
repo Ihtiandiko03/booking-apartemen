@@ -39,7 +39,7 @@
                                     <input class="form-control" type="file" id="banner" name="banner" value="{{ $advertisement->banner }}">
                                 </div>
                                 <div class="mb-3">
-                                    <button class="btn btn-primary" type="submit">Update</button>
+                                    <button class="btn btn-dark" type="submit">Update</button>
                                 </div>
                             </div>
                         </form>

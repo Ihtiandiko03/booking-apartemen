@@ -6,7 +6,7 @@
                 <div class="card p-3 mb-4">
                     <div class="card-header pb-0 d-flex justify-content-between">
                         <h6>Daftar Iklan</h6>
-                        <a href="{{ Route('advertisement.create') }}" class="btn btn-primary ms-auto">Tambah</a>
+                        <a href="{{ Route('advertisement.create') }}" class="btn btn-dark ms-auto">Tambah</a>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
