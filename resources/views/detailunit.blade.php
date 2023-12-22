@@ -28,14 +28,15 @@
 				<div class="row">
 					<div class="col-md-8">
 						<div class="row">
-							{{-- <div class="hp-section">
+							<div class="hp-section">
 								<div class="hp-sub-tit">
 									<h4><span>{{$unit->nama_unit}}</span></h4>
+									<p>Deskripsi</p>
 								</div>
-								<div class="hp-amini">
+								<div class="hp-amini detai-2p">
 									<p>{{$unit->deskripsi_unit}}</p>
 								</div>
-							</div> --}}
+							</div>
 							
 							<div class="hp-section">
 								<div class="hp-sub-tit">
@@ -69,10 +70,10 @@
 										<div id="menu2" class="tab-pane fade tab-space">
 											<div class="hp-main-overview">
 												<ul>
-                                                    <li>Price per day: <span>Rp{{number_format($priceDay, 0, ',', '.')}}</span></li>
-                                                    <li>Price per week: <span>Rp{{number_format($priceWeek, 0, ',', '.')}}</span></li>
-                                                    <li>Price per month: <span>Rp{{number_format($priceMonth, 0, ',', '.')}}</span></li>
-                                                    <li>Price per year: <span>Rp{{number_format($priceYear, 0, ',', '.')}}</span></li>
+                                                    <li>Price per day: <span>{{ $priceDay != null ? 'Rp '.number_format($priceDay, 0, ',', '.') : 'Tidak Ada' }}</span></li>
+                                                    <li>Price per week: <span>{{ $priceWeek != null ? 'Rp '.number_format($priceWeek, 0, ',', '.') : 'Tidak Ada' }}</span></li>
+                                                    <li>Price per month: <span>{{ $priceMonth != null ? 'Rp '.number_format($priceMonth, 0, ',', '.') : 'Tidak Ada' }}</span></li>
+                                                    <li>Price per year: <span>{{ $priceYear != null ? 'Rp '.number_format($priceYear, 0, ',', '.') : 'Tidak Ada' }}</span></li>
 												</ul>
 											</div>
 										</div>
@@ -148,7 +149,7 @@
 						<div class="hp-call hp-right-com">
 							<div class="hp-call-in">
 								<h1>Price</h1>
-								<h3>Rp3.000.000</h3> 
+								<h3 name="totalHarga" class="totalHarga">Rp 0</h3> 
 								<small class="mb-3">We are available 24/7 Monday to Sunday</small> <br><br>
 
 								{{-- <ul class="nav nav-tabs" role="tablist">
@@ -167,71 +168,73 @@
 								</ul> --}}
 								
 								<br>
-
-								<div class="row g-3">
-									<div class="col-xs-12">
-										<br>
-										<div><label for="" style="font-size: 10pt; color:#2d2d2d">Tipe</label></div>
-										<select id="months" class="form-select" name="months">
-											<option value="Harian" selected="selected">Harian</option>
-											<option value="Mingguan">Mingguan</option>
-											<option value="Bulanan">Bulanan</option>
-											<option value="Tahunan">Tahunan</option>
-										</select>
-									</div>
-
-									<div class="col-xs-6">
-										<br>
-										<div><label for="" style="font-size: 10pt; color:#2d2d2d">Check - In</label></div>
-											<input type="date" class="form-control" placeholder="Check-in" >
+								<form action="{{ route('order.pay') }}" method="post" id="bookingForm">
+									@csrf
+								
+									<input type="hidden" name="totalPrice" class="totalHarga">
+									<input type="hidden" name="unit_id" value="{{ $unit->id }}">
+									<div class="row g-3">
+										<div class="col-xs-12">
+											<br>
+											<div>
+												<label for="bookingType" style="font-size: 10pt; color:#2d2d2d">
+													Tipe
+												</label>
+											</div>
+											<select class="form-select" id="bookingType" name="bookingType" style="display: block">
+												@if($priceDay != null )
+													<option value="day">Harian</option>
+												@endif
+												@if ($priceWeek != null)
+													<option value="week">Mingguan</option>
+												@endif
+												@if ($priceMonth != null)
+													<option value="month">Bulanan</option>
+												@endif
+												@if ($priceYear != null)
+													<option value="year">Tahunan</option>
+												@endif
+											</select>
 										</div>
-									<div class="col-xs-6">
-										<br>
-										<div><label for="" style="font-size: 10pt; color:#2d2d2d">Check - Out</label></div>
-											<input type="date" class="form-control"  placeholder="Check-out">
+
+										<div class="col-xs-12">
+											<br>
+											<div>
+												<label for="quantity" style="font-size: 10pt; color:#2d2d2d">Durasi</label>
+											</div>
+											<select class="form-select" id="quantity" name="quantity" style="display: block">
+											</select>
+										</div>
+
+										<div class="col-xs-6">
+											<br>
+											<div>
+												<label for="startDate" style="font-size: 10pt; color:#2d2d2d">
+													Check - In
+												</label>
+											</div>
+												<input type="date" class="form-control" min="{{ date('Y-m-d') }}" id="startDate" name="startDate" placeholder="Check-in" >
+											</div>
+										<div class="col-xs-6">
+											<br>
+											<div>
+												<label for="endDate" style="font-size: 10pt; color:#2d2d2d">
+													Check - Out
+												</label>
+											</div>
+												<input type="date" class="form-control" id="endDate" name="endDate" readonly placeholder="Check-out">
+										</div>
+
+
+										
 									</div>
-
-									<div class="col-xs-12">
-										<br>
-										<div><label for="" style="font-size: 10pt; color:#2d2d2d">Durasi</label></div>
-										<select id="months" class="form-select" name="months">
-											<option value="1" selected="selected">1 bulan</option>
-											<option value="2">2 bulan</option>
-											<option value="3">3 bulan</option>
-											<option value="4">4 bulan</option>
-											<option value="5">5 bulan</option>
-											<option value="6">6 bulan</option>
-											<option value="7">7 bulan</option>
-											<option value="8">8 bulan</option>
-											<option value="9">9 bulan</option>
-											<option value="10">10 bulan</option>
-											<option value="11">11 bulan</option>
-											<option value="12">12 bulan</option>
-										</select>
-									</div>
-
-									
-								</div>
-								<br>
-								<h3 style="color: #8a6e35">Total Rp5.000.000</h3>
-								{{-- <button class="btn btn-danger">Booking</button> --}}
-								<a class="btn btn-danger" href="/detailbooking/{{$unit->slug}}">Booking</a>
-
+									<br>
+									<h3 id="totalHarga" class="totalHarga" name="totalHarga" style="color: #8a6e35">Rp 0</h3>
+									<button class="btn btn-danger" type="submit">Booking</button>
+									{{-- <a class="btn btn-danger" href="/detailbooking/{{$unit->slug}}">Booking</a> --}}
+								</form>
 								<h5 style="text-align: left;">Info Penting : </h5>
 								<p style="text-align: justify;">Untuk pemesanan harian, deposit menggunakan bank transfer atau virtual account diestimasikan akan diterima kembali oleh pelanggan dalam waktu paling lambat 5 hari kerja setelah data bank terkonfirmasi. Pemberitahuan akan dikirimkan ke email Anda setelah berhasil (pastikan contact detail yang terdaftar aktif).</p>
-
-
-								
-
-								{{-- <select class="form-select" aria-label="Default select example">
-									<option selected>Open this select menu</option>
-									<option value="1">One</option>
-									<option value="2">Two</option>
-									<option value="3">Three</option>
-								  </select> --}}
-
-								
-
 							</div>
 						</div>
 					</div>
@@ -247,4 +250,123 @@
 				</div>
 			</div>
 		</div>
+@endsection
+
+@section('script')
+	<script>
+		$(document).ready(function () {
+            function updateQuantityOptions() {
+                var bookingType = $('#bookingType').val();
+                var quantitySelect = $('#quantity');
+                quantitySelect.empty();  
+
+                var maxQuantity;
+                switch (bookingType) {
+                    case 'day':
+                        maxQuantity = 6;
+                        break;
+                    case 'week':
+                        maxQuantity = 4;
+                        break;
+                    case 'month':
+                        maxQuantity = 11;
+                        break;
+                    case 'year':
+                        maxQuantity = 5;
+                        break;
+                    default:
+                        maxQuantity = 1;
+                        break;
+                }
+
+                for (var i = 1; i <= maxQuantity; i++) {
+                    $('#quantity').append($('<option>', { value: i, text: i }));
+                }
+            }
+
+            function resetQuantity() {
+                $('#quantity').val(1); 
+            }
+
+            function updateEndDate() {
+                var startDateValue = $('#startDate').val();
+
+                if (!startDateValue) {
+                    return;
+                }
+
+                var startDate = new Date(startDateValue);
+                var endDate = $('#endDate');
+                var quantity = parseInt($('#quantity').val(), 10);
+                var bookingType = $('#bookingType').val();
+
+                switch (bookingType) {
+                    case 'day':
+                        endDate.val(new Date(startDate.setDate(startDate.getDate() + quantity - 1)).toISOString().split('T')[0]);
+                        break;
+                    case 'week':
+                        endDate.val(new Date(startDate.setDate(startDate.getDate() + quantity * 7 - 1)).toISOString().split('T')[0]);
+                        break;
+                    case 'month':
+                        endDate.val(new Date(startDate.setMonth(startDate.getMonth() + quantity)).toISOString().split('T')[0]);
+                        break;
+                    case 'year':
+                        endDate.val(new Date(startDate.setFullYear(startDate.getFullYear() + quantity) - 1).toISOString().split('T')[0]);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            function updateTotalHarga() {
+                var quantity = parseInt($('#quantity').val(), 10);
+                var harga;
+
+                switch ($('#bookingType').val()) {
+                    case 'day':
+                        harga = parseFloat({{ $priceDay ?? 0 }});
+                        break;
+                    case 'week':
+                        harga = parseFloat({{ $priceWeek ?? 0 }});
+                        break;
+                    case 'month':
+                        harga = parseFloat({{ $priceMonth ?? 0 }});
+                        break;
+                    case 'year':
+                        harga = parseFloat({{ $priceYear ?? 0 }});
+                        break;
+                    default:
+                        break;
+                }
+
+                var totalHarga = quantity * harga;
+				$("input[name*='totalPrice']").val(totalHarga);
+                $('.totalHarga').html(new Intl.NumberFormat('id-ID', {
+					style: 'currency',
+					currency: 'IDR',
+				}).format(totalHarga));
+            }
+
+            updateQuantityOptions();
+			updateTotalHarga();
+
+            $('#bookingType, #startDate').on('change', function () {
+                resetQuantity(); 
+                updateEndDate();
+                updateTotalHarga();
+            });
+
+            $('#bookingType').on('change', function () {
+                updateQuantityOptions();
+                resetQuantity();
+                updateTotalHarga(); 
+            });
+
+            $('#quantity').on('change', function () {
+                updateEndDate(); 
+                updateTotalHarga();
+            });
+
+        });
+	</script>
 @endsection

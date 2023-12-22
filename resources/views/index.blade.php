@@ -61,7 +61,7 @@
 										@else
 											<div class="hom-hot-noav-tic"> Not Available </div> 
 										@endif
-										<img src="{{ asset("storage/".$u->image) }}" alt=""> 
+										<img src="{{ $u->image ? asset("storage/".$u->image) : asset("assets/images/no-photo-apartemen.jpg") }}" height="300" alt=""> 
 									</div>
 									<div class="to-ho-hotel-con-23">
 										<div class="to-ho-hotel-con-2"> <a href="detailunit/{{$u->slug}}"><h4>{{$u->nama_unit}}</h4></a> </div>
@@ -71,8 +71,25 @@
 													<div class="dir-rat-star ho-hot-rat-star"> Rating: <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i> </div>
 												</li>
 												<li>
-													{{-- <span class="ho-hot-pri-dis">$720</span> --}}
-													<span class="ho-hot-pri">Rp{{number_format($u->price, 0, ',', '.')}}/day</span>
+													@php
+														if ($u->day_price != null) {
+															$price = $u->day_price;
+															$type = 'day';
+														} else if ($u->week_price != null) {
+															$price = $u->week_price;
+															$type = 'week';
+														} else if ($u->month_price != null) {
+															$price = $u->month_price;
+															$type = 'month';
+														} else if ($u->year_price != null) {
+															$price = $u->year_price;
+															$type = 'year';
+														} else {
+															$price = 0;
+															$type = 'No Price';
+														}
+													@endphp
+													<span class="ho-hot-pri">Rp{{number_format($price, 0, ',', '.')}}/{{ $type }}</span>
 												</li>
 											</ul>
 										</div>
@@ -80,114 +97,7 @@
 								</div>
 							</div>
 						@endforeach
-						<!-- HOTEL GRID -->
-						<div class="col-md-4">
-							<div class="to-ho-hotel-con">
-								<div class="to-ho-hotel-con-1">
-									<div class="hom-hot-av-tic"> Available Tickets: 42 </div> <img src="{{asset('assets/images/room/3.jpg')}}" alt=""> </div>
-								<div class="to-ho-hotel-con-23">
-									<div class="to-ho-hotel-con-2"> <a href="all-rooms.html"><h4>Master Room</h4></a> </div>
-									<div class="to-ho-hotel-con-3">
-										<ul>
-											<li>City: illunois,united states
-												<div class="dir-rat-star ho-hot-rat-star"> Rating: <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i> </div>
-											</li>
-											<li><span class="ho-hot-pri-dis">$720</span><span class="ho-hot-pri">$420</span> </li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- HOTEL GRID -->
-						<div class="col-md-4">
-							<div class="to-ho-hotel-con">
-								<div class="to-ho-hotel-con-1">
-									<div class="hom-hot-av-tic"> Available Tickets: 520 </div> <img src="{{asset('assets/images/room/1.jpg')}}" alt=""> </div>
-								<div class="to-ho-hotel-con-23">
-									<div class="to-ho-hotel-con-2"> <a href="all-rooms.html"><h4>Mini-Suite</h4></a> </div>
-									<div class="to-ho-hotel-con-3">
-										<ul>
-											<li>City: illunois,united states
-												<div class="dir-rat-star ho-hot-rat-star"> Rating: <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i> </div>
-											</li>
-											<li><span class="ho-hot-pri-dis">$840</span><span class="ho-hot-pri">$540</span> </li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- HOTEL GRID -->
-						<div class="col-md-4">
-							<div class="to-ho-hotel-con">
-								<div class="to-ho-hotel-con-1">
-									<div class="hom-hot-av-tic"> Available Tickets: 92 </div> <img src="{{asset('assets/images/room/2.jpg')}}" alt=""> </div>
-								<div class="to-ho-hotel-con-23">
-									<div class="to-ho-hotel-con-2"> <a href="all-rooms.html"><h4>Ultra Deluxe</h4></a> </div>
-									<div class="to-ho-hotel-con-3">
-										<ul>
-											<li>City: illunois,united states
-												<div class="dir-rat-star ho-hot-rat-star"> Rating: <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i> </div>
-											</li>
-											<li><span class="ho-hot-pri-dis">$680</span><span class="ho-hot-pri">$380</span> </li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- HOTEL GRID -->
-						<div class="col-md-4">
-							<div class="to-ho-hotel-con">
-								<div class="to-ho-hotel-con-1">
-									<div class="hom-hot-av-tic"> Available Tickets: 42 </div> <img src="{{asset('assets/images/room/4.jpg')}}" alt=""> </div>
-								<div class="to-ho-hotel-con-23">
-									<div class="to-ho-hotel-con-2"> <a href="all-rooms.html"><h4>Luxury Room</h4></a> </div>
-									<div class="to-ho-hotel-con-3">
-										<ul>
-											<li>City: illunois,united states
-												<div class="dir-rat-star ho-hot-rat-star"> Rating: <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i> </div>
-											</li>
-											<li><span class="ho-hot-pri-dis">$720</span><span class="ho-hot-pri">$420</span> </li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- HOTEL GRID -->
-						<div class="col-md-4">
-							<div class="to-ho-hotel-con">
-								<div class="to-ho-hotel-con-1">
-									<div class="hom-hot-av-tic"> Available Tickets: 520 </div> <img src="{{asset('assets/images/room/5.jpg')}}" alt=""> </div>
-								<div class="to-ho-hotel-con-23">
-									<div class="to-ho-hotel-con-2"> <a href="all-rooms.html"><h4>Premium Room</h4></a> </div>
-									<div class="to-ho-hotel-con-3">
-										<ul>
-											<li>City: illunois,united states
-												<div class="dir-rat-star ho-hot-rat-star"> Rating: <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i> </div>
-											</li>
-											<li><span class="ho-hot-pri-dis">$840</span><span class="ho-hot-pri">$540</span> </li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- HOTEL GRID -->
-						<div class="col-md-4">
-							<div class="to-ho-hotel-con">
-								<div class="to-ho-hotel-con-1">
-									<div class="hom-hot-av-tic"> Available Tickets: 92 </div> <img src="{{asset('assets/images/room/6.jpg')}}" alt=""> </div>
-								<div class="to-ho-hotel-con-23">
-									<div class="to-ho-hotel-con-2"> <a href="all-rooms.html"><h4>Normal Room</h4></a> </div>
-									<div class="to-ho-hotel-con-3">
-										<ul>
-											<li>City: illunois,united states
-												<div class="dir-rat-star ho-hot-rat-star"> Rating: <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i> </div>
-											</li>
-											<li><span class="ho-hot-pri-dis">$680</span><span class="ho-hot-pri">$380</span> </li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
+
 					</div>
 				</div>
 			</div>
