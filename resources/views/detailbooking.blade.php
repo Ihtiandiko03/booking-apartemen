@@ -26,30 +26,28 @@
 								<div class="hp-over">
 									<form class="row g-3">
                                         <div class="col-md-6">
-                                          <label for="inputEmail4" class="form-label">Name</label>
+                                          <label for="inputEmail4" class="form-label" style="margin-top:10px; color: #2a2b33 ;font-size: 9pt;">Name</label>
                                           <input type="text" class="form-control" id="inputEmail4">
                                         </div>
                                         <div class="col-md-6">
-                                          <label for="inputPassword4" class="form-label">Number Phone</label>
+                                          <label for="inputPassword4" class="form-label" style="margin-top:10px; color: #2a2b33 ;font-size: 9pt;">Number Phone</label>
                                           <input type="text" class="form-control" id="inputPassword4">
                                         </div>
                                         
                                         <div class="col-md-6">
-                                          <label for="inputCity" class="form-label">City</label>
+                                          <label for="inputCity" class="form-label" style="margin-top:10px; color: #2a2b33 ;font-size: 9pt;">City</label>
                                           <input type="text" class="form-control" id="inputCity">
                                         </div>
                                     
                                         <div class="col-md-2">
-                                          <label for="inputZip" class="form-label">Zip</label>
+                                          <label for="inputZip" class="form-label" style="margin-top:10px; color: #2a2b33 ;font-size: 9pt;">Zip</label>
                                           <input type="text" class="form-control" id="inputZip">
                                         </div>
                                         
                                     </div>
                                 </div>
-                                
-                            <button class="btn btn-danger">Lanjutkan</button>    
-                            </form>
-							
+                                <button class="btn btn-danger">Lanjutkan</button>    
+                                </form>
 							
 						</div>
 					</div>
@@ -100,11 +98,11 @@
 								</ul> --}}
 								
 								<br>
-								<h3 style="color: #8a6e35">Total priceDay Rp5.000.000</h3>
+								<h3 style="color: #8a6e35">Total price Rp5.000.000</h3>
 								{{-- <button class="btn btn-danger">Booking</button> --}}
 
 								<h5 style="text-align: left;">Info Penting : </h5>
-								<p style="text-align: justify;">Untuk pemesanan harian, deposit menggunakan bank transfer atau virtual account diestimasikan akan diterima kembali oleh pelanggan dalam waktu paling lambat 5 hari kerja setelah data bank terkonfirmasi. Pemberitahuan akan dikirimkan ke email Anda setelah berhasil (pastikan contact detail yang terdaftar aktif).</p>
+								<p style="text-align: justify;">Deposit dibayarkan saat pemesan datang ke apartemen. Untuk pemesanan harian, deposit menggunakan bank transfer atau virtual account diestimasikan akan diterima kembali oleh pelanggan dalam waktu paling lambat 5 hari kerja setelah data bank terkonfirmasi. Pemberitahuan akan dikirimkan ke email Anda setelah berhasil (pastikan contact detail yang terdaftar aktif).</p>
 
 
 								

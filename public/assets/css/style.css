@@ -3842,7 +3842,7 @@ footer ul li a {
     font-size: 14px;
     color: #727070;
 }
-.hp-call-in a {
+/* .hp-call-in a {
     display: block;
     background: #f91942;
     border-radius: 2px;
@@ -3851,7 +3851,7 @@ footer ul li a {
     margin-top: 15px;
     text-transform: uppercase;
     font-weight: 700;
-}
+} */
 .hp-book-in {} .like-button {
     background-color: #fafafa;
     border: 1px solid #ddd;

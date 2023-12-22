@@ -314,7 +314,9 @@
                 </div>
                 <div class="menu-bar">
                     <ul>
-                        <li><a href="#" class='dropdown-button' data-activates='drop-home'>Home <i class="fa fa-angle-down"></i></a>
+                        {{-- <li><a href="#" class='dropdown-button' data-activates='drop-home'>Home <i class="fa fa-angle-down"></i></a>
+                        </li> --}}
+                        <li><a href="/">Home</a>
                         </li>
                         <li><a href="#" class='dropdown-button' data-activates='drop-room'>Rooms <i class="fa fa-angle-down"></i></a>
                         </li>

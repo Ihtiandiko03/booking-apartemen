@@ -148,7 +148,7 @@
 						<div class="hp-call hp-right-com">
 							<div class="hp-call-in">
 								<h1>Price</h1>
-								<h3>Rp5.000.000</h3> 
+								<h3>Rp3.000.000</h3> 
 								<small class="mb-3">We are available 24/7 Monday to Sunday</small> <br><br>
 
 								{{-- <ul class="nav nav-tabs" role="tablist">
@@ -236,14 +236,13 @@
 						</div>
 					</div>
 
-					<div class="col-md-4">
-						<!--=========================================-->
+					{{-- <div class="col-md-4">
 						<div class="hp-call hp-right-com">
 							<div class="hp-call-in"> <img src="{{asset('assets/images/icon/dbc4.png')}}" alt="">
 								<h3><span>Check Availability. Call us!</span> +62 823 7710 2513</h3> <small>We are available 24/7 Monday to Sunday</small>  </div>
 						</div>
 						
-					</div>
+					</div> --}}
 					
 				</div>
 			</div>
