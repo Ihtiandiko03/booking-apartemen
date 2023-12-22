@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Hash;
+
 
 class UserController extends Controller
 {
@@ -18,9 +21,7 @@ class UserController extends Controller
             return DataTables::of($user)
             ->addIndexColumn()
             ->addColumn('action', function ($item) {
-                $button =   '<a class="btn btn-primary" href="'. Route('user.show', $item->id) .'">
-                                Lihat
-                            </a>
+                $button =   '<div class="btn-group">
                             <a class="btn btn-warning" href="'. Route('user.edit', $item->id) .'">
                                 Edit
                             </a>
@@ -30,7 +31,7 @@ class UserController extends Controller
                                 <button class="btn btn-danger" type="submit" data-id="'.$item->id.'">
                                     Hapus
                                 </button>
-                            </form>';
+                            </form></div>';
                 return $button;
             })
             ->make();
@@ -44,7 +45,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.index');
+        return view('admin.user.create');
     }
 
     /**
@@ -52,10 +53,20 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        if (User::create($request->validated())) {
-            Alert::success('Sukses!', 'Berhasil Dibuat');
-            return redirect(route('user.index'));
-        }
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'password' => ['required'],
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        Alert::success('Sukses!', 'Berhasil Dibuat');
+        return redirect(route('user.index'));
     }
 
     /**
@@ -84,7 +95,12 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        if ($user->update($request->validated())) {
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
+        ]);
+
+        if ($user->update($validated)) {
             Alert::success('Sukses!', 'Berhasil Diupdate!');
         }
 
