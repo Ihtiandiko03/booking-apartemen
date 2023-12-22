@@ -89,21 +89,24 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('/unit', UnitController::class)->middleware(['auth', 'verified']);
-Route::resource('/advertisement', AdvertisementController::class)->middleware(['auth', 'verified']);
-Route::resource('/faq', FaqController::class)->middleware(['auth', 'verified']);
-Route::resource('/user', UserController::class);
 
-Route::post('/price', [PriceController::class, 'store'])->name('price.store');
-Route::delete('/price/{unitId}/{type}', [PriceController::class, 'destroy'])->name('price.destroy');
-
-Route::post('/facility', [FacilityController::class, 'store'])->name('facility.store');
-Route::put('/facility/{id}', [FacilityController::class, 'update'])->name('facility.update');
-Route::delete('/facility/{id}', [FacilityController::class, 'destroy'])->name('facility.destroy');
-
-Route::post('/gallery', [GalleryController::class, 'store'])->name('gallery.store');
-Route::delete('/gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
-Route::post('/gallery/thumbnail/{id}', [GalleryController::class, 'changeThumbnail'])->name('gallery.thumbnail');
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::resource('/unit', UnitController::class);
+    Route::resource('/advertisement', AdvertisementController::class);
+    Route::resource('/faq', FaqController::class);
+    Route::resource('/user', UserController::class);
+    
+    Route::post('/price', [PriceController::class, 'store'])->name('price.store');
+    Route::delete('/price/{unitId}/{type}', [PriceController::class, 'destroy'])->name('price.destroy');
+    
+    Route::post('/facility', [FacilityController::class, 'store'])->name('facility.store');
+    Route::put('/facility/{id}', [FacilityController::class, 'update'])->name('facility.update');
+    Route::delete('/facility/{id}', [FacilityController::class, 'destroy'])->name('facility.destroy');
+    
+    Route::post('/gallery', [GalleryController::class, 'store'])->name('gallery.store');
+    Route::delete('/gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
+    Route::post('/gallery/thumbnail/{id}', [GalleryController::class, 'changeThumbnail'])->name('gallery.thumbnail');
+});
 
 
 require __DIR__.'/auth.php';
