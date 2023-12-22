@@ -3818,11 +3818,11 @@ footer ul li a {
 .hp-call-in img {
     margin: 0 auto;
     display: table;
-    width: 85px;
-    margin-bottom: 15px;
+    width: 250px;
+    margin-bottom: 5px;
     background: #ffffff;
     padding: 20px;
-    border-radius: 60px;
+    border-radius: 6px;
     border: 1px solid #dfd2bf;
 }
 .hp-call-in h3 {

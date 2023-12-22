@@ -55,6 +55,34 @@ class HomeController extends Controller
         return view('detailunit', $data);
     }
 
+    public function detailbooking($slug){
+        $getData = DB::table('units')
+        ->where('slug', '=', $slug)
+        ->get();
+        
+        $unit = Unit::findOrFail($getData[0]->id);
+        
+        $price = $unit->prices;
+        
+        $priceDay = $price->firstWhere('type', 'day')->price ?? 0;
+        $priceWeek = $price->firstWhere('type', 'week')->price ?? 0;
+        $priceMonth = $price->firstWhere('type', 'month')->price ?? 0;
+        $priceYear = $price->firstWhere('type', 'year')->price ?? 0;
+        
+        
+        $data = [
+            'unit' => $unit,
+            'facility' => $unit->facilities,
+            'gallery' => $unit->galleries,
+            'priceDay' => $priceDay,
+            'priceWeek' => $priceWeek,
+            'priceMonth' => $priceMonth,
+            'priceYear' => $priceYear,
+        ];
+        
+        return view('detailbooking', $data);
+    }
+
     public function index1(){
         return view('index-1');
     }

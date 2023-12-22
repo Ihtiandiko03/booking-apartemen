@@ -151,36 +151,49 @@
 								<h3>Rp5.000.000</h3> 
 								<small class="mb-3">We are available 24/7 Monday to Sunday</small> <br><br>
 
-								<ul class="nav nav-tabs" role="tablist">
+								{{-- <ul class="nav nav-tabs" role="tablist">
 									<li data-tab="Daily" class="active">
-										<a style="font-size: 6.5pt;" id="daily-tab" href="#daily" class="tab-control" aria-controls="daily" role="tab" data-toggle="tab" aria-expanded="true">Harian</a>
+										<a style="font-size: 6pt;" id="daily-tab" href="#daily" class="tab-control" aria-controls="daily" role="tab" data-toggle="tab" aria-expanded="true">Harian</a>
 									</li>
 									<li data-tab="Week">
-										<a style="font-size: 6.5pt;" id="week-tab" href="#week" class="tab-control" aria-controls="week" role="tab" data-toggle="tab" aria-expanded="false">Mingguan</a>
+										<a style="font-size: 6pt;" id="week-tab" href="#week" class="tab-control" aria-controls="week" role="tab" data-toggle="tab" aria-expanded="false">Mingguan</a>
 									</li>
 									<li data-tab="Monthly">
-										<a style="font-size: 6.5pt;" id="monthly-tab" href="#monthly" class="tab-control" aria-controls="monthly" role="tab" data-toggle="tab" aria-expanded="false">Bulanan</a>
+										<a style="font-size: 6pt;" id="monthly-tab" href="#monthly" class="tab-control" aria-controls="monthly" role="tab" data-toggle="tab" aria-expanded="false">Bulanan</a>
 									</li>
 									<li data-tab="Yearly">
-										<a style="font-size: 6.5pt;" id="yearly-tab" href="#yearly" class="tab-control" aria-controls="yearly" role="tab" data-toggle="tab">Tahunan</a>
+										<a style="font-size: 6pt;" id="yearly-tab" href="#yearly" class="tab-control" aria-controls="yearly" role="tab" data-toggle="tab">Tahunan</a>
 									</li>
-								</ul>
+								</ul> --}}
 								
 								<br>
 
 								<div class="row g-3">
+									<div class="col-xs-12">
+										<br>
+										<div><label for="" style="font-size: 10pt; color:#2d2d2d">Tipe</label></div>
+										<select id="months" class="form-select" name="months">
+											<option value="Harian" selected="selected">Harian</option>
+											<option value="Mingguan">Mingguan</option>
+											<option value="Bulanan">Bulanan</option>
+											<option value="Tahunan">Tahunan</option>
+										</select>
+									</div>
+
 									<div class="col-xs-6">
-										<div>Check - In</div>
+										<br>
+										<div><label for="" style="font-size: 10pt; color:#2d2d2d">Check - In</label></div>
 											<input type="date" class="form-control" placeholder="Check-in" >
 										</div>
 									<div class="col-xs-6">
-										<div>Check - Out</div>
+										<br>
+										<div><label for="" style="font-size: 10pt; color:#2d2d2d">Check - Out</label></div>
 											<input type="date" class="form-control"  placeholder="Check-out">
 									</div>
 
 									<div class="col-xs-12">
 										<br>
-										<div>Durasi</div>
+										<div><label for="" style="font-size: 10pt; color:#2d2d2d">Durasi</label></div>
 										<select id="months" class="form-select" name="months">
 											<option value="1" selected="selected">1 bulan</option>
 											<option value="2">2 bulan</option>
@@ -200,8 +213,9 @@
 									
 								</div>
 								<br>
-								<h3 style="color: #8a6e35">Total Rp5.000.000</h3> 
-								<button class="btn btn-danger">Booking</button>
+								<h3 style="color: #8a6e35">Total Rp5.000.000</h3>
+								{{-- <button class="btn btn-danger">Booking</button> --}}
+								<a class="btn btn-danger" href="/detailbooking/{{$unit->slug}}">Booking</a>
 
 								<h5 style="text-align: left;">Info Penting : </h5>
 								<p style="text-align: justify;">Untuk pemesanan harian, deposit menggunakan bank transfer atau virtual account diestimasikan akan diterima kembali oleh pelanggan dalam waktu paling lambat 5 hari kerja setelah data bank terkonfirmasi. Pemberitahuan akan dikirimkan ke email Anda setelah berhasil (pastikan contact detail yang terdaftar aktif).</p>
