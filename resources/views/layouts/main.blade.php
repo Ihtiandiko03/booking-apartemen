@@ -118,34 +118,35 @@
                     </a>
                     <h4>Create an Account</h4>
                     <p>Don't have an account? Create your account. It's take less then a minutes</p>
-                    <form class="s12">
+                    <form  method="POST" action="{{ route('register') }}" class="s12">
+                        @csrf
                         <div>
                             <div class="input-field s12">
-                                <input type="text" data-ng-model="name1" class="validate">
-                                <label>User name</label>
+                                <input type="text" id="name" name="name" :value="old('name')" class="validate">
+                                <label>Name</label>
                             </div>
                         </div>
                         <div>
                             <div class="input-field s12">
-                                <input type="email" class="validate">
-                                <label>Email id</label>
+                                <input id="email" name="email" type="email" :value="old('email')" class="validate">
+                                <label>Email</label>
                             </div>
                         </div>
                         <div>
                             <div class="input-field s12">
-                                <input type="password" class="validate">
+                                <input id="password" name="password" type="password" class="validate">
                                 <label>Password</label>
                             </div>
                         </div>
                         <div>
                             <div class="input-field s12">
-                                <input type="password" class="validate">
+                                <input id="password_confirmation" name="password_confirmation" type="password" class="validate">
                                 <label>Confirm password</label>
                             </div>
                         </div>
                         <div>
                             <div class="input-field s4">
-                                <input type="submit" value="Register" class="waves-effect waves-light log-in-btn">
+                                <input type="submit" class="waves-effect waves-light log-in-btn">
                             </div>
                         </div>
                         <div>
