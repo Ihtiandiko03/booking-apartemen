@@ -25,8 +25,8 @@ use App\Http\Controllers\AdvertisementController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/detailunit/{id}', [HomeController::class, 'detailunit']);
-Route::get('/detailbooking/{id}', [HomeController::class, 'detailbooking']);
+Route::get('/detailunit/{slug}', [HomeController::class, 'detailunit']);
+Route::get('/detailbooking/{slug}', [HomeController::class, 'detailbooking']);
 
 
 
@@ -111,6 +111,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 });
 
 Route::post('/order/pay', [OrderController::class, 'pay'])->name('order.pay');
+Route::post('/midtrans-callback', [OrderController::class, 'callback'])->name('order.callback');
 
 
 require __DIR__.'/auth.php';

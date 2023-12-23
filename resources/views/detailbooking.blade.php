@@ -25,14 +25,14 @@
 								</div>
 								<div class="hp-over">
 									<form class="row g-3">
-                                        <div class="col-md-6">
+                                        {{-- <div class="col-md-6">
                                           <label for="customer_name" class="form-label" style="margin-top:10px; color: #2a2b33 ;font-size: 9pt;">Name</label>
                                           <input type="text" class="form-control" id="customer_name" name="customer_name">
                                         </div>
                                         <div class="col-md-6">
                                           <label for="phone" class="form-label" style="margin-top:10px; color: #2a2b33 ;font-size: 9pt;">Number Phone</label>
                                           <input type="text" class="form-control" id="phone" name="phone">
-                                        </div>
+                                        </div> --}}
                                         
                                         
                                     </div>

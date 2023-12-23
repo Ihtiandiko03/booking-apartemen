@@ -27,6 +27,7 @@ class HomeController extends Controller
         FROM units
         LEFT JOIN galleries ON units.id = galleries.unit_id AND galleries.is_thumbnail = 1
         LEFT JOIN prices ON units.id = prices.unit_id
+        WHERE units.deleted_at IS NULL
         GROUP BY units.id, galleries.image");
         
         $data = [
@@ -37,11 +38,7 @@ class HomeController extends Controller
     }
 
     public function detailunit($slug){
-        $getData = DB::table('units')
-        ->where('slug', '=', $slug)
-        ->get();
-        
-        $unit = Unit::findOrFail($getData[0]->id);
+        $unit = Unit::where('slug', '=', $slug)->firstOrFail();
         
         $price = $unit->prices;
         

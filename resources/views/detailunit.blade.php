@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
 		<!--TOP SECTION-->
-        <div class="hp-banner"> <img src="{{asset('storage/'.$gallery[0]["image"])}}" width="1500" height="400"> </div>
+        <div class="hp-banner"> <img src="{{ isset($gallery[0]) ? asset('storage/'.$gallery[0]["image"]) : asset('assets/images/no-photo-apartemen.jpg')}}" width="1500" height="400"> </div>
 		<!--END HOTEL ROOMS-->
 		<!--CHECK AVAILABILITY FORM-->
 		<div class="check-available">
@@ -25,6 +25,18 @@
 		<!--END CHECK AVAILABILITY FORM-->
 		<div class="hom-com">
 			<div class="container">
+				@if ($errors->any())
+				<div class="alert alert-danger">
+					<div class="alert-title">
+						<h4>Whoops!</h4>
+					</div>
+					<ul>
+						@foreach ($errors->all() as $error)
+							<li>{{ $error }}</li>
+						@endforeach
+					</ul>
+				</div>
+				@endif
 				<div class="row">
 					<div class="col-md-8">
 						<div class="row">
@@ -144,115 +156,121 @@
 							
 						</div>
 					</div>
-					
-					<div class="col-md-4">
-						<div class="hp-call hp-right-com">
-							<div class="hp-call-in">
-								<h1>Price</h1>
-								<h3 name="totalHarga" class="totalHarga">Rp 0</h3> 
-								<small class="mb-3">We are available 24/7 Monday to Sunday</small> <br><br>
-
-								{{-- <ul class="nav nav-tabs" role="tablist">
-									<li data-tab="Daily" class="active">
-										<a style="font-size: 6pt;" id="daily-tab" href="#daily" class="tab-control" aria-controls="daily" role="tab" data-toggle="tab" aria-expanded="true">Harian</a>
-									</li>
-									<li data-tab="Week">
-										<a style="font-size: 6pt;" id="week-tab" href="#week" class="tab-control" aria-controls="week" role="tab" data-toggle="tab" aria-expanded="false">Mingguan</a>
-									</li>
-									<li data-tab="Monthly">
-										<a style="font-size: 6pt;" id="monthly-tab" href="#monthly" class="tab-control" aria-controls="monthly" role="tab" data-toggle="tab" aria-expanded="false">Bulanan</a>
-									</li>
-									<li data-tab="Yearly">
-										<a style="font-size: 6pt;" id="yearly-tab" href="#yearly" class="tab-control" aria-controls="yearly" role="tab" data-toggle="tab">Tahunan</a>
-									</li>
-								</ul> --}}
-								
-								<br>
-								<form action="{{ route('order.pay') }}" method="post" id="bookingForm">
-									@csrf
-								
-									<input type="hidden" name="totalPrice" class="totalHarga">
-									<input type="hidden" name="unit_id" value="{{ $unit->id }}">
-									<div class="row g-3">
-										<div class="col-xs-12">
-											<br>
-											<div>
-												<label for="bookingType" style="font-size: 10pt; color:#2d2d2d">
-													Tipe
-												</label>
-											</div>
-											<select class="form-select" id="bookingType" name="bookingType" style="display: block">
-												@if($priceDay != null )
-													<option value="day">Harian</option>
-												@endif
-												@if ($priceWeek != null)
-													<option value="week">Mingguan</option>
-												@endif
-												@if ($priceMonth != null)
-													<option value="month">Bulanan</option>
-												@endif
-												@if ($priceYear != null)
-													<option value="year">Tahunan</option>
-												@endif
-											</select>
-										</div>
-
-										<div class="col-xs-12">
-											<br>
-											<div>
-												<label for="quantity" style="font-size: 10pt; color:#2d2d2d">Durasi</label>
-											</div>
-											<select class="form-select" id="quantity" name="quantity" style="display: block">
-											</select>
-										</div>
-
-										<div class="col-xs-6">
-											<br>
-											<div>
-												<label for="startDate" style="font-size: 10pt; color:#2d2d2d">
-													Check - In
-												</label>
-											</div>
-												<input type="date" class="form-control" min="{{ date('Y-m-d') }}" id="startDate" name="startDate" placeholder="Check-in" >
-											</div>
-										<div class="col-xs-6">
-											<br>
-											<div>
-												<label for="endDate" style="font-size: 10pt; color:#2d2d2d">
-													Check - Out
-												</label>
-											</div>
-												<input type="date" class="form-control" id="endDate" name="endDate" readonly placeholder="Check-out">
-										</div>
-
-
-										
-									</div>
+					@if ($priceDay != null || $priceWeek != null || $priceMonth != null || $priceYear != null && $unit->is_available == 1)
+						<div class="col-md-4">
+							<div class="hp-call hp-right-com">
+								<div class="hp-call-in">
+									<h1>Price</h1>
+									<h3 name="totalHarga" class="totalHarga">Rp 0</h3> 
+									<small class="mb-3">We are available 24/7 Monday to Sunday</small> <br><br>
+									
 									<br>
-									<h3 id="totalHarga" class="totalHarga" name="totalHarga" style="color: #8a6e35">Rp 0</h3>
-									<button class="btn btn-danger" type="submit">Booking</button>
-									{{-- <a class="btn btn-danger" href="/detailbooking/{{$unit->slug}}">Booking</a> --}}
-								</form>
-								<h5 style="text-align: left;">Info Penting : </h5>
-								<p style="text-align: justify;">Untuk pemesanan harian, deposit menggunakan bank transfer atau virtual account diestimasikan akan diterima kembali oleh pelanggan dalam waktu paling lambat 5 hari kerja setelah data bank terkonfirmasi. Pemberitahuan akan dikirimkan ke email Anda setelah berhasil (pastikan contact detail yang terdaftar aktif).</p>
+									<form action="{{ route('order.pay') }}" method="post" id="bookingForm">
+										@csrf
+									
+										<input type="hidden" name="totalPrice" class="totalHarga">
+										<input type="hidden" name="unit_id" value="{{ $unit->id }}">
+										<div class="row g-3">
+											<div class="col-xs-12">
+												<br>
+												<div>
+													<label for="customer_name" style="font-size: 10pt; color:#2d2d2d">
+														Pesanan atas nama
+													</label>
+												</div>
+												<input type="text" class="form-control" name="customer_name" required>
+											</div>
+											<div class="col-xs-12">
+												<br>
+												<div>
+													<label for="phone" style="font-size: 10pt; color:#2d2d2d">
+														No HP (WA)
+													</label>
+
+												</div>
+												<input type="tel" class="form-control" name="phone" required>
+											</div>
+											<div class="col-xs-12">
+												<br>
+												<div>
+													<label for="bookingType" style="font-size: 10pt; color:#2d2d2d">
+														Tipe
+													</label>
+												</div>
+												<select class="form-select" id="bookingType" name="bookingType" style="display: block" required>
+													@if($priceDay != null )
+														<option value="day">Harian</option>
+													@endif
+													@if ($priceWeek != null)
+														<option value="week">Mingguan</option>
+													@endif
+													@if ($priceMonth != null)
+														<option value="month">Bulanan</option>
+													@endif
+													@if ($priceYear != null)
+														<option value="year">Tahunan</option>
+													@endif
+												</select>
+											</div>
+
+											<div class="col-xs-12">
+												<br>
+												<div>
+													<label for="quantity" style="font-size: 10pt; color:#2d2d2d">Durasi</label>
+												</div>
+												<select class="form-select" id="quantity" name="quantity" style="display: block" required>
+												</select>
+											</div>
+
+											<div class="col-xs-6">
+												<br>
+												<div>
+													<label for="startDate" style="font-size: 10pt; color:#2d2d2d">
+														Check - In
+													</label>
+												</div>
+													<input type="date" class="form-control" min="{{ date('Y-m-d') }}" id="startDate" name="startDate" placeholder="Check-in" required>
+												</div>
+											<div class="col-xs-6">
+												<br>
+												<div>
+													<label for="endDate" style="font-size: 10pt; color:#2d2d2d">
+														Check - Out
+													</label>
+												</div>
+													<input type="date" class="form-control" id="endDate" name="endDate" readonly placeholder="Check-out" required>
+											</div>
+
+
+											
+										</div>
+										<br>
+										<h3 id="totalHarga" class="totalHarga" name="totalHarga" style="color: #8a6e35">Rp 0</h3>
+										<button class="btn btn-danger" type="submit">Booking</button>
+										{{-- <a class="btn btn-danger" href="/detailbooking/{{$unit->slug}}">Booking</a> --}}
+									</form>
+									<h5 style="text-align: left;">Info Penting : </h5>
+									<p style="text-align: justify;">Untuk pemesanan harian, deposit menggunakan bank transfer atau virtual account diestimasikan akan diterima kembali oleh pelanggan dalam waktu paling lambat 5 hari kerja setelah data bank terkonfirmasi. Pemberitahuan akan dikirimkan ke email Anda setelah berhasil (pastikan contact detail yang terdaftar aktif).</p>
+								</div>
+							</div>
+						</div>			
+					@else
+						<div class="col-md-4">
+							<div class="hp-call hp-right-com">
+								<div class="hp-call-in">
+									<h2 style="text-align: center;">Informasi : </h2>
+									<h5 style="text-align: center;" class="text-danger">Unit Sedang Tidak Tersedia</h5>
+								</div>
 							</div>
 						</div>
-					</div>
-
-					{{-- <div class="col-md-4">
-						<div class="hp-call hp-right-com">
-							<div class="hp-call-in"> <img src="{{asset('assets/images/icon/dbc4.png')}}" alt="">
-								<h3><span>Check Availability. Call us!</span> +62 823 7710 2513</h3> <small>We are available 24/7 Monday to Sunday</small>  </div>
-						</div>
-						
-					</div> --}}
-					
+					@endif
 				</div>
 			</div>
 		</div>
 @endsection
 
 @section('script')
+	@if ($priceDay != null || $priceWeek != null || $priceMonth != null || $priceYear != null)
 	<script>
 		$(document).ready(function () {
             function updateQuantityOptions() {
@@ -302,16 +320,16 @@
 
                 switch (bookingType) {
                     case 'day':
-                        endDate.val(new Date(startDate.setDate(startDate.getDate() + quantity - 1)).toISOString().split('T')[0]);
+                        endDate.val(new Date(startDate.setDate(startDate.getDate() + quantity)).toISOString().split('T')[0]);
                         break;
                     case 'week':
-                        endDate.val(new Date(startDate.setDate(startDate.getDate() + quantity * 7 - 1)).toISOString().split('T')[0]);
+                        endDate.val(new Date(startDate.setDate(startDate.getDate() + quantity * 7)).toISOString().split('T')[0]);
                         break;
                     case 'month':
                         endDate.val(new Date(startDate.setMonth(startDate.getMonth() + quantity)).toISOString().split('T')[0]);
                         break;
                     case 'year':
-                        endDate.val(new Date(startDate.setFullYear(startDate.getFullYear() + quantity) - 1).toISOString().split('T')[0]);
+                        endDate.val(new Date(startDate.setFullYear(startDate.getFullYear() + quantity)).toISOString().split('T')[0]);
                         break;
                     default:
                         break;
@@ -369,4 +387,5 @@
 
         });
 	</script>
+	@endif
 @endsection
