@@ -40,7 +40,7 @@
                                         </div>
                                     
                                         <div class="col-md-2">
-                                          <label for="inputZip" class="form-label" style="margin-top:10px; color: #2a2b33 ;font-size: 9pt;">Zip</label>
+                                          <label for="inputZip" class="form-label" style="margin-top:10px; color: #2a2b33 ;font-size: 9pt;">Postal Code</label>
                                           <input type="text" class="form-control" id="inputZip">
                                         </div>
                                         
