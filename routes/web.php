@@ -12,6 +12,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdvertisementController;
+use App\Http\Controllers\riwayatadminController;
+use App\Http\Controllers\riwayatuserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -108,6 +110,18 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('/gallery', [GalleryController::class, 'store'])->name('gallery.store');
     Route::delete('/gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
     Route::post('/gallery/thumbnail/{id}', [GalleryController::class, 'changeThumbnail'])->name('gallery.thumbnail');
+
+    Route::get('/riwayatadmin', [riwayatadminController::class, 'index']);
+    Route::get('/cetakresiadmin', [riwayatadminController::class, 'cetakresi']);
+    Route::get('/lihatriwayatadmin', [riwayatadminController::class, 'lihatriwayat']);
+});
+
+Route::middleware(['auth', 'role:user'])->group(function () {
+    Route::resource('/riwayatuser', riwayatuserController::class);
+    Route::get('/cetakresi', [riwayatuserController::class, 'cetakresi']);
+    Route::get('/lihatriwayat', [riwayatuserController::class, 'lihatriwayat']);
+    
+
 });
 
 Route::post('/order/pay', [OrderController::class, 'pay'])->name('order.pay');

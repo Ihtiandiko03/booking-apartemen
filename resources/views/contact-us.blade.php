@@ -38,8 +38,7 @@
 					</div>
 					<div class="col-md-3 col-sm-6 col-xs-12 new-con"> <img src="{{asset('assets/images/icon/20.png')}}" alt="">
 						<h4>Address</h4>
-						<p>28800 Orchard Lake Road, Suite 180 Farmington Hills, U.S.A.
-							<br>Landmark : Next To Airport</p>
+						<p>Jl. Yos Sudarso No.80, Bumi Waras, Kec. Bumi Waras, Kota Bandar Lampung, Lampung 35225</p>
 					</div>
 					<div class="col-md-3 col-sm-6 col-xs-12 new-con"> <img src="{{asset('assets/images/icon/20.png')}}" alt="">
 						<h4>CONTACT INFO:</h4>
@@ -58,7 +57,7 @@
 		</div>
 		<div class="row">
 			<div class="contact-map">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6290413.804893654!2d-93.99620524741552!3d39.66116578737809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880b2d386f6e2619%3A0x7f15825064115956!2sIllinois%2C+USA!5e0!3m2!1sen!2sin!4v1469954001005" allowfullscreen></iframe>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.8242270085575!2d105.2776599749844!3d-5.443640194535815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40dbf2d5db3ec3%3A0x602936266543a25f!2sLampung%20City%20Mall!5e0!3m2!1sid!2sid!4v1703344678207!5m2!1sid!2sid" allowfullscreen></iframe>
 			</div>
 		</div>
 		<!--TOP SECTION-->

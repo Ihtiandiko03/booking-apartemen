@@ -4882,6 +4882,18 @@ button.btn-floating {
     cursor: -webkit-zoom-out;
     cursor: zoom-out;
 }
+.galeriutama {
+    display: block;
+    cursor: context-menu;
+    position: relative;
+    transition: opacity .4s;
+}
+.galeriutama:hover:not(.active) {
+    opacity: .8;
+}
+.galeriutama.active {
+    cursor: context-menu;
+}
 #materialbox-overlay {
     position: fixed;
     top: 0;
@@ -6893,6 +6905,10 @@ input[type=range]:focus::-ms-fill-upper {
 }
 .carousel.scrolling .carousel-item .materialboxed,
 .carousel .carousel-item:not(.active) .materialboxed {
+    pointer-events: none;
+}
+.carousel.scrolling .carousel-item .galeriutama,
+.carousel .carousel-item:not(.active) .galeriutama {
     pointer-events: none;
 }
 .tap-target-wrapper {

@@ -12,9 +12,17 @@
                 <div class="mm-close"><span><i class="fa fa-times hide-menu" aria-hidden="true"></i></span>
                 </div>
                 <ul>
-                    <li><a href="/">Home - Default</a>
+                    <li><a href="/">Home</a>
                     </li>
-                    <li><a href="/index-1">Home - Reservation</a>
+                    <li><a href="#" class='dropdown-button' data-activates='drop-room'>Rooms <i class="fa fa-angle-down"></i></a>
+                    </li>
+                    <li><a href="/about-us">About Us</a>
+                    </li>
+                    <li><a href="/contact-us">Contact Us</a>
+                    </li>
+                    <li><a href="#!" data-toggle="modal" data-target="#modal1">Login</a>
+                    </li>
+                    {{-- <li><a href="/index-1">Home - Reservation</a>
                     </li>
                     <li><a href="/index-2">Home - FullSlider</a>
                     </li>
@@ -102,7 +110,7 @@
                     <li><a href="/typo-progressbar">Progressbar</a>
                     </li>
                     <li><a href="/sitemap">Sitemap</a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>
@@ -116,14 +124,11 @@
             <div class="row">
                 <div class="top-bar">
                     <ul>
-                        <li><a class='dropdown-button' href='#' data-activates='dropdown1'> My Account <i class="fa fa-angle-down"></i></a>
+                        {{-- <li><a class='dropdown-button' href='#' data-activates='dropdown1'> My Account <i class="fa fa-angle-down"></i></a>
                         </li>
                         <li><a href="/hotel-details">Our Hotels</a>
-                        </li>
-                        <li><a href="/about-us">About Us</a>
-                        </li>
-                        <li><a href="/contact-us">Contact Us</a>
-                        </li>
+                        </li> --}}
+                        
                         {{-- <li><a class='dropdown-button' href='#' data-activates='dropdown2'>Language <i class="fa fa-angle-down"></i></a>
                         </li> --}}
                         
@@ -318,9 +323,15 @@
                         </li> --}}
                         <li><a href="/">Home</a>
                         </li>
-                        <li><a href="#" class='dropdown-button' data-activates='drop-room'>Rooms <i class="fa fa-angle-down"></i></a>
+                        {{-- <li><a href="#" class='dropdown-button' data-activates='drop-room'>Rooms <i class="fa fa-angle-down"></i></a>
+                        </li> --}}
+                        <li><a href="/about-us">About Us</a>
                         </li>
-                        <li><a href="/services">Services</a>
+                        <li><a href="/contact-us">Contact Us</a>
+                        </li>
+                        <li><a href="#!" data-toggle="modal" data-target="#modal1">Login</a>
+                        </li>
+                        {{-- <li><a href="/services">Services</a>
                         </li>
                         <li><a href="/menu">Menu</a>
                         </li>
@@ -329,7 +340,7 @@
                         <li><a href="/aminities1">Amenities</a>
                         </li>
                         <li><a href="#" class='dropdown-button' data-activates='drop-page'>Pages <i class="fa fa-angle-down"></i></a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </div>

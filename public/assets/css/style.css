@@ -215,14 +215,17 @@ th {
     float: left;
     width: 20%;
 }
-.logo img {} .menu-bar {
+/* .logo img {} .menu-bar {
     float: left;
     width: 80%;
-}
+} */
 .menu-bar ul {
     padding: 0px;
     margin-bottom: 0px;
-    float: right;
+    margin-left: 400px;
+    /* float: center; */
+    justify-content: center;
+    align-items: center;
     margin-top: 12px;
 }
 .menu-bar ul li {
