@@ -221,7 +221,7 @@
                 </div>
                 <div class="foot-com foot-3">
                     <!--<a class="waves-effect waves-light" href="#">online room booking</a>--><a
-                        class="waves-effect waves-light" href="booking.html">room reservation</a>
+                        class="waves-effect waves-light" href="/">unit reservation</a>
                 </div>
                 
             </div>

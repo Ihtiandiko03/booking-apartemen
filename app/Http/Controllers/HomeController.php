@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Advertisement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Unit;
@@ -28,9 +29,17 @@ class HomeController extends Controller
         LEFT JOIN galleries ON units.id = galleries.unit_id AND galleries.is_thumbnail = 1
         LEFT JOIN prices ON units.id = prices.unit_id
         GROUP BY units.id, galleries.image");
+
+        $iklan = DB::select("SELECT * FROM advertisements");
+
+        $galeri = DB::select("SELECT `galleries`.*, `units`.`nama_unit` FROM `galleries` LEFT JOIN `units` ON `galleries`.`unit_id` = `units`.`id` LIMIT 20;");
+        
+
         
         $data = [
-            'unit' => $result
+            'unit' => $result,
+            'advertisement' => $iklan,
+            'galleries' => $galeri
         ];
         
         return view('index', $data);

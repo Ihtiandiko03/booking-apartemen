@@ -108,9 +108,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<div class="offer-l"> <span class="ol-1"></span> <span class="ol-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span> <span class="ol-4">Standardized Budget Rooms</span> <span class="ol-3"></span> <span class="ol-5">$99/-</span>
+						<div class="offer-l"> <span class="ol-1"></span> <span class="ol-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span> <span class="ol-4">Standardized Budget Rooms</span> <span class="ol-3"></span> <span class="ol-5">Rp150.000/day</span>
 							<ul>
-								<li>
+								{{-- <li>
 									<a href="#!" class="waves-effect waves-light btn-large offer-btn"><img src="{{asset('assets/images/icon/dis1.png')}}" alt="">
 									</a><span>Free WiFi</span>
 								</li>
@@ -125,7 +125,7 @@
 								</li>
 								<li>
 									<a href="#!" class="waves-effect waves-light btn-large offer-btn"><img src="{{asset('assets/images/icon/dis5.png')}}" alt=""> </a><span>GYM</span>
-								</li>
+								</li> --}}
 							</ul>
 						</div>
 					</div>
@@ -142,109 +142,31 @@
 			<div class="container">
 				<div class="row">
 					<div class="hom1-title">
-						<h2>Banquet Spaces & Meeting Rooms</h2>
+						<h2>Don't miss the promo!</h2>
 						<div class="head-title">
 							<div class="hl-1"></div>
 							<div class="hl-2"></div>
 							<div class="hl-3"></div>
 						</div>
-						<p>Aenean euismod sem porta est consectetur posuere. Praesent nisi velit, porttitor ut imperdiet a, pellentesque id mi.</p>
+						<p>Enjoy special prices for users and also get various other interesting promotions.</p>
 					</div>
 				</div>
 				<div class="row">
 					<div>
+						@foreach ($advertisement as $iklan)
 						<div class="col-md-3 n2-event">
 							<!--event IMAGE-->
-							<div class="n21-event hovereffect"> <img src="{{asset('assets/images/event/1.jpg')}}" alt="">
-								<div class="overlay"> <a href="booking.html"><span class="ev-book">Book Now</span></a> </div>
+							<div class="n21-event hovereffect"> <img src="{{asset('storage/'.$iklan->banner)}}" alt="">
+								<div class="overlay"> <a href="booking.html"><span class="ev-book">Get Promo</span></a> </div>
 							</div>
 							<!--event DETAILS-->
-							<div class="n22-event"> <a href="#!"><h4>Wedding Halls</h4></a> <span class="event-date">Capacity: 500,</span> <span class="event-by"> Price: $900</span>
-								<p>undergraduate applicants are admitted on a need-blind basis, and the university offers undergraduate applicants</p>
+							<div class="n22-event"> <a href="#!"><h4>{{$iklan->title}}</h4></a> 
+								<p>{{$iklan->description}}</p>
 								<!--event SHARE-->
-								<div class="event-share">
-									<ul>
-										<li><a href="#"><i class="fa fa-facebook"></i></a>
-										</li>
-										<li><a href="#"><i class="fa fa-google-plus"></i></a>
-										</li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a>
-										</li>
-										<li><a href="#"><i class="fa fa-linkedin"></i></a>
-										</li>
-									</ul>
-								</div>
+								
 							</div>
 						</div>
-						<div class="col-md-3 n2-event">
-							<!--event IMAGE-->
-							<div class="n21-event hovereffect"> <img src="{{asset('assets/images/event/2.jpg')}}" alt="">
-								<div class="overlay"> <a href="booking.html"><span class="ev-book">Book Now</span></a> </div>
-							</div>
-							<!--event DETAILS-->
-							<div class="n22-event"> <a href="#!"><h4>Business Meetings</h4></a> <span class="event-date">Capacity: 500,</span> <span class="event-by"> Price: $700</span>
-								<p>undergraduate applicants are admitted on a need-blind basis, and the university offers undergraduate applicants</p>
-								<!--event SHARE-->
-								<div class="event-share">
-									<ul>
-										<li><a href="#"><i class="fa fa-facebook"></i></a>
-										</li>
-										<li><a href="#"><i class="fa fa-google-plus"></i></a>
-										</li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a>
-										</li>
-										<li><a href="#"><i class="fa fa-linkedin"></i></a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-3 n2-event">
-							<!--event IMAGE-->
-							<div class="n21-event hovereffect"> <img src="{{asset('assets/images/event/3.jpg')}}" alt="">
-								<div class="overlay"> <a href="booking.html"><span class="ev-book">Book Now</span></a> </div>
-							</div>
-							<!--event DETAILS-->
-							<div class="n22-event"> <a href="#!"><h4>Social Event</h4></a> <span class="event-date">Capacity: 420,</span> <span class="event-by"> Price: $750</span>
-								<p>undergraduate applicants are admitted on a need-blind basis, and the university offers undergraduate applicants</p>
-								<!--event SHARE-->
-								<div class="event-share">
-									<ul>
-										<li><a href="#"><i class="fa fa-facebook"></i></a>
-										</li>
-										<li><a href="#"><i class="fa fa-google-plus"></i></a>
-										</li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a>
-										</li>
-										<li><a href="#"><i class="fa fa-linkedin"></i></a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-3 n2-event">
-							<!--event IMAGE-->
-							<div class="n21-event hovereffect"> <img src="{{asset('assets/images/event/4.jpg')}}" alt="">
-								<div class="overlay"> <a href="booking.html"><span class="ev-book">Book Now</span></a> </div>
-							</div>
-							<!--event DETAILS-->
-							<div class="n22-event"> <a href="#!"><h4>Birthdays and Debut</h4></a> <span class="event-date">Capacity: 240,</span> <span class="event-by"> Price: $500</span>
-								<p>undergraduate applicants are admitted on a need-blind basis, and the university offers undergraduate applicants</p>
-								<!--event SHARE-->
-								<div class="event-share">
-									<ul>
-										<li><a href="#"><i class="fa fa-facebook"></i></a>
-										</li>
-										<li><a href="#"><i class="fa fa-google-plus"></i></a>
-										</li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a>
-										</li>
-										<li><a href="#"><i class="fa fa-linkedin"></i></a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
+						@endforeach
 					</div>
 				</div>
 			</div>
@@ -265,7 +187,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="inn-services head-typo typo-com mar-bot-0">
-							<ul id="filters" class="clearfix">
+							{{-- <ul id="filters" class="clearfix">
 								<li><span class="filter active" data-filter=".app, .card, .icon, .logo, .web">All</span>
 								</li>
 								<li><span class="filter" data-filter=".app">Hotels</span>
@@ -278,197 +200,16 @@
 								</li>
 								<li><span class="filter" data-filter=".web">Events</span>
 								</li>
-							</ul>
+							</ul> --}}
 							<div id="portfoliolist">
+								@foreach ($galleries as $foto)
+									
+								@endforeach
 								<div class="portfolio logo" data-cat="logo">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/logo/5.jpg')}}" alt="" />
+									<div class="portfolio-wrapper"> <img src="{{asset('storage/'.$foto->image)}}" class="galeriutama" data-caption="Hotel Captions" alt="" />
 										<div class="label">
-											<div class="label-text"> <a class="text-title">Photo Caption</a> <span class="text-category">Logo</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio app" data-cat="app">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/app/1.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Photo Caption</a> <span class="text-category">APP</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio web" data-cat="web">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/web/4.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Photo Caption</a> <span class="text-category">Web design</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio card" data-cat="card">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/card/1.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Photo Caption</a> <span class="text-category">Business card</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio app" data-cat="app">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/card/1.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Photo Caption</a> <span class="text-category">APP</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio card" data-cat="card">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/card/4.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Photo Caption</a> <span class="text-category">Business card</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio card" data-cat="card">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/card/5.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Photo Caption</a> <span class="text-category">Business card</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio logo" data-cat="logo">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/logo/1.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Photo Caption</a> <span class="text-category">Logo</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio app" data-cat="app">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/app/2.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Photo Caption</a> <span class="text-category">APP</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio card" data-cat="card">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/card/2.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Photo Caption</a> <span class="text-category">Business card</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio logo" data-cat="logo">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/logo/6.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Photo Caption</a> <span class="text-category">Logo</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio logo" data-cat="logo">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/logo/7.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Photo Caption</a> <span class="text-category">Logo</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio icon" data-cat="icon">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/icon/4.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Photo Caption</a> <span class="text-category">Icon</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio web" data-cat="web">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/web/3.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Photo Caption</a> <span class="text-category">Web design</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio icon" data-cat="icon">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/icon/1.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Photo Caption</a> <span class="text-category">Icon</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio web" data-cat="web">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/web/2.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Photo Caption</a> <span class="text-category">Web design</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio icon" data-cat="icon">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/icon/2.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Photo Caption</a> <span class="text-category">Icon</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio icon" data-cat="icon">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/icon/5.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">3D Map</a> <span class="text-category">Icon</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio web" data-cat="web">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/web/1.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Note</a> <span class="text-category">Web design</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio logo" data-cat="logo">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/logo/3.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Native Designers</a> <span class="text-category">Logo</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio logo" data-cat="logo">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/logo/4.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Bookworm</a> <span class="text-category">Logo</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio icon" data-cat="icon">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/icon/3.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Sandwich</a> <span class="text-category">Icon</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio card" data-cat="card">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/card/3.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Reality</a> <span class="text-category">Business card</span> </div>
-											<div class="label-bg"></div>
-										</div>
-									</div>
-								</div>
-								<div class="portfolio logo" data-cat="logo">
-									<div class="portfolio-wrapper"> <img src="{{asset('assets/img/portfolios/logo/2.jpg')}}" alt="" />
-										<div class="label">
-											<div class="label-text"> <a class="text-title">Speciallisterne</a> <span class="text-category">Logo</span> </div>
-											<div class="label-bg"></div>
+											<div class="label-text"> <a class="text-title">{{$foto->nama_unit}}</a> <span class="text-category">Logo</span> </div>
+											<div class="label-bg text-white"></div>
 										</div>
 									</div>
 								</div>
