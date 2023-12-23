@@ -53,7 +53,7 @@
                     </ul>
                 </div>
                 <div class="log-in-pop-right">
-                    <a href="#" class="pop-close" data-dismiss="modal"><img src="images/cancel.png"
+                    <a href="#" class="pop-close" data-dismiss="modal"><img src="{{ asset('assets/images/cancel.png') }}"
                             alt="" />
                     </a>
                     <h4>Login</h4>
@@ -113,7 +113,7 @@
                     </ul>
                 </div>
                 <div class="log-in-pop-right">
-                    <a href="#" class="pop-close" data-dismiss="modal"><img src="images/cancel.png"
+                    <a href="#" class="pop-close" data-dismiss="modal"><img src="{{ asset('assets/images/cancel.png') }}"
                             alt="" />
                     </a>
                     <h4>Create an Account</h4>
@@ -174,7 +174,7 @@
                     </ul>
                 </div>
                 <div class="log-in-pop-right">
-                    <a href="#" class="pop-close" data-dismiss="modal"><img src="images/cancel.png"
+                    <a href="#" class="pop-close" data-dismiss="modal"><img src="{{ asset('assets/images/cancel.png') }}"
                             alt="" />
                     </a>
                     <h4>Forgot password</h4>
@@ -235,6 +235,7 @@
     <script src="{{ asset('assets/js/materialize.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/jquery.mixitup.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+    @yield('script')
 </body>
 
 </html>

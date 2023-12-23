@@ -10,13 +10,24 @@ use App\Models\Unit;
 class HomeController extends Controller
 {
     public function index(){
-        $result = DB::table('units')
-                ->select('units.nama_unit', 'units.deskripsi_unit', 'units.slug', 'units.is_available', 'prices.price', 'galleries.image')
-                ->join('prices', 'units.id', '=', 'prices.unit_id')
-                ->join('galleries', 'galleries.unit_id', '=', 'units.id')
-                ->where('prices.type', '=', 'day')
-                ->where('galleries.is_thumbnail', '=', 1)
-                ->get();
+        // $result = DB::table('units')
+        //         ->select('units.nama_unit', 'units.deskripsi_unit', 'units.slug', 'units.is_available', 'prices.price', 'galleries.image')
+        //         ->join('prices', 'units.id', '=', 'prices.unit_id')
+        //         ->join('galleries', 'galleries.unit_id', '=', 'units.id')
+        //         ->where('prices.type', '=', 'day')
+        //         ->where('galleries.is_thumbnail', '=', 1)
+        //         ->get();
+
+        $result = DB::select("SELECT
+            units.*, galleries.image,
+            MAX(CASE WHEN prices.type = 'day' THEN prices.price END) AS 'day_price',
+            MAX(CASE WHEN prices.type = 'week' THEN prices.price END) AS 'week_price',
+            MAX(CASE WHEN prices.type = 'month' THEN prices.price END) AS 'month_price',
+            MAX(CASE WHEN prices.type = 'year' THEN prices.price END) AS 'year_price'
+        FROM units
+        LEFT JOIN galleries ON units.id = galleries.unit_id AND galleries.is_thumbnail = 1
+        LEFT JOIN prices ON units.id = prices.unit_id
+        GROUP BY units.id, galleries.image");
         
         $data = [
             'unit' => $result
@@ -34,10 +45,10 @@ class HomeController extends Controller
         
         $price = $unit->prices;
         
-        $priceDay = $price->firstWhere('type', 'day')->price ?? 0;
-        $priceWeek = $price->firstWhere('type', 'week')->price ?? 0;
-        $priceMonth = $price->firstWhere('type', 'month')->price ?? 0;
-        $priceYear = $price->firstWhere('type', 'year')->price ?? 0;
+        $priceDay = $price->firstWhere('type', 'day')->price ?? null;
+        $priceWeek = $price->firstWhere('type', 'week')->price ?? null;
+        $priceMonth = $price->firstWhere('type', 'month')->price ?? null;
+        $priceYear = $price->firstWhere('type', 'year')->price ?? null;
         
         
         $data = [
@@ -49,8 +60,6 @@ class HomeController extends Controller
             'priceMonth' => $priceMonth,
             'priceYear' => $priceYear,
         ];
-
-        // var_dump($data['gallery']); die;
 
         return view('detailunit', $data);
     }

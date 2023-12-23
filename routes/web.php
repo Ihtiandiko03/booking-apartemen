@@ -5,6 +5,7 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PriceController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProfileController;
@@ -108,6 +109,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::delete('/gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
     Route::post('/gallery/thumbnail/{id}', [GalleryController::class, 'changeThumbnail'])->name('gallery.thumbnail');
 });
+
+Route::post('/order/pay', [OrderController::class, 'pay'])->name('order.pay');
 
 
 require __DIR__.'/auth.php';
