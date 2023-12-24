@@ -68,8 +68,8 @@
     <div class="invoice-details">
         <div class="invoice-detail">
             <div class="invoice-title">Invoice</div>
-            <div class="invoice-subtitle">Nomor Transaksi: 2023122300001</div>
-            <div class="invoice-detail">Tanggal Transaksi: 23 Desember 2023</div>
+            <div class="invoice-subtitle">Nomor Transaksi: {{ $order->invoice_code }}</div>
+            <div class="invoice-detail">Tanggal Transaksi: {{ date('d M Y', strtotime($order->created_at)) }}</div>
         </div>
         <div class="invoice-detail">
             <img src="{{ asset('assets/images/logo-resi.jpg') }}" style="width: 100px; height:100px">
@@ -82,23 +82,23 @@
     <div class="invoice-details">
         <div class="invoice-detail">
             <h3>Informasi Pemesan</h3>
-            <p>Nama: a</p>
-            <p>Email: a</p>
-            <p>Alamat: a</p>
-            <p>Kabupaten/Kota : a</p>
-            <p>Telepon : a</p>
+            <p>Atas Nama: {{ $order->customer_name }}</p>
+            <p>Nama User: {{ $user->name }}</p>
+            <p>Email: {{ $user->email }}</p>
+            <p>Telepon : {{ $order->phone }}</p>
 
         </div>
        
     </div>
 
     <hr>
-    <p><b>Total Harga : </b> Rp5.000.000  + <b>Deposito :</b> Rp.3.000.000 (<b style="color: #166d00">Payment Success</b>)</p>
+    <p><b>Total Harga : </b> {{ 'Rp '.number_format($order->total_price, 0, ',', '.') }}  (<b style="color: #166d00">Payment Success</b>)</p>
 
     <table class="invoice-table">
       <thead>
         <tr>
           <th>Nama Unit</th>
+          <th>Durasi</th>
           <th>Tanggal Check - In</th>
           <th>Tanggal Check - Out</th>
           <th>Total</th>
@@ -106,10 +106,11 @@
       </thead>
       <tbody>
         <tr>
-          <td>Master Room</td>
-          <td>23 Desember 2023</td>
-          <td>23 Desember 2023</td>
-          <td>Rp.8.000.000</td>
+          <td>{{ $order->unit_name_snapshot }}</td>
+          <td>{{ $order->qty }} {{ $typeTranslate[$order->type] }}</td>
+          <td>{{ date('d M Y', strtotime($order->start_date)) }}</td>
+          <td>{{ date('d M Y', strtotime($order->end_date)) }}</td>
+          <td>{{ 'Rp '.number_format($order->total_price, 0, ',', '.') }}</td>
         </tr>
         
         <!-- Add more rows for additional products if needed -->

@@ -329,8 +329,17 @@
                         </li>
                         <li><a href="/contact-us">Contact Us</a>
                         </li>
+                        <li><a href="{{ Route('home.faq') }}">FAQ</a>
+                        </li>
+                        @guest
                         <li><a href="#!" data-toggle="modal" data-target="#modal1">Login</a>
                         </li>
+                        @endguest
+                        @auth
+                        <li>
+                            <a href="{{ Route('dashboard') }}">Dashboard</a>
+                        </li>
+                        @endauth
                         {{-- <li><a href="/services">Services</a>
                         </li>
                         <li><a href="/menu">Menu</a>

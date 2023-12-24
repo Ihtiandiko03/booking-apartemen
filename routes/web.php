@@ -9,11 +9,12 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PriceController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\AdvertisementController;
-use App\Http\Controllers\riwayatadminController;
 use App\Http\Controllers\riwayatuserController;
+use App\Http\Controllers\riwayatadminController;
+use App\Http\Controllers\AdvertisementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,7 @@ use App\Http\Controllers\riwayatuserController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('/');
 Route::get('/detailunit/{slug}', [HomeController::class, 'detailunit']);
 Route::get('/detailbooking/{slug}', [HomeController::class, 'detailbooking']);
 
@@ -96,7 +97,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('/unit', UnitController::class);
-    Route::resource('/advertisement', AdvertisementController::class);
+
     Route::resource('/faq', FaqController::class);
     Route::resource('/user', UserController::class);
     
@@ -111,21 +112,36 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::delete('/gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
     Route::post('/gallery/thumbnail/{id}', [GalleryController::class, 'changeThumbnail'])->name('gallery.thumbnail');
 
-    Route::get('/riwayatadmin', [riwayatadminController::class, 'index']);
-    Route::get('/cetakresiadmin', [riwayatadminController::class, 'cetakresi']);
-    Route::get('/lihatriwayatadmin', [riwayatadminController::class, 'lihatriwayat']);
+    Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
+    Route::post('/setting/update', [SettingController::class, 'updateOrCreate'])->name('setting.post');
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::resource('/riwayatuser', riwayatuserController::class);
-    Route::get('/cetakresi', [riwayatuserController::class, 'cetakresi']);
     Route::get('/lihatriwayat', [riwayatuserController::class, 'lihatriwayat']);
-    
 
+    Route::get('/order/history/{invoice_code}', [OrderController::class, 'historyOrderUserDetail'])->name('order.detail');
+    Route::get('/order/history', [OrderController::class, 'historyOrderUser'])->name('order.history');
+    Route::post('/order/pay', [OrderController::class, 'pay'])->name('order.pay');
 });
 
-Route::post('/order/pay', [OrderController::class, 'pay'])->name('order.pay');
-Route::post('/midtrans-callback', [OrderController::class, 'callback'])->name('order.callback');
+Route::middleware(['auth', 'role:admin,marketing'])->group(function () {
+    Route::resource('/advertisement', AdvertisementController::class);
+});
 
+Route::middleware(['auth', 'role:admin,user,penjaga'])->group(function () {
+    Route::get('/invoice/{invoice_code}', [OrderController::class, 'invoice'])->name('order.invoice');
+});
+
+Route::middleware(['auth', 'role:admin,penjaga'])->group(function () {
+    Route::get('/order/list', [OrderController::class, 'historyOrder'])->name('order.list');
+    Route::get('/order/detail/{invoice_code}', [OrderController::class, 'historyOrderDetail'])->name('order.detailadmin');
+});
+
+Route::post('/midtrans-callback', [OrderController::class, 'callback'])->name('order.callback');
+Route::get('/home/faq', [HomeController::class, 'faq'])->name('home.faq');
+
+
+// Route::get('/history/order', [OrderController::class])
 
 require __DIR__.'/auth.php';

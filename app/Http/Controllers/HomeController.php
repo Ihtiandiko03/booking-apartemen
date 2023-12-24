@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Advertisement;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\Faq;
 use App\Models\Unit;
+use Illuminate\Http\Request;
+use App\Models\Advertisement;
+use Illuminate\Support\Facades\DB;
 
 
 class HomeController extends Controller
@@ -34,8 +35,6 @@ class HomeController extends Controller
         $iklan = DB::select("SELECT * FROM advertisements");
 
         $galeri = DB::select("SELECT `galleries`.*, `units`.`nama_unit` FROM `galleries` LEFT JOIN `units` ON `galleries`.`unit_id` = `units`.`id` LIMIT 20;");
-        
-
         
         $data = [
             'unit' => $result,
@@ -96,6 +95,13 @@ class HomeController extends Controller
         ];
         
         return view('detailbooking', $data);
+    }
+
+    public function faq()
+    {
+        $faq = Faq::orderBy('order')->get();
+
+        return view('faq', compact('faq'));
     }
 
     public function index1(){

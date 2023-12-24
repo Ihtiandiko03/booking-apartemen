@@ -36,6 +36,16 @@
                                     <input type="email" class="form-control" name="email" id="email"
                                         placeholder="Masukkan Email" value="{{ $user->email }}">
                                 </div>
+
+                                <div class="mb-3">
+                                    <label for="role" class="form-label">Role</label>
+                                    <select class="form-select" name="role" id="role">
+                                        <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
+                                        <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>User</option>
+                                        <option value="marketing" {{ $user->role == 'marketing' ? 'selected' : '' }}>Marketing</option>
+                                        <option value="penjaga" {{ $user->role == 'penjaga' ? 'selected' : '' }}>Penjaga</option>
+                                    </select>
+                                </div>
                                 
                                 
                                 

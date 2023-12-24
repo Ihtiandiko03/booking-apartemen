@@ -35,6 +35,7 @@
 
     </section>
     <!--END HEADER SECTION-->
+    @guest
     <section>
         <!-- LOGIN SECTION -->
         <div id="modal1" class="modal fade" role="dialog">
@@ -62,14 +63,14 @@
                         @csrf
                         <div>
                             <div class="input-field s12">
-                                <input type="email" id="email" name="email" :value="old('email')" required
+                                <input type="email" name="email" :value="old('email')" required
                                     autofocus class="validate" placeholder="Email">
                                 <label>Email</label>
                             </div>
                         </div>
                         <div>
                             <div class="input-field s12">
-                                <input type="password" id="password" name="password" :value="old('password')" required
+                                <input type="password"  name="password" :value="old('password')" required
                                     autofocus class="validate" placeholder="Password">
                                 <label>Password</label>
                             </div>
@@ -122,25 +123,25 @@
                         @csrf
                         <div>
                             <div class="input-field s12">
-                                <input type="text" id="name" name="name" :value="old('name')" class="validate">
+                                <input type="text" name="name" :value="old('name')" class="validate">
                                 <label>Name</label>
                             </div>
                         </div>
                         <div>
                             <div class="input-field s12">
-                                <input id="email" name="email" type="email" :value="old('email')" class="validate">
+                                <input name="email" type="email" :value="old('email')" class="validate">
                                 <label>Email</label>
                             </div>
                         </div>
                         <div>
                             <div class="input-field s12">
-                                <input id="password" name="password" type="password" class="validate">
+                                <input name="password" type="password" class="validate">
                                 <label>Password</label>
                             </div>
                         </div>
                         <div>
                             <div class="input-field s12">
-                                <input id="password_confirmation" name="password_confirmation" type="password" class="validate">
+                                <input name="password_confirmation" type="password" class="validate">
                                 <label>Confirm password</label>
                             </div>
                         </div>
@@ -202,6 +203,7 @@
             </div>
         </div>
     </section>
+    @endguest
     <!--FOOTER FIXED SECTION-->
     <div class="hom-footer-section">
         <div class="container">

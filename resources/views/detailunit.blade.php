@@ -161,7 +161,7 @@
 							<div class="hp-call hp-right-com">
 								<div class="hp-call-in">
 									<h1>Price</h1>
-									<h3 name="totalHarga" class="totalHarga">Rp 0</h3> 
+									<h3 name="totalHarga" id="hargapertipe">Rp 0</h3> 
 									<small class="mb-3">We are available 24/7 Monday to Sunday</small> <br><br>
 									
 									<br>
@@ -247,7 +247,6 @@
 										<br>
 										<h3 id="totalHarga" class="totalHarga" name="totalHarga" style="color: #8a6e35">Rp 0</h3>
 										<button class="btn btn-danger" type="submit">Booking</button>
-										{{-- <a class="btn btn-danger" href="/detailbooking/{{$unit->slug}}">Booking</a> --}}
 									</form>
 									<h5 style="text-align: left;">Info Penting : </h5>
 									<p style="text-align: justify;">Untuk pemesanan harian, deposit menggunakan bank transfer atau virtual account diestimasikan akan diterima kembali oleh pelanggan dalam waktu paling lambat 5 hari kerja setelah data bank terkonfirmasi. Pemberitahuan akan dikirimkan ke email Anda setelah berhasil (pastikan contact detail yang terdaftar aktif).</p>
@@ -270,7 +269,7 @@
 @endsection
 
 @section('script')
-	@if ($priceDay != null || $priceWeek != null || $priceMonth != null || $priceYear != null)
+	@if ($priceDay != null || $priceWeek != null || $priceMonth != null || $priceYear != null && $unit->is_available == 1)
 	<script>
 		$(document).ready(function () {
             function updateQuantityOptions() {
@@ -359,7 +358,11 @@
 
                 var totalHarga = quantity * harga;
 				$("input[name*='totalPrice']").val(totalHarga);
-                $('.totalHarga').html(new Intl.NumberFormat('id-ID', {
+				$('#hargapertipe').html(new Intl.NumberFormat('id-ID', {
+					style: 'currency',
+					currency: 'IDR',
+				}).format(harga));
+                $('#totalHarga').html(new Intl.NumberFormat('id-ID', {
 					style: 'currency',
 					currency: 'IDR',
 				}).format(totalHarga));

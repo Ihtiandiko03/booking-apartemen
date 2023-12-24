@@ -39,7 +39,17 @@
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>
                                     <input type="password" class="form-control" name="password" id="password"
-                                        placeholder="Masukkan password">
+                                    placeholder="Masukkan password">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="role" class="form-label">Role</label>
+                                    <select class="form-select" name="role" id="role">
+                                        <option value="">Pilih Role</option>
+                                        <option value="admin">Admin</option>
+                                        <option value="user">User</option>
+                                        <option value="marketing">Marketing</option>
+                                        <option value="penjaga">Penjaga</option>
+                                    </select>
                                 </div>
                                 
                                 

@@ -3,7 +3,7 @@
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href=" /dashboard " >
         <img src="{{ asset('assets/dashboard/assets/img/logo-ct-dark.png') }}" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold">Dashboard</span>
+        <span class="ms-1 font-weight-bold">App Name</span>
       </a>
     </div>
     <hr class="horizontal dark mt-0">
@@ -17,30 +17,6 @@
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
         </li>
-        {{-- <li class="nav-item">
-          <a class="nav-link " href="/dashboard/tables">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Tables</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="/dashboard/billing">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Billing</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="/dashboard/vr">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-app text-info text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Virtual Reality</span>
-          </a>
-        </li> --}}
         
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
@@ -56,6 +32,7 @@
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Unit</h6>
         </li>
+        @if (Auth::user()->role == 'admin')
         <li class="nav-item">
           <a class="nav-link " href="{{ Route('unit.index') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
@@ -69,7 +46,7 @@
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-notification-70 text-dark text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Advertisement</span>
+            <span class="nav-link-text ms-1">Iklan</span>
           </a>
         </li>
         <li class="nav-item">
@@ -89,49 +66,58 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{{ Route('riwayatuser.index') }}">
+          <a class="nav-link " href="{{ Route('order.list') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-bag-17 text-dark text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Riwayat Pesanan (User)</span>
+            <span class="nav-link-text ms-1">Riwayat Pesanan</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="/riwayatadmin">
+          <a class="nav-link " href="{{ Route('setting.index') }}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-settings text-dark text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Pengaturan</span>
+          </a>
+        </li>
+        @endif
+
+        @if(Auth::user()->role == 'marketing')
+        <li class="nav-item">
+          <a class="nav-link " href="{{ Route('advertisement.index') }}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-notification-70 text-dark text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Iklan</span>
+          </a>
+        </li>
+        @endif
+        
+        @if(Auth::user()->role == 'penjaga')
+        <li class="nav-item">
+          <a class="nav-link " href="{{ Route('order.list') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-bag-17 text-dark text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Riwayat Pesanan (Admin)</span>
+            <span class="nav-link-text ms-1">Riwayat Pesanan</span>
           </a>
         </li>
-        {{-- <li class="nav-item">
-          <a class="nav-link " href="../pages/sign-in.html">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Sign In</span>
-          </a>
-        </li>
+        @endif
+
+        @if (Auth::user()->role == 'user')
         <li class="nav-item">
-          <a class="nav-link " href="../pages/sign-up.html">
+          <a class="nav-link " href="{{ Route('order.history') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-collection text-info text-sm opacity-10"></i>
+              <i class="ni ni-bag-17 text-dark text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Sign Up</span>
+            <span class="nav-link-text ms-1">Riwayat Pesanan</span>
           </a>
-        </li> --}}
+        </li>
+        @endif
       </ul>
     </div>
     <div class="sidenav-footer mx-4 ">
-      {{-- <div class="card card-plain shadow-none" id="sidenavCard">
-        <img class="w-50 mx-auto" src="{{ asset('assets/dashboard/assets/img/illustrations/icon-documentation.svg') }}" alt="sidebar_illustration">
-        <div class="card-body text-center p-3 w-100 pt-0">
-          <div class="docs-info">
-            <h6 class="mb-0">Need help?</h6>
-            <p class="text-xs font-weight-bold mb-0">Please check our docs</p>
-          </div>
-        </div>
-      </div> --}}
       <a href="/dashboard/profile" target="_blank" class="btn btn-dark btn-sm w-100 mb-3">Profile</a>
       <form action="/logout" method="post">
         @csrf
