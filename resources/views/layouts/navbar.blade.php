@@ -20,8 +20,15 @@
                     </li>
                     <li><a href="/contact-us">Contact Us</a>
                     </li>
-                    <li><a href="#!" data-toggle="modal" data-target="#modal1">Login</a>
-                    </li>
+                    @guest
+                        <li><a href="#!" data-toggle="modal" data-target="#modal1">Login</a>
+                        </li>
+                        @endguest
+                        @auth
+                        <li>
+                            <a href="{{ Route('dashboard') }}">Dashboard</a>
+                        </li>
+                        @endauth
                     {{-- <li><a href="/index-1">Home - Reservation</a>
                     </li>
                     <li><a href="/index-2">Home - FullSlider</a>
