@@ -132,7 +132,9 @@
 					<div class="col-md-6">
 						<div class="offer-r">
 							<div class="or-1"> <span class="or-11">go</span> <span class="or-12">Stays</span> </div>
-							<div class="or-2"> <span class="or-21">Get</span> <span class="or-22">70%</span> <span class="or-23">Off</span> <span class="or-24">use code: RG5481WERQ</span> <span class="or-25"></span> </div>
+							<div class="or-2"> <span class="or-21">Get</span> <span class="or-22">70%</span> <span class="or-23">Off</span> 
+								{{-- <span class="or-24">use code: RG5481WERQ</span> <span class="or-25"></span>  --}}
+							</div>
 						</div>
 					</div>
 				</div>
@@ -181,7 +183,7 @@
 							<div class="hl-2"></div>
 							<div class="hl-3"></div>
 						</div>
-						<p>Aenean euismod sem porta est consectetur posuere. Praesent nisi velit, porttitor ut imperdiet a, pellentesque id mi.</p>
+						<p>Below is a photo of our apartment unit</p>
 					</div>
 				</div>
 				<div class="row">
@@ -204,7 +206,6 @@
 							<div id="portfoliolist">
 								@foreach ($galleries as $foto)
 									
-								@endforeach
 								<div class="portfolio logo" data-cat="logo">
 									<div class="portfolio-wrapper"> <img src="{{asset('storage/'.$foto->image)}}" class="galeriutama" data-caption="Hotel Captions" alt="" />
 										<div class="label">
@@ -213,6 +214,9 @@
 										</div>
 									</div>
 								</div>
+
+								@endforeach
+
 							</div>
 						</div>
 					</div>
@@ -223,58 +227,15 @@
 			<div class="container">
 				<div class="row">
 					<div class="hom1-title">
-						<h2>News & Event</h2>
+						<h2>Thank You</h2>
 						<div class="head-title">
 							<div class="hl-1"></div>
 							<div class="hl-2"></div>
 							<div class="hl-3"></div>
 						</div>
-						<p>Aenean euismod sem porta est consectetur posuere. Praesent nisi velit, porttitor ut imperdiet a, pellentesque id mi.</p>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<div class="bot-gal h-gal">
-							<h4>Photo Gallery</h4>
-							<ul>
-								<li><img class="materialboxed" data-caption="Hotel Captions" src="{{asset('assets/images/ami/8.jpg')}}" alt="">
-								</li>
-								<li><img class="materialboxed" data-caption="Hotel Captions" src="{{asset('assets/images/ami/9.jpg')}}" alt="">
-								</li>
-								<li><img class="materialboxed" data-caption="Hotel Captions" src="{{asset('assets/images/ami/10.jpg')}}" alt="">
-								</li>
-								<li><img class="materialboxed" data-caption="Hotel Captions" src="{{asset('assets/images/ami/11.jpg')}}" alt="">
-								</li>
-								<li><img class="materialboxed" data-caption="Hotel Captions" src="{{asset('assets/images/ami/1.jpg')}}" alt="">
-								</li>
-								<li><img class="materialboxed" data-caption="Hotel Captions" src="{{asset('assets/images/ami/2.jpg')}}" alt="">
-								</li>
-								<li><img class="materialboxed" data-caption="Hotel Captions" src="{{asset('assets/images/ami/3.jpg')}}" alt="">
-								</li>
-								<li><img class="materialboxed" data-caption="Hotel Captions" src="{{asset('assets/images/ami/4.jpg')}}" alt="">
-								</li>
-								<li><img class="materialboxed" data-caption="Hotel Captions" src="{{asset('assets/images/ami/5.jpg')}}" alt="">
-								</li>
-								<li><img class="materialboxed" data-caption="Hotel Captions" src="{{asset('assets/images/ami/6.jpg')}}" alt="">
-								</li>
-								<li><img class="materialboxed" data-caption="Hotel Captions" src="{{asset('assets/images/ami/7.jpg')}}" alt="">
-								</li>
-								<li><img class="materialboxed" data-caption="Hotel Captions" src="{{asset('assets/images/ami/8.jpg')}}" alt="">
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="bot-gal h-vid">
-							<h4>Video Gallery</h4>
-							<iframe src="https://www.youtube.com/embed/mG4G8crGQ34?autoplay=0&showinfo=0&controls=0" allowfullscreen></iframe>
-							<h5>Maecenas sollicitudin lacinia</h5>
-							<p>Maecenas finibus neque a tellus auctor mattis. Aliquam tempor varius ornare. Maecenas dignissim leo leo, nec posuere purus finibus vitae.</p>
-							<p>Quisque vitae neque at tellus malesuada convallis. Phasellus in lectus vitae ex euismod interdum non a lorem. Nulla bibendum. Curabitur mi odio, tempus quis risus cursus.</p>
-						</div>
-					</div>
-					
-				</div>
+				
 			</div>
 		</div>
 @endsection

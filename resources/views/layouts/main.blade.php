@@ -43,7 +43,7 @@
                 <div class="log-in-pop-left">
                     <h1>Hello... <span>User</span></h1>
                     <p>Don't have an account? Create your account. It's take less then a minutes</p>
-                    <h4>Login with social media</h4>
+                    <h4 style="color: black">Login with social media</h4>
                     <ul>
                         <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a>
                         </li>
@@ -103,7 +103,7 @@
                 <div class="log-in-pop-left">
                     <h1>Hello... <span>User</span></h1>
                     <p>Don't have an account? Create your account. It's take less then a minutes</p>
-                    <h4>Login with social media</h4>
+                    <h4 style="color: black">Login with social media</h4>
                     <ul>
                         <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a>
                         </li>
@@ -136,13 +136,13 @@
                         <div>
                             <div class="input-field s12">
                                 <input name="password" type="password" class="validate">
-                                <label>Password</label>
+                                <label>Password (Minimal 8 character)</label>
                             </div>
                         </div>
                         <div>
                             <div class="input-field s12">
                                 <input name="password_confirmation" type="password" class="validate">
-                                <label>Confirm password</label>
+                                <label>Confirm password (Minimal 8 character)</label>
                             </div>
                         </div>
                         <div>

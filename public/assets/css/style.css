@@ -1591,7 +1591,7 @@ td {} .inn-com p {} .inn-com-form {} .inn-com-form form {
 .log-in-pop-left {
     float: left;
     width: 40%;
-    background: url('../images/login.jpg') no-repeat center center;
+    background: url("../images/login.jpg") no-repeat center center;
     padding: 11% 6%;
     color: #fff;
     height: 100%;
