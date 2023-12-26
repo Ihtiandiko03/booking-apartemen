@@ -21,21 +21,20 @@ class FaqController extends Controller
             return DataTables::of($faq)
             ->addIndexColumn()
             ->addColumn('action', function ($item) {
-                $button =   '<div class="btn-group">
+                $button =   '
                             <a class="btn btn-primary" href="'. Route('faq.show', $item->id) .'">
                                 Lihat
                             </a>
                             <a class="btn btn-warning" href="'. Route('faq.edit', $item->id) .'">
                                 Edit
                             </a>
-                            <form action="'. Route('faq.destroy', $item->id) .'" method="POST">
+                            <form class="d-inline" action="'. Route('faq.destroy', $item->id) .'" method="POST">
                                 '.csrf_field().'
                                 '.method_field("DELETE").'
                                 <button class="btn btn-danger" type="submit" data-id="'.$item->id.'">
                                     Hapus
                                 </button>
-                            </form>
-                            </div>';
+                            </form>';
                 return $button;
             })
             ->make();

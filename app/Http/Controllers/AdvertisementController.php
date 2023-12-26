@@ -30,7 +30,7 @@ class AdvertisementController extends Controller
                             <a class="btn btn-warning" href="'. Route('advertisement.edit', $item->id) .'">
                                 Edit
                             </a>
-                            <form action="'. Route('advertisement.destroy', $item->id) .'" method="POST">
+                            <form class="d-inline" action="'. Route('advertisement.destroy', $item->id) .'" method="POST">
                                 '.csrf_field().'
                                 '.method_field("DELETE").'
                                 <button class="btn btn-danger" type="submit" data-id="'.$item->id.'">

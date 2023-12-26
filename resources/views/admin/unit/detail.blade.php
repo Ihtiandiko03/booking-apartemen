@@ -46,25 +46,27 @@
                     </div>
                     <div class="card-body p-3 py-2">
                         <table class="table table-bordered">
-                            <tr>
-                                <th class="text-center">Tipe</th>
-                                <th class="text-center">Harga</th>
-                                <th class="text-center">Aksi</th>
-                            </tr>
-                            <tr>
-                                <td class="text-center">Harian</td>
-                                <td class="text-center">
-                                    {{ $priceDay != 0 ? 'Rp' . number_format($priceDay, 0, ',', '.') : 'Belum Disetel' }}
-                                </td>
-                                <td class="text-center">
-                                    <div class="btn-group">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th class="text-center">Tipe</th>
+                                    <th class="text-center">Harga</th>
+                                    <th class="text-center">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">Harian</td>
+                                    <td class="text-center">
+                                        {{ $priceDay != 0 ? 'Rp' . number_format($priceDay, 0, ',', '.') : 'Belum Disetel' }}
+                                    </td>
+                                    <td class="text-center">
                                         <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
                                             data-bs-type="Harian" data-bs-type-value="day"
                                             data-bs-price="{{ $priceDay }}">
                                             Ubah
                                         </button>
                                         @if ($priceDay != 0)
-                                            <form
+                                            <form class="d-inline"
                                                 action="{{ route('price.destroy', ['unitId' => $unit->id, 'type' => 'day']) }}"
                                                 method="post">
                                                 @csrf
@@ -72,23 +74,21 @@
                                                 <button type="submit" class='btn btn-danger'>NonAktif</button>
                                             </form>
                                         @endif
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">Mingguan</td>
-                                <td class="text-center">
-                                    {{ $priceWeek != 0 ? 'Rp' . number_format($priceWeek, 0, ',', '.') : 'Belum Disetel' }}
-                                </td>
-                                <td class="text-center">
-                                    <div class="btn-group">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Mingguan</td>
+                                    <td class="text-center">
+                                        {{ $priceWeek != 0 ? 'Rp' . number_format($priceWeek, 0, ',', '.') : 'Belum Disetel' }}
+                                    </td>
+                                    <td class="text-center">
                                         <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
                                             data-bs-type="Mingguan" data-bs-type-value="week"
                                             data-bs-price="{{ $priceWeek }}">
                                             Ubah
                                         </button>
                                         @if ($priceWeek != 0)
-                                            <form
+                                            <form class="d-inline"
                                                 action="{{ route('price.destroy', ['unitId' => $unit->id, 'type' => 'week']) }}"
                                                 method="post">
                                                 @csrf
@@ -96,23 +96,21 @@
                                                 <button type="submit" class='btn btn-danger'>NonAktif</button>
                                             </form>
                                         @endif
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">Bulanan</td>
-                                <td class="text-center">
-                                    {{ $priceMonth != 0 ? 'Rp' . number_format($priceMonth, 0, ',', '.') : 'Belum Disetel' }}
-                                </td>
-                                <td class="text-center">
-                                    <div class="btn-group">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Bulanan</td>
+                                    <td class="text-center">
+                                        {{ $priceMonth != 0 ? 'Rp' . number_format($priceMonth, 0, ',', '.') : 'Belum Disetel' }}
+                                    </td>
+                                    <td class="text-center">
                                         <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
                                             data-bs-type="Bulanan" data-bs-type-value="month"
                                             data-bs-price="{{ $priceMonth }}">
                                             Ubah
                                         </button>
                                         @if ($priceMonth != 0)
-                                            <form
+                                            <form class="d-inline"
                                                 action="{{ route('price.destroy', ['unitId' => $unit->id, 'type' => 'month']) }}"
                                                 method="post">
                                                 @csrf
@@ -120,23 +118,21 @@
                                                 <button type="submit" class='btn btn-danger'>NonAktif</button>
                                             </form>
                                         @endif
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">Tahunan</td>
-                                <td class="text-center">
-                                    {{ $priceYear != 0 ? 'Rp' . number_format($priceYear, 0, ',', '.') : 'Belum Disetel' }}
-                                </td>
-                                <td class="text-center">
-                                    <div class="btn-group">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Tahunan</td>
+                                    <td class="text-center">
+                                        {{ $priceYear != 0 ? 'Rp' . number_format($priceYear, 0, ',', '.') : 'Belum Disetel' }}
+                                    </td>
+                                    <td class="text-center">
                                         <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalPrice"
                                             data-bs-type="Tahunan" data-bs-type-value="year"
                                             data-bs-price="{{ $priceYear }}">
                                             Ubah
                                         </button>
                                         @if ($priceYear != 0)
-                                            <form
+                                            <form class="d-inline"
                                                 action="{{ route('price.destroy', ['unitId' => $unit->id, 'type' => 'year']) }}"
                                                 method="post">
                                                 @csrf
@@ -144,10 +140,10 @@
                                                 <button type="submit" class='btn btn-danger'>NonAktif</button>
                                             </form>
                                         @endif
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr></tr>
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -163,41 +159,41 @@
                             data-bs-target="#modalStoreFacility">Tambah</button>
                     </div>
                     <div class="card-body p-3 py-2">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">Jenis Fasilitas</th>
-                                    <th class="text-center">Deskripsi</th>
-                                    <th class="text-center">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse ($facility as $f)
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead class="table-dark">
                                     <tr>
-                                        <td class="text-center">{{ $f->type }}</td>
-                                        <td class="text-center">{{ $f->detail }}</td>
-                                        <td class="text-center">
-                                            <div class="btn-group">
+                                        <th class="text-center">Jenis Fasilitas</th>
+                                        <th class="text-center">Deskripsi</th>
+                                        <th class="text-center">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($facility as $f)
+                                        <tr>
+                                            <td class="text-center align-middle">{{ $f->type }}</td>
+                                            <td class="text-center align-middle">{{ $f->detail }}</td>
+                                            <td class="text-center align-middle">
                                                 <button class="btn btn-warning" data-bs-toggle="modal"
                                                     data-bs-id="{{ $f->id }}" data-bs-target="#modalUpdateFacility"
                                                     data-bs-type="{{ $f->type }}"
                                                     data-bs-detail="{{ $f->detail }}">Ubah</button>
-                                                <form action="{{ route('facility.destroy', $f->id) }}" method="post">
+                                                <form class="d-inline" action="{{ route('facility.destroy', $f->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <button class="btn btn-danger" type="submit">Delete</button>
                                                 </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td class="text-center" colspan="3"> Data Kosong </td>
-                                    </tr>
-                                @endforelse
-                                <tr></tr>
-                            </tbody>
-                        </table>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td class="text-center" colspan="3"> Data Kosong </td>
+                                        </tr>
+                                    @endforelse
+                                    <tr></tr>
+                                </tbody>
+                            </table>
+                        </div>    
                     </div>
                 </div>
             </div>
@@ -212,40 +208,46 @@
                             data-bs-target="#modalStoreGallery">Tambah</button>
                     </div>
                     <div class="card-body p-3 py-2">
-                        <table class="table table-bordered">
-                            <tr>
-                                <th class="text-center">Gambar</th>
-                                <th class="text-center">Thumbnail</th>
-                                <th class="text-center">Aksi</th>
-                            </tr>
-                            @forelse ($gallery as $g)
-                                <tr>
-                                    <td class="text-center"><img class="img-thumbnail" height="150" width="150"
-                                            src="{{ asset('storage/' . $g->image) }}"></td>
-                                    <td class="text-center">
-                                        @if ($g->is_thumbnail == 1)
-                                            <span class="badge bg-success">Ya</span>
-                                        @else
-                                            <span class="badge bg-danger">Bukan</span>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if ($g->is_thumbnail == 1)
-                                        @else
-                                            <form action="{{ route('gallery.thumbnail', $g->id) }}" method="post">
-                                                @csrf
-                                                <button type="submit" class="btn btn-primary">Jadikan Thumbnail</button>
-                                            </form>
-                                        @endif
-                                    </td>
-                                </tr>
-                                <tr></tr>
-                            @empty
-                                <tr>
-                                    <td class="text-center" colspan="2"> Data Kosong </td>
-                                </tr>
-                            @endforelse
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th class="text-center" width="200px">Gambar</th>
+                                        <th class="text-center">Thumbnail</th>
+                                        <th class="text-center">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @forelse ($gallery as $g)
+                                    <tr>
+                                        <td class="text-center"><img class="img-thumbnail" height="150" width="150"
+                                                src="{{ asset('storage/' . $g->image) }}"></td>
+                                        <td class="text-center align-middle">
+                                            @if ($g->is_thumbnail == 1)
+                                                <span class="badge bg-success">Ya</span>
+                                            @else
+                                                <span class="badge bg-danger">Bukan</span>
+                                            @endif
+                                        </td>
+                                        <td class="text-center align-middle">
+                                            @if ($g->is_thumbnail == 1)
+                                            @else
+                                                <form action="{{ route('gallery.thumbnail', $g->id) }}" method="post">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-primary">Jadikan Thumbnail</button>
+                                                </form>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr></tr>
+                                @empty
+                                    <tr>
+                                        <td class="text-center" colspan="2"> Data Kosong </td>
+                                    </tr>
+                                @endforelse
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -291,7 +293,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('facility.store') }}" method="post">
+                    <form class="d-inline" action="{{ route('facility.store') }}" method="post">
                         @csrf
                         <input type="hidden" name="unit_id" value="{{ $unit->id }}">
                         <div class="mb-3">

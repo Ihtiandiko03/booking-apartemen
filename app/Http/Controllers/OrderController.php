@@ -194,7 +194,7 @@ class OrderController extends Controller
                         '<a class="btn btn-secondary" href="'. Route('order.invoice', $item->invoice_code) .'">
                             <i class="ni ni-single-copy-04"></i>
                         </a>' : '';
-                $button .=  '<a class="btn btn-success" href="https://wa.me/'.$item->phone.'" target="_blank">
+                $button .=  '<a class="btn btn-success ms-1" href="https://wa.me/'.$item->phone.'" target="_blank">
                                 <i class="ni ni-chat-round"></i>
                             </a>
                             <a class="btn btn-primary" href="'. Route('order.detailadmin', $item->invoice_code) .'">

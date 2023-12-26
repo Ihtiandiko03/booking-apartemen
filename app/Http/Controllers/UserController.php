@@ -24,14 +24,7 @@ class UserController extends Controller
                 $button =   '<div class="btn-group">
                             <a class="btn btn-warning" href="'. Route('user.edit', $item->id) .'">
                                 Edit
-                            </a>
-                            <form action="'. Route('user.destroy', $item->id) .'" method="POST">
-                                '.csrf_field().'
-                                '.method_field("DELETE").'
-                                <button class="btn btn-danger" type="submit" data-id="'.$item->id.'">
-                                    Hapus
-                                </button>
-                            </form></div>';
+                            </a>';
                 return $button;
             })
             ->make();

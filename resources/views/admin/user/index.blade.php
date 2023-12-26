@@ -22,6 +22,9 @@
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Email</th>
                                         <th
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                            Role</th>
+                                        <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Aksi</th>
                                         <th class="text-secondary opacity-7"></th>
@@ -58,7 +61,7 @@
                         name: 'name',
                         orderable: true,
                         searchable: true,
-                        width: '45%'
+                        width: '40%'
                     },
                     {
                         data: 'email',
@@ -68,11 +71,20 @@
                         width: '30%'
                     },
                     {
+                        data: 'role',
+                        name: 'role',
+                        orderable: true,
+                        searchable: true,
+                        width: '15%',
+                        class: 'text-center'
+                    },
+                    {
                         data: 'action',
                         name: 'action',
                         orderable: false,
                         searchable: false,
-                        width: '20%'
+                        width: '10%',
+                        class: 'text-center'
                     }
                 ]
             });

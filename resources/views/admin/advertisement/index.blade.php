@@ -72,7 +72,8 @@
                         name: 'action',
                         orderable: false,
                         searchable: false,
-                        width: '20%'
+                        width: '20%',
+                        class: 'text-center'
                     }
                 ]
             });
