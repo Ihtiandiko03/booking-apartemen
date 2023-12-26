@@ -11,14 +11,14 @@ class SettingController extends Controller
     public function index()
     {
         $setting = Setting::first() == null ? Setting::create([
-            'app_name' => ' - ',
-            'about' => ' - ',
+            'app_name' => 'App Name',
+            'about' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis auctor ex id consequat tincidunt. Nulla justo dui, porta eu eleifend sed, ultricies at tellus.',
             'email' => ' - ',
-            'phone' => ' - ',
-            'address' => ' - ',
-            'twitter' => ' - ',
-            'facebook' => ' - ',
-            'instagram' => ' - ',
+            'phone' => '08888888',
+            'address' => 'Jl XXXX YYYY',
+            'twitter' => 'twitter.com',
+            'facebook' => 'facebook.com',
+            'instagram' => 'instagram.com',
             'maps' => ' - ',
         ]) : Setting::first();
 

@@ -122,7 +122,6 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 
     Route::get('/order/history/{invoice_code}', [OrderController::class, 'historyOrderUserDetail'])->name('order.detail');
     Route::get('/order/history', [OrderController::class, 'historyOrderUser'])->name('order.history');
-    Route::post('/order/pay', [OrderController::class, 'pay'])->name('order.pay');
 });
 
 Route::middleware(['auth', 'role:admin,marketing'])->group(function () {
@@ -138,10 +137,8 @@ Route::middleware(['auth', 'role:admin,penjaga'])->group(function () {
     Route::get('/order/detail/{invoice_code}', [OrderController::class, 'historyOrderDetail'])->name('order.detailadmin');
 });
 
+Route::post('/order/pay', [OrderController::class, 'pay'])->name('order.pay');
 Route::post('/midtrans-callback', [OrderController::class, 'callback'])->name('order.callback');
 Route::get('/home/faq', [HomeController::class, 'faq'])->name('home.faq');
-
-
-// Route::get('/history/order', [OrderController::class])
 
 require __DIR__.'/auth.php';

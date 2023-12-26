@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
 use App\Models\Unit;
 use App\Models\Order;
 use App\Models\Price;
@@ -15,6 +16,14 @@ class OrderController extends Controller
 {
     public function pay(StoreOrderPayRequest $request)
     {
+        if (!Auth::check()) {
+            Alert::warning('Informasi', 'Maaf anda harus login terlebih dahulu');
+            return back();
+        } else if (Auth::user()->role != 'user') {
+            Alert::warning('Informasi', 'Hanya user yang dapat memesan apartemen');
+            return back();
+        }
+
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = config('midtrans.serverKey');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
@@ -98,8 +107,8 @@ class OrderController extends Controller
     public function historyOrderUser()
     {
         if (request()->ajax()) {
-
             $order = Order::where('user_id', Auth::user()->id)->get();
+
             return DataTables::of($order)
             ->addIndexColumn()
             ->addColumn('status', function($item) {
@@ -122,7 +131,7 @@ class OrderController extends Controller
             })
             ->addColumn('action', function ($item) {
                 $button =  $item->status == "2" ? 
-                '<a class="btn btn-secondary" href="'. Route('order.invoice', $item->invoice_code) .'">
+                '<a class="btn btn-secondary me-1" href="'. Route('order.invoice', $item->invoice_code) .'">
                     <i class="ni ni-single-copy-04"></i>
                 </a>' : '';
                 $button .=   '<a class="btn btn-primary" href="'. Route('order.detail', $item->invoice_code) .'">

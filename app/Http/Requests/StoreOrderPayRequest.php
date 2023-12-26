@@ -12,7 +12,7 @@ class StoreOrderPayRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return Auth::check();
+        return true;
     }
 
     /**
@@ -28,7 +28,7 @@ class StoreOrderPayRequest extends FormRequest
             'endDate' => ['required'],
             'bookingType' => ['required'],
             'customer_name' => ['required'],
-            'phone' => ['required'],
+            'phone' => ['required', 'numeric'],
         ];
     }
 }

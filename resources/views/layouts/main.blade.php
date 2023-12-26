@@ -27,8 +27,8 @@
 </head>
 
 <body data-ng-app="">
+    @include('sweetalert::alert')
     @include('layouts.navbar')
-
     <!--TOP SECTION-->
     @yield('container')
     <!--TOP SECTION-->

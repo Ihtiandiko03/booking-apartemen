@@ -21,8 +21,7 @@ class FaqController extends Controller
             return DataTables::of($faq)
             ->addIndexColumn()
             ->addColumn('action', function ($item) {
-                $button =   '
-                            <a class="btn btn-primary" href="'. Route('faq.show', $item->id) .'">
+                $button =   '<a class="btn btn-primary" href="'. Route('faq.show', $item->id) .'">
                                 Lihat
                             </a>
                             <a class="btn btn-warning" href="'. Route('faq.edit', $item->id) .'">
