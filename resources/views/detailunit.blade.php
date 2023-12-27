@@ -58,11 +58,16 @@
 									<ul class="nav nav-tabs hp-over-nav">
 										
 										<li class="active">
-											<a data-toggle="tab" href="#menu1"><img src="{{asset('assets/images/icon/a1.png')}}" alt=""> <span class="tab-hide">Overview</span>
+											<a data-toggle="tab" href="#menu1">
+												<i class="fa fa-info"></i>
+												<span class="tab-hide">
+													Overview</span>
 											</a>
 										</li>
 										<li>
-											<a data-toggle="tab" href="#menu2"><img src="{{asset('assets/images/icon/a1.png')}}" alt=""> <span class="tab-hide">Price</span>
+											<a data-toggle="tab" href="#menu2">
+												<i class="fa fa-tag"></i>
+												<span class="tab-hide">Price</span>
 											</a>
 										</li>
 										
@@ -72,20 +77,21 @@
 										<div id="menu1" class="tab-pane fade in active tab-space">
 											<div class="hp-main-overview">
 												<ul>
-                                                    @foreach ($facility as $f)    
-                                                        <li>{{$f->type}}: <span>{{$f->detail}}</span>
-                                                        </li>
-                                                    @endforeach
+                          @forelse ($facility as $f)    
+                          	<li>{{$f->type}}: <span>{{$f->detail}}</span></li>
+													@empty
+														<li class="text-center"> Fasilitas Belum Terisi </li>
+                          @endforelse
 												</ul>
 											</div>
 										</div>
 										<div id="menu2" class="tab-pane fade tab-space">
 											<div class="hp-main-overview">
 												<ul>
-                                                    <li>Price per day: <span>{{ $priceDay != null ? 'Rp '.number_format($priceDay, 0, ',', '.') : 'Tidak Ada' }}</span></li>
-                                                    <li>Price per week: <span>{{ $priceWeek != null ? 'Rp '.number_format($priceWeek, 0, ',', '.') : 'Tidak Ada' }}</span></li>
-                                                    <li>Price per month: <span>{{ $priceMonth != null ? 'Rp '.number_format($priceMonth, 0, ',', '.') : 'Tidak Ada' }}</span></li>
-                                                    <li>Price per year: <span>{{ $priceYear != null ? 'Rp '.number_format($priceYear, 0, ',', '.') : 'Tidak Ada' }}</span></li>
+                          <li>Harga per hari: <span>{{ $priceDay != null ? 'Rp '.number_format($priceDay, 0, ',', '.') : 'Tidak Ada' }}</span></li>
+                          <li>Harga per minggu: <span>{{ $priceWeek != null ? 'Rp '.number_format($priceWeek, 0, ',', '.') : 'Tidak Ada' }}</span></li>
+                          <li>Harga per bulan: <span>{{ $priceMonth != null ? 'Rp '.number_format($priceMonth, 0, ',', '.') : 'Tidak Ada' }}</span></li>
+                          <li>Harga per tahun: <span>{{ $priceYear != null ? 'Rp '.number_format($priceYear, 0, ',', '.') : 'Tidak Ada' }}</span></li>
 												</ul>
 											</div>
 										</div>
@@ -100,11 +106,9 @@
 								<div class="">
 									<div class="h-gal">
 										<ul>
-                                            @foreach ($gallery as $g)    
-											<li><img class="materialboxed" data-caption="Hotel Captions" src="{{asset('storage/'.$g["image"])}}" alt="">
-											</li>
-                                            @endforeach
-											
+                      @foreach ($gallery as $g)    
+											<li><img class="materialboxed" data-caption="Hotel Captions" src="{{asset('storage/'.$g["image"])}}" alt=""></li>
+                      @endforeach
 										</ul>
 									</div>
 								</div>
@@ -162,7 +166,7 @@
 								<div class="hp-call-in">
 									<h1>Price</h1>
 									<h3 name="totalHarga" id="hargapertipe">Rp 0</h3> 
-									<small class="mb-3">We are available 24/7 Monday to Sunday</small> <br><br>
+									<small class="mb-3">Kita tersedia 24/7 Senin s/d Minggu</small> <br><br>
 									
 									<br>
 									<form action="{{ route('order.pay') }}" method="post" id="bookingForm">
@@ -246,6 +250,7 @@
 										</div>
 										<br>
 										<h3 id="totalHarga" class="totalHarga" name="totalHarga" style="color: #8a6e35">Rp 0</h3>
+										<h5 style="text-align: center;" class="text-danger">* Harga belum termasuk deposito</h5>
 										<button class="btn btn-danger" type="submit">Booking</button>
 									</form>
 									<h5 style="text-align: left;">Info Penting : </h5>

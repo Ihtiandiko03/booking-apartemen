@@ -21,12 +21,20 @@ class UnitController extends Controller
             return DataTables::of($unit)
             ->addIndexColumn()
             ->addColumn('action', function ($item) {
+                $is_available = ($item->is_available == 1) ? "Nonaktifkan" : "Aktifkan";
                 $button =   '<a class="btn btn-primary" href="'. Route('unit.show', $item->id) .'">
                                 Lihat
                             </a>
                             <a class="btn btn-warning" href="'. Route('unit.edit', $item->id) .'">
                                 Edit
                             </a>
+                            <form class="d-inline" action="'. Route('unit.nonaktif', $item->id) .'" method="POST">
+                                '.csrf_field().'
+                                '.method_field("PUT").'
+                                <button class="btn btn-secondary" href="'. Route('unit.nonaktif', $item->id) .'">
+                                    '.$is_available.'
+                                </button>
+                            </form>
                             <form class="d-inline" action="'. Route('unit.destroy', $item->id) .'" method="POST">
                                 '.csrf_field().'
                                 '.method_field("DELETE").'
@@ -140,6 +148,25 @@ class UnitController extends Controller
 
         if ($unit->delete()) {
             Alert::success('Sukses!', 'Berhasil Dihapus!');
+        }
+            
+        return redirect(route('unit.index'));
+    }
+
+    public function nonaktif(string $id)
+    {
+        $unit = Unit::findOrFail($id);
+
+        if ($unit->is_available == 0) {
+            $unit->update([
+                'is_available' => 1,
+            ]);
+            Alert::success('Sukses!', 'Berhasil Diupdate!');
+        } else {
+            $unit->update([
+                'is_available' => 0,
+            ]);
+            Alert::success('Sukses!', 'Berhasil Diupdate!');
         }
             
         return redirect(route('unit.index'));

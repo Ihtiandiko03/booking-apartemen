@@ -12,4 +12,14 @@ class Order extends Model
     protected $guarded = [
         'id'
     ];
+    
+    /**
+     * Get the refund that owns the Order
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function refund(): BelongsTo
+    {
+        return $this->belongsTo(Refund::class);
+    }
 }

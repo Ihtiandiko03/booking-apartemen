@@ -97,6 +97,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('/unit', UnitController::class);
+    Route::put('/unit/nonaktif/{id}', [UnitController::class, 'nonaktif'])->name('unit.nonaktif');
 
     Route::resource('/faq', FaqController::class);
     Route::resource('/user', UserController::class);
