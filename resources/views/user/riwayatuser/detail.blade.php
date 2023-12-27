@@ -14,8 +14,8 @@
                   <button class="btn btn-primary ms-auto" id="pay-button">BAYAR</button>
                 @endif
                 
-                @if ($order->status == '2')
-                  <button class="btn btn-primary btn-sm ms-auto">Ajukan Refund</button>
+                @if ($order->status == '2' && $order->is_already_refund == 0)
+                  <button class="btn btn-primary btn-sm ms-auto"  data-bs-toggle="modal" data-bs-target="#modalStoreRefund">Ajukan Refund</button>
                 @endif
               </div>
             </div>
@@ -75,6 +75,9 @@
                   </div>
                 </div>
               </div>
+              <p class="text-uppercase text-lg text-dark">
+                TOTAL HARGA : <strong>{{ 'Rp '.number_format($order->total_price, 0, ',', '.') }}</strong>
+              </p>
               <hr class="horizontal dark">
               <p class="text-uppercase text-lg text-dark">
                 Status Pemesanan : {!! $statusTranslate[$order->status] !!}
@@ -87,6 +90,34 @@
      
     </div>
   </div>
+
+  @if ($order->status == '2')
+      <div class="modal fade" id="modalStoreRefund" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Pengajuan Refund</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="d-inline" action="{{ route('refund.add', $order->id) }}" method="post">
+                        @csrf
+                        <input type="hidden" name="order_id" value="{{ $order->id }}">
+                        <div class="mb-3">
+                            <label for="reason" class="col-form-label">Alasan Pengajuan:</label>
+                            <textarea class="form-control" name="reason"></textarea>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-dark">Tambah</button>
+                </div>
+                </form>
+            </div>
+        </div>
+      </div>
+  @endif
 @endsection
 
 @section('script')

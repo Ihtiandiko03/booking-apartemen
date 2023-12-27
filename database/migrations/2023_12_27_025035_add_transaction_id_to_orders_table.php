@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->string('transaction_id')->after('invoice_code');
+            $table->string('transaction_id')->nullable()->after('invoice_code');
+            $table->tinyInteger('is_already_refund')->default(0);
         });
     }
 
@@ -23,6 +24,7 @@ return new class extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             $table->dropColumn('transaction_id');
+            $table->dropColumn('is_already_refund');
         });
     }
 };

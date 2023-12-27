@@ -73,11 +73,8 @@ class OrderController extends Controller
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
         $order->snap_token = $snapToken;
-        // $status = \Midtrans\Transaction::status($order->invoice_code);
-        // dd($status);
-        // $order->transaction->id = $status->transaction_id;
+
         $order->save();
-        // dd($status);
         
         return view('detailbooking', compact('snapToken', 'order'));
 
@@ -92,14 +89,17 @@ class OrderController extends Controller
         if($hashed == $request->signature_key) {
             if ($request->transaction_status == 'capture' || $request->transaction_status == 'settlement') {
                 Order::where('invoice_code', $request->order_id)->update([
+                    'transaction_id' => $request->transaction_id,
                     'status' => '2',
                 ]);
             } else if($request->transaction_status == 'cancel') {
                 Order::where('invoice_code', $request->order_id)->update([
+                    'transaction_id' => $request->transaction_id,
                     'status' => '3',
                 ]);
             } else if($request->transaction_status == 'expire') {
                 Order::where('invoice_code', $request->order_id)->update([
+                    'transaction_id' => $request->transaction_id,
                     'status' => '4',
                 ]);
             }

@@ -68,7 +68,6 @@
 							<div class="hp-call-in">
 								<h1 class="text-center">Info Penting : </h1>
 								<p style="text-align: justify;">Deposit dibayarkan saat pemesan datang ke apartemen. Untuk pemesanan harian, deposit menggunakan bank transfer atau virtual account diestimasikan akan diterima kembali oleh pelanggan dalam waktu paling lambat 5 hari kerja setelah data bank terkonfirmasi. Pemberitahuan akan dikirimkan ke email Anda setelah berhasil (pastikan contact detail yang terdaftar aktif).</p>
-								<pre><div id="result-json">JSON result will appear here after payment:<br></div></pre> 
 							</div>
 						</div>
 					</div>
@@ -86,20 +85,17 @@
           // Optional
           onSuccess: function(result){
             /* You may add your own js here, this is just example */
-			// window.location.replace("{{ url('/order/history/'.$order->invoice_code) }}");
-			document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+			window.location.replace("{{ url('/order/history/'.$order->invoice_code) }}");
           },
           // Optional
           onPending: function(result){
             /* You may add your own js here, this is just example */ 
-			// window.location.replace("{{ url('/order/history/'.$order->invoice_code) }}");
-			document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+			window.location.replace("{{ url('/order/history/'.$order->invoice_code) }}");
           },
           // Optional
           onError: function(result){
             /* You may add your own js here, this is just example */ 
-			// window.location.replace("{{ url('/order/history/'.$order->invoice_code) }}");
-			document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+			window.location.replace("{{ url('/order/history/'.$order->invoice_code) }}");
           }
         });
       };

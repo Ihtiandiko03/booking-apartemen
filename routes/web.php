@@ -116,6 +116,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
     Route::post('/setting/update', [SettingController::class, 'updateOrCreate'])->name('setting.post');
+
+    Route::get('/refund/list', [RefundController::class, 'historyRefund'])->name('refund.history');
+    Route::get('/refund/show/{id}', [RefundController::class, 'historyDetailRefund'])->name('refund.detailhistory');
+    Route::post('/refund/agreement/{refundId}', [RefundController::class, 'refundAgreement'])->name('refund.agreement');
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {
@@ -124,6 +128,11 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 
     Route::get('/order/history/{invoice_code}', [OrderController::class, 'historyOrderUserDetail'])->name('order.detail');
     Route::get('/order/history', [OrderController::class, 'historyOrderUser'])->name('order.history');
+    
+    Route::get('/refund/history', [RefundController::class, 'historyRefundUser'])->name('refund.historyuser');
+    Route::get('/refund/detail/{id}', [RefundController::class, 'historyDetailRefundUser'])->name('refund.detailhistoryuser');
+    Route::post('/refund/add/{orderId}', [RefundController::class, 'addRefund'])->name('refund.add');
+    
 });
 
 Route::middleware(['auth', 'role:admin,marketing'])->group(function () {
@@ -143,6 +152,5 @@ Route::post('/order/pay', [OrderController::class, 'pay'])->name('order.pay');
 Route::post('/midtrans-callback', [OrderController::class, 'callback'])->name('order.callback');
 Route::get('/home/faq', [HomeController::class, 'faq'])->name('home.faq');
 
-Route::get('/test', [RefundController::class, 'refundAgreement'])->name('refund.add');
 
 require __DIR__.'/auth.php';

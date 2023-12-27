@@ -14,12 +14,12 @@ class Order extends Model
     ];
     
     /**
-     * Get the refund that owns the Order
+     * Get the refund associated with the Refund
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function refund(): BelongsTo
+    public function refund(): HasOne
     {
-        return $this->belongsTo(Refund::class);
+        return $this->hasOne(Refund::class, 'order_id', 'id');
     }
 }

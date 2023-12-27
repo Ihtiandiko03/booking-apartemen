@@ -14,15 +14,15 @@ return new class extends Migration
         Schema::create('refunds', function (Blueprint $table) {
             $table->id();
             $table->text('reason')->nullable();
-            $table->text('reason_status')->nullable();
+            $table->text('reason_admin')->nullable();
             $table->text('refund_key')->nullable();
             $table->enum('status', ['accept', 'waiting', 'reject'])->default('waiting');
             $table->integer('percent_refund')->nullable();
             $table->double('amount')->default(0);
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->bigInteger('order_id')->unsigned();
-            $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade');
-            $table->bigInteger('unit_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
         });
     }
