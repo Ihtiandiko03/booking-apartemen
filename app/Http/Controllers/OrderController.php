@@ -73,7 +73,11 @@ class OrderController extends Controller
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
         $order->snap_token = $snapToken;
+        // $status = \Midtrans\Transaction::status($order->invoice_code);
+        // dd($status);
+        // $order->transaction->id = $status->transaction_id;
         $order->save();
+        // dd($status);
         
         return view('detailbooking', compact('snapToken', 'order'));
 
@@ -82,6 +86,7 @@ class OrderController extends Controller
     public function callback(Request $request)
     {
         $serverKey = config('midtrans.serverKey');
+
         $hashed = hash("sha512", $request->order_id.$request->status_code.$request->gross_amount.$serverKey);
 
         if($hashed == $request->signature_key) {

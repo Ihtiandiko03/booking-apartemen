@@ -7,6 +7,7 @@ use App\Http\Controllers\UnitController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PriceController;
+use App\Http\Controllers\RefundController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
@@ -141,5 +142,7 @@ Route::middleware(['auth', 'role:admin,penjaga'])->group(function () {
 Route::post('/order/pay', [OrderController::class, 'pay'])->name('order.pay');
 Route::post('/midtrans-callback', [OrderController::class, 'callback'])->name('order.callback');
 Route::get('/home/faq', [HomeController::class, 'faq'])->name('home.faq');
+
+Route::get('/test', [RefundController::class, 'refundAgreement'])->name('refund.add');
 
 require __DIR__.'/auth.php';

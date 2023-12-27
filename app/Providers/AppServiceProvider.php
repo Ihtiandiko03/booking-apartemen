@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
         date_default_timezone_set('Asia/Jakarta');
         
         // if($this->app->environment('production')) {
-            // \URL::forceScheme('https');
+            \URL::forceScheme('https');
         // }
     }
 }
