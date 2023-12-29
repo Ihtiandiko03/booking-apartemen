@@ -32,7 +32,7 @@ class HomeController extends Controller
         WHERE units.deleted_at IS NULL
         GROUP BY units.id, galleries.image");
 
-        $iklan = DB::select("SELECT * FROM advertisements");
+        $iklan = DB::select("SELECT * FROM advertisements LIMIT 4");
 
         $galeri = DB::select("SELECT `galleries`.*, `units`.`nama_unit` FROM `galleries` LEFT JOIN `units` ON `galleries`.`unit_id` = `units`.`id` LIMIT 20;");
         

@@ -4,34 +4,34 @@
 		<div>
 			<div class="slider fullscreen">
 				<ul class="slides">
-					<li> <img src="{{asset('assets/images/slider/apartemen.jpg')}}" alt="">
-						<!-- random image -->
+					@foreach ($advertisement as $iklan)
+					<li> <img src="{{asset('storage/'.$iklan->banner)}}" alt="">
 						<div class="caption center-align slid-cap">
-							<h5 style="font-family: Arial; -webkit-text-stroke: 0.5px white; color: #f4364f;">Here's our small slogan.</h5>
-							<h2 style="-webkit-text-stroke: 1px white; font-family: arial; color: #f4364f;">This is our big Tagline!</h2>
-							<p style="font-family: Arial; -webkit-text-stroke: 0.05px white; color: #f4364f;">Mauris non placerat nulla. Sed vestibulum quam mauris, et malesuada tortor venenatis at.Aenean euismod sem porta est consectetur posuere. Praesent nisi velit, porttitor ut imperdiet a, pellentesque id mi.</p> <a href="#" class="waves-effect waves-light">Booking</a> </div>
+							{{-- <h2 style="-webkit-text-stroke: 1px white; font-family: arial; color: #f4364f;">{{$iklan->title}}</h2> --}}
+							{{-- <h5 style="font-family: Arial; -webkit-text-stroke: 0.5px white; color: #f4364f;">{{$iklan->description}}</h5> --}}
+							{{-- <p style="font-family: Arial; -webkit-text-stroke: 0.05px white; color: #f4364f;">{{$iklan->description}}</p> --}}
+							{{-- <a href="#" class="waves-effect waves-light">Booking</a> --}}
+						</div>
 					</li>
-					<li> <img src="{{asset('assets/images/slider/apartemen2.jpg')}}" alt="">
-						<!-- random image -->
+					@endforeach
+					{{-- <li> <img src="{{asset('assets/images/slider/apartemen2.jpg')}}" alt="">
 						<div class="caption center-align slid-cap">
 							<h5 style="font-family: Arial; -webkit-text-stroke: 0.5px white; color: #f4364f;">Here's our small slogan.</h5>
 							<h2 style="-webkit-text-stroke: 1px white; font-family: arial; color: #f4364f;">This is our big Tagline!</h2>
 							<p style="font-family: Arial; -webkit-text-stroke: 0.05px white; color: #f4364f;">Mauris non placerat nulla. Sed vestibulum quam mauris, et malesuada tortor venenatis at.Aenean euismod sem porta est consectetur posuere. Praesent nisi velit, porttitor ut imperdiet a, pellentesque id mi.</p> <a href="#" class="waves-effect waves-light">Booking</a> </div>
 					</li>
 					<li> <img src="{{asset('assets/images/slider/apartemen3.jpg')}}" alt="">
-						<!-- random image -->
 						<div class="caption center-align slid-cap">
 							<h5 style="font-family: Arial; -webkit-text-stroke: 0.5px white; color: #f4364f;">Here's our small slogan.</h5>
 							<h2 style="-webkit-text-stroke: 1px white; font-family: arial; color: #f4364f;">This is our big Tagline!</h2>
 							<p style="font-family: Arial; -webkit-text-stroke: 0.05px white; color: #f4364f;">Mauris non placerat nulla. Sed vestibulum quam mauris, et malesuada tortor venenatis at.Aenean euismod sem porta est consectetur posuere. Praesent nisi velit, porttitor ut imperdiet a, pellentesque id mi.</p> <a href="#" class="waves-effect waves-light">Booking</a> </div>
 					</li>
 					<li> <img src="{{asset('assets/images/slider/apartemen4.jpg')}}" alt="">
-						<!-- random image -->
 						<div class="caption center-align slid-cap">
 							<h5 style="font-family: Arial; -webkit-text-stroke: 0.5px white; color: #f4364f;">Here's our small slogan.</h5>
 							<h2 style="-webkit-text-stroke: 1px white; font-family: arial; color: #f4364f;">This is our big Tagline!</h2>
 							<p style="font-family: Arial; -webkit-text-stroke: 0.05px white; color: #f4364f;">Mauris non placerat nulla. Sed vestibulum quam mauris, et malesuada tortor venenatis at.Aenean euismod sem porta est consectetur posuere. Praesent nisi velit, porttitor ut imperdiet a, pellentesque id mi.</p> <a href="#" class="waves-effect waves-light">Booking</a> </div>
-					</li>
+					</li> --}}
 				</ul>
 			</div>
 		</div>
@@ -108,7 +108,12 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<div class="offer-l"> <span class="ol-1"></span> <span class="ol-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span> <span class="ol-4">Standardized Budget Rooms</span> <span class="ol-3"></span> <span class="ol-5">Rp150.000/day</span>
+						<div class="offer-l">
+							<span class="ol-1"></span><span class="ol-2"><i class="fa fa-star"></i>
+							<i class="fa fa-star"></i><i class="fa fa-star"></i>
+							<i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+							<span class="ol-4">Standardized Budget Rooms</span> <span class="ol-3"></span>
+							<span class="ol-5">Rp150.000/day</span>
 							<ul>
 								{{-- <li>
 									<a href="#!" class="waves-effect waves-light btn-large offer-btn"><img src="{{asset('assets/images/icon/dis1.png')}}" alt="">

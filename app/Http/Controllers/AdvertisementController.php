@@ -33,7 +33,7 @@ class AdvertisementController extends Controller
                             <form class="d-inline" action="'. Route('advertisement.destroy', $item->id) .'" method="POST">
                                 '.csrf_field().'
                                 '.method_field("DELETE").'
-                                <button class="btn btn-danger" type="submit" data-id="'.$item->id.'">
+                                <button class="btn btn-danger" type="submit"  data-id="'.$item->id.'" onclick="confirmDelete()">
                                     Hapus
                                 </button>
                             </form>';
