@@ -89,7 +89,8 @@
                     name: 'action',
                     orderable: false,
                     searchable: false,
-                    width: '10%'
+                    width: '10%',
+                    class: 'text-center'
                 }
             ]
         });

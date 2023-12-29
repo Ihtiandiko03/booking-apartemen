@@ -34,8 +34,8 @@ class OrderController extends Controller
         \Midtrans\Config::$is3ds = config('midtrans.is3ds');
 
         $unit = Unit::findOrFail($request->unit_id);
-        $price = Price::where('type', $request->bookingType)->firstOrFail()->price;
-    
+        $price = Price::where(['type' => $request->bookingType, 'unit_id' => $unit->id])->firstOrFail()->price;
+        
         $order = Order::create([
             'customer_name' => $request->customer_name,
             'phone' => $request->phone,
